@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Delta times
+          Learn Delta times (Dadu)
         </a>
       </header>
     </div>
