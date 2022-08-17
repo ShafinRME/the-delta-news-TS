@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@layer components {
+  .heading-title {
+    @apply text-secondary font-semibold text-xl md:text-lg;
+  }
+
+  .details {
+    @apply text-neutral text-lg md:text-base font-medium md:font-normal;
+  }
+
+  .name-title {
+    @apply font-semibold text-base md:text-lg lg:text-xl;
+    font-family: "Aclonica";
+  }
+  .label-text-modify {
+    @apply font-semibold text-neutral-content capitalize leading-4 ;
+  }
+  .input-modify {
+    @apply input input-bordered rounded-none focus:border-transparent focus:outline-none w-full  focus:ring-[1px] focus:ring-primary-content ;
+  }
+}
+
+@font-face {
+  font-family: "Aclonica";
+  src: url("../../public/font/Aclonica-Regular.ttf");
+}
+
+
+/* input field */
+/* ::-webkit-file-upload-button{
+  background: #007a70 ;
+  border: 0;
+  color: azure;
+  padding: 4px 6px ;
+  border-radius: 40px;
+} */
+
+/* collapse */
+.collapse-title,
+.collapse > input[type="checkbox"] {
+  width: 100%;
+  padding: 1rem 0rem;
+  padding-right: 0rem;
+  min-height: 3.75rem;
+  transition: background-color 0.2s ease-in-out;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.collapse-title,
+.collapse > input[type="checkbox"] {
+  width: 100%;
+  padding: 1rem 1rem;
+  padding-right: 0rem;
+}
+.PackageBtn:hover .PackageBtn-Icon{
+  margin-left: 1rem;
+  transition: all 0.5s ;
+}
+
+
+
