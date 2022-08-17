@@ -1,8 +1,8 @@
-import React from "react";
 
-const dayIndex = new Date().getDay();
-const getDayName = ({ dayIndex }: { dayIndex: string[] }) => {
-  const days: string [] = [
+
+const dayIndex: number = new Date().getDay();
+const getDayName = (dayIndex: number): string => {
+  const days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -13,7 +13,7 @@ const getDayName = ({ dayIndex }: { dayIndex: string[] }) => {
   ];
   return days[dayIndex];
 };
-const dayName = getDayName(dayIndex);
+const dayName: string = getDayName(dayIndex);
 
 console.log(dayName);
 
@@ -24,6 +24,7 @@ const fullDate = ` ${dayName}-${date.getDate()}-${
 
 const TodayDate = () => {
   return <>{fullDate}</>;
+  // return <><h1> hello </h1></>;
 };
 
 export default TodayDate;

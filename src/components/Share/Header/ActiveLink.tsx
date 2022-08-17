@@ -9,11 +9,11 @@ const ActiveLink = ({ children, to, ...props }: LinkProps) => {
   return (
     <>
       <Link
-        className={
-          match
+        style={{
+          textDecoration: match
             ? "text-primary mr-3 py-3 font-medium text-sm"
-            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-        }
+            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500",
+        }}
         to={to}
         {...props}
       >

@@ -1,8 +1,5 @@
+type allTypes = {
+  eventType: React.MouseEvent<HTMLButtonElement>,
+};
 
-
-const allTypes ={
-eventType = React.MouseEvent<HTMLButtonElement>
-}
-
-
-export {allTypes}
+export { allTypes };
