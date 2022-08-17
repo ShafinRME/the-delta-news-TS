@@ -1,45 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { themeChange } from "theme-change";
-import ActiveLinks from "./ActiveLink";
+// import ActiveLinks from "./ActiveLink";
 import headerData from "./HeaderData";
 import TodayDate from "./TodayDate";
 import Weather from "./Weather";
 import MobileNavbar from "./MobileNavbar";
 import DarkMod from "./DarkMod";
-import {
-  BiLogInCircle,
-  BiLogOutCircle,
-  BiUserPlus,
-  BiCog,
-  BiEdit,
-} from "react-icons/bi";
-import { Link } from "react-router-dom";
+// import {
+//   BiLogInCircle,
+//   BiLogOutCircle,
+//   BiUserPlus,
+//   BiCog,
+//   BiEdit,
+// } from "react-icons/bi";
+import { Link, NavLink } from "react-router-dom";
+import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import auth from "../../../config/firebase.init";
 
-
-
 const Header = () => {
-  const [searchBarActive, setSearchBarActive] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const [sideBar, setSideBar] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
+  // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+  const [sideBar, setSideBar] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // for sidebar handle
-  const handleSideBar = () => {
+  const handleSideBar = (): void => {
     setSideBar(!sideBar);
   };
 
   //  for searchbox active close
-  const handleSearchBar = () => {
+  const handleSearchBar = (): void => {
     setSearchBarActive(!searchBarActive);
   };
 
   //  for Mobile menu active close
-  const handleMobileMenu = () => {
-    setMobileMenu(!mobileMenu);
-  };
+  // const handleMobileMenu = (): void => {
+  //   setMobileMenu(!mobileMenu);
+  // };
 
   // for scrolling navbar active and hidden
 
@@ -68,10 +67,9 @@ const Header = () => {
     // false parameter is required for react project
   }, []);
 
-  const logOut = () => {
-    signOut(auth);
-  
-  };
+  // const logOut = () => {
+  //   signOut(auth);
+  // };
 
   return (
     <>
@@ -109,7 +107,7 @@ const Header = () => {
             <div className="hidden lg:block">
               {/* date import from components\Share\Header\TodayDate.js: */}
               <div className="text-base font-bold mt-1 text-secondary">
-                {/* <TodayDate /> */}
+                <TodayDate />
               </div>
               <div className="text-base mt-1 text-secondary">
                 <Link to="/archives">Archive</Link>
@@ -182,79 +180,58 @@ const Header = () => {
               {/* user details */}
               <div className="dropdown dropdown-end">
                 <label
-                  tabIndex="1"
+                  tabIndex={1}
                   className="text-secondary  btn btn-ghost btn-circle mx-1 flex items-center  "
                 >
                   <FaUser className="text-lg" />
                 </label>
 
                 <div
-                  tabIndex="1"
+                  tabIndex={1}
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box  w-40"
                 >
-                  <ul tabIndex="1" className="  ">
-                    {/* {headerData.usersItem.map((item) => (
-                      <li key={item.text} className="space-x-6 mb-2">
-                        <ActiveLinks
-                          href={item.path}
-                          title={item.text}
-                          icon={item.icon}
-                        />
-                      </li>
-                    ))} */}
-
-                    {user ? (
-                      <>
-                        <li className="mb-2">
-                          <ActiveLinks
-                            href="/"
-                            title="Edit"
-                            icon={<BiEdit />}
-                          />
-                        </li>
-                        <li className="mb-2">
-                          <ActiveLinks
-                            href="/"
-                            title="Setting"
-                            icon={<BiCog />}
-                          />
-                        </li>
-                        {/* <li className="mb-2">
-                          <LogoutButton
-                            onClick={() => {
-                              logout();
-                            }}
-                            title="Logout"
-                            icon={<BiLogOutCircle />}
-                          />
-                        </li> */}
-                        <li className="mb-2">
-                          <button
-                            onClick={logout}
-                            className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                          >
-                            <BiLogOutCircle /> Logout
-                          </button>
-                        </li>
-                      </>
-                    ) : (
-                      <>
-                        <li className="mb-2">
-                          <ActiveLinks
-                            href="/signup"
-                            title="Signup"
-                            icon={<BiCog />}
-                          />
-                        </li>
-                        <li className="mb-2">
-                          <ActiveLinks
-                            href="/login"
-                            title="Login"
-                            icon={<BiLogInCircle />}
-                          />
-                        </li>
-                      </>
-                    )}
+                  <ul tabIndex={1} className="">
+                    <li className="mb-2">
+                      <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-primary mr-3 py-3 font-medium text-sm"
+                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                        }
+                      >
+                        <BiEdit /> <span>Edit</span>
+                      </NavLink>
+                    </li>
+                    <li className="mb-2">
+                      <NavLink
+                        to="/signup"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-primary mr-3 py-3 font-medium text-sm"
+                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                        }
+                      >
+                        <BiCog /> <span>Signup</span>
+                      </NavLink>
+                    </li>
+                    <li className="mb-2">
+                      <NavLink
+                        to="/signin"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-primary mr-3 py-3 font-medium text-sm"
+                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                        }
+                      >
+                        <BiLogInCircle /> <span>Login</span>
+                      </NavLink>
+                    </li>
+                    <li className="mb-2">
+                      <button className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500">
+                        <BiLogOutCircle /> Logout
+                      </button>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -280,12 +257,21 @@ const Header = () => {
         }
       >
         <ul
-          tabIndex="0"
+          tabIndex={0}
           className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
         >
           {headerData.menuItems.map((item) => (
             <li key={item.text} className="space-x-6 mb-2">
-              <ActiveLinks to={item.path}>{item.text}</ActiveLinks>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary mr-3 py-3 font-medium text-sm"
+                    : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                }
+              >
+                {item.text}
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -300,12 +286,21 @@ const Header = () => {
         }
       >
         <ul
-          tabIndex="0"
+          tabIndex={0}
           className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
         >
           {headerData.menuItems.map((item) => (
             <li key={item.text} className="space-x-6 mb-2">
-              <ActiveLinks to={item.path}>{item.text}</ActiveLinks>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary mr-3 py-3 font-medium text-sm"
+                    : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                }
+              >
+                {item.text}
+              </NavLink>
             </li>
           ))}
         </ul>

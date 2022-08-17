@@ -1,17 +1,20 @@
-import React from 'react';
-import TodayDate from './TodayDate';
-import Weather from './Weather';
-import ActiveLinks from './ActiveLink';
-import headerData from './HeaderData';
-import { Link } from 'react-router-dom';
+import React, { FC } from "react";
+// import TodayDate from "./TodayDate";
+import Weather from "./Weather";
+import headerData from "./HeaderData";
+import { Link, NavLink, NavLinkProps } from "react-router-dom";
+import ActiveLink from "./ActiveLink";
 
-const MobileNavbar = ({
-  handleSideBar,
-  sideBar,
-}: {
-  handleSideBar: boolean;
-  sideBar: boolean
-}) => {
+interface Props {
+  sideBar: boolean;
+  handleSideBar: () => void;
+}
+
+type linkStyle = {
+  style: React.CSSProperties;
+};
+
+const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
   return (
     <>
       <div className="z-30">
@@ -31,7 +34,7 @@ const MobileNavbar = ({
           }
         >
           <button
-            onClick ={handleSideBar}
+            onClick={handleSideBar}
             className="absolute -left-8 p-1 rounded-full text-primary transition "
           >
             <svg
@@ -81,13 +84,30 @@ const MobileNavbar = ({
               </div>
             </div>
             <hr className="md:hidden border-secondary" />
-            <ul tabIndex="0" className=" grid grid-cols-2 md:block mt-4 mb-2">
-              {headerData.menuItems.map((item) => (
-                <li key={item.text} className="space-x-6 mb-2">
-                  <ActiveLinks to={item.path}>{item.text}</ActiveLinks>
+            <ul tabIndex={0} className=" grid grid-cols-2 md:block mt-4 mb-2">
+              {headerData.menuItems.map((item, index) => (
+                <li key={index} className="space-x-6 mb-2">
+                  {/* <ActiveLink to={item.path}>{item.text}</ActiveLink> */}
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive ? "text-red-500" : undefined
+                    }
+                  >
+                    {item.text}
+                  </NavLink>
                 </li>
               ))}
             </ul>
+            {/* <ActiveLinks to='/'>ggg</ActiveLinks> */}
+            <NavLink
+              to="messages"
+              className={({ isActive }) =>
+                isActive ? "text-red-500" : undefined
+              }
+            >
+              Messages
+            </NavLink>
             <hr className="md:hidden border-secondary" />
             <div className=" flex justify-center mb-2 mt-2 md:hidden ">
               <Weather />
