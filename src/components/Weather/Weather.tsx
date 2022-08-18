@@ -1,16 +1,13 @@
-
 import React, { FC } from "react";
 
 interface Props {
-  data:any
-  
+  data: any;
 }
 
-const Weather:FC<Props> = ({ data }) => {
+const Weather: FC<Props> = ({ data }) => {
 
   return (
     <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 z-10">
-      
       {/* Top */}
       <div className="relative flex justify-between pt-12">
         <div className="flex flex-col items-center">
@@ -22,7 +19,9 @@ const Weather:FC<Props> = ({ data }) => {
           />
           <p className="text-2xl">{data.weather[0].main}</p>
         </div>
-        <p className="text-9xl">{(data?.main.feels_like.toFixed(0)-273.15).toFixed(0)}&#176;</p>
+        <p className="text-9xl">
+          {(data?.main.feels_like.toFixed(0) - 273.15).toFixed(0)}&#176;
+        </p>
       </div>
       {/* Bottom */}
 
@@ -31,7 +30,7 @@ const Weather:FC<Props> = ({ data }) => {
         <div className="flex justify-between text-center">
           <div>
             <p className="font-bold text-2xl">
-            {(data?.main.feels_like.toFixed(0)-273.15).toFixed(0)}&#176;
+              {(data?.main.feels_like.toFixed(0) - 273.15).toFixed(0)}&#176;
             </p>
             <p className="text-xl">Feels Like</p>
           </div>

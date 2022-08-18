@@ -24,7 +24,7 @@ const Weather = () => {
   const { isLoading, data } = useQuery(["weatherData"], () =>
     fetch(url).then((res) => res.json())
   );
-console.log('hello');
+  
   if (isLoading) {
     return <SmallLoading />;
   }

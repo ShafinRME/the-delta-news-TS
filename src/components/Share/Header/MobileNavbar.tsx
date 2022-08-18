@@ -1,18 +1,14 @@
 import React, { FC } from "react";
-// import TodayDate from "./TodayDate";
+import TodayDate from "./TodayDate";
 import Weather from "./Weather";
 import headerData from "./HeaderData";
-import { Link, NavLink, NavLinkProps } from "react-router-dom";
-import ActiveLink from "./ActiveLink";
+import { Link, NavLink } from "react-router-dom";
 
 interface Props {
   sideBar: boolean;
   handleSideBar: () => void;
 }
 
-type linkStyle = {
-  style: React.CSSProperties;
-};
 
 const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
   return (
@@ -76,7 +72,7 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
               </div>
               <div className="mt-4 flex justify-around">
                 <div className="text-base font-bold text-secondary">
-                  {/* <TodayDate /> */}
+                  <TodayDate />
                 </div>
                 <div className="text-base text-secondary">
                   <Link to="/archives">Archive</Link>
@@ -87,11 +83,12 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
             <ul tabIndex={0} className=" grid grid-cols-2 md:block mt-4 mb-2">
               {headerData.menuItems.map((item, index) => (
                 <li key={index} className="space-x-6 mb-2">
-                  {/* <ActiveLink to={item.path}>{item.text}</ActiveLink> */}
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      isActive ? "text-red-500" : undefined
+                      isActive
+                        ? "text-primary mr-3 py-3 font-medium text-sm"
+                        : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
                     }
                   >
                     {item.text}
@@ -99,15 +96,7 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
                 </li>
               ))}
             </ul>
-            {/* <ActiveLinks to='/'>ggg</ActiveLinks> */}
-            <NavLink
-              to="messages"
-              className={({ isActive }) =>
-                isActive ? "text-red-500" : undefined
-              }
-            >
-              Messages
-            </NavLink>
+
             <hr className="md:hidden border-secondary" />
             <div className=" flex justify-center mb-2 mt-2 md:hidden ">
               <Weather />
