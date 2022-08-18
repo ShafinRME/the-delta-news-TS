@@ -73,9 +73,10 @@ const Header = () => {
 
   return (
     <>
+    
       <div
         className={
-          isScrolled ? "hidden " : " navbar border-b border-b-info pt-4"
+          isScrolled ? "hidden " : "navbar border-b border-b-info pt-4"
         }
       >
         {/* starting Parts */}

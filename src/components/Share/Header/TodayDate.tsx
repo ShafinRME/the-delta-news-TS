@@ -35,7 +35,6 @@ const getMonthName = (monthIndex: number): string => {
 };
 const monthName: string = getMonthName(monthIndex);
 
-console.log(dayName);
 
 const date = new Date();
 const fullDate = ` ${dayName}, ${monthName} ${

@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
+const MobileNavbar :FC<Props> = ({ handleSideBar, sideBar }) => {
   return (
     <>
       <div className="z-30">
@@ -70,8 +70,8 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
                   </div>
                 </form>
               </div>
-              <div className="mt-4 flex justify-around">
-                <div className="text-base font-bold text-secondary">
+              <div className="mt-4 flex justify-around items-center">
+                <div className="text-sm font-medium text-secondary mt-1">
                   <TodayDate />
                 </div>
                 <div className="text-base text-secondary">
