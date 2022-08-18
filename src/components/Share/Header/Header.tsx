@@ -74,9 +74,10 @@ const Header = () => {
 
   return (
     <>
+    
       <div
         className={
-          isScrolled ? "hidden " : " navbar border-b border-b-info pt-4"
+          isScrolled ? "hidden " : "navbar border-b border-b-info pt-4"
         }
       >
         {/* starting Parts */}
@@ -107,7 +108,7 @@ const Header = () => {
             </button>
             <div className="hidden lg:block">
               {/* date import from components\Share\Header\TodayDate.js: */}
-              <div className="text-base font-bold mt-1 text-secondary">
+              <div className="  mt-1 text-secondary text-sm font-medium ">
                 <TodayDate />
               </div>
               <div className="text-base font-bold mt-1 text-secondary">
@@ -245,7 +246,7 @@ const Header = () => {
             </div>
 
             {/* Weather Section */}
-            <div className="hidden md:flex text-secondary justify-end ">
+            <div className="hidden md:flex text-secondary justify-end text-sm font-normal ">
               <Weather />
             </div>
             

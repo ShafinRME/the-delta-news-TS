@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import SmallLoading from "../../Loading/SmallLoading";
@@ -25,7 +24,7 @@ const Weather = () => {
   const { isLoading, data } = useQuery(["weatherData"], () =>
     fetch(url).then((res) => res.json())
   );
-console.log(data);
+
   if (isLoading) {
     return <SmallLoading />;
   }
