@@ -5,6 +5,8 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
+import Weather from "./components/Weather/Weather";
+import LiveNews from "./pages/LiveNews";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/signin" element={<Signin/>} />
+          <Route path="/weather" element={<Weather/>} />
+          <Route path="/livenews" element={<LiveNews/>} />
           <Route path="*" element={<Error />} />
         </Routes>
       </main>

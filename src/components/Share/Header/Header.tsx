@@ -16,6 +16,7 @@ import DarkMod from "./DarkMod";
 // } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
+import Clock from "./Clock";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import auth from "../../../config/firebase.init";
 
@@ -108,6 +109,9 @@ const Header = () => {
               {/* date import from components\Share\Header\TodayDate.js: */}
               <div className="text-base font-bold mt-1 text-secondary">
                 <TodayDate />
+              </div>
+              <div className="text-base font-bold mt-1 text-secondary">
+                <Clock/>
               </div>
               <div className="text-base mt-1 text-secondary">
                 <Link to="/archives">Archive</Link>
@@ -244,6 +248,7 @@ const Header = () => {
             <div className="hidden md:flex text-secondary justify-end ">
               <Weather />
             </div>
+            
           </div>
         </div>
       </div>
