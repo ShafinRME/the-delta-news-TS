@@ -17,7 +17,7 @@ import MainLayout from "./Layout/MainLayout";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
-import SingleLiveNews from "./pages/LiveNews/SingleLiveNews";
+
 
 import Sports from "./pages/Sports/Sports";
 import Health from "./pages/Health/Health";

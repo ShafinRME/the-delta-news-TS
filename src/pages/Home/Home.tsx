@@ -17,21 +17,24 @@ const Home = () => {
   return (
     <>
       <div>
-        {news.map((n) => {
-          const { id, title, description, image } = n;
-          return (
-            <div key={id}>
-              <h1>{title}</h1>
+      {news.map((n) => {
+        const { id, title, description, image } = n;
+        return (
+          <div className="mt-4" key={id}>
+            <div className="m-3 mb-6">
+              <h1 className="font-bold text-lg">{title}</h1>
               <p>{description}</p>
               <img src={image} alt="" />
             </div>
-          );
-        })}
+            <hr />
+          </div>
+        );
+      })}
 
-        {/* {
+      {/* {
           news.map(n=><HomePageNews key={n.id} ></HomePageNews>)
         } */}
-      </div>
+    </div>
     </>
   );
 };
