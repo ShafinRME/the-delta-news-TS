@@ -1,11 +1,21 @@
-import React, { FC } from "react";
+import { useQuery } from "@tanstack/react-query";
+import SmallLoading from "../Loading/SmallLoading";
 
-interface Props {
-  data: any;
-}
+const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
-const Weather: FC<Props> = ({ data }) => {
+const Weather = () => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=${API_key}`;
 
+  console.log(url);
+
+  const { isLoading, data } = useQuery(["weatherData"], () =>
+    fetch(url).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <SmallLoading />;
+  }
+  console.log(data);
   return (
     <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 z-10">
       {/* Top */}

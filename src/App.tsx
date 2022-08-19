@@ -3,6 +3,10 @@ import Error from "./pages/404/Error";
 import Home from "./pages/Home/Home";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
+
+import Weather from "./components/Weather/Weather";
+import LiveNews from "./pages/LiveNews/LiveNews";
+
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
@@ -13,6 +17,7 @@ import MainLayout from "./Layout/MainLayout";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
+import SingleLiveNews from "./pages/LiveNews/SingleLiveNews";
 
 function App() {
   return (
@@ -23,6 +28,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<Signin />} />
+            <Route path="/weather" element={<Weather />} />
+            <Route path="/livenews" element={<LiveNews/>} />
+            <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} />
           </Route>
           {/* dashboard start */}
           <Route path="/dashboard" element={<Dashboard />}>
