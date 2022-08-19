@@ -1,4 +1,3 @@
-import React from "react";
 import ContactImg from "../../Assets/images/contact/contact-1.png";
 import { IoIosCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";

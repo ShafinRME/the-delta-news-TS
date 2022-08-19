@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type NewsProps = {
   title: string;
@@ -14,27 +14,21 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
+  console.log(news);
   return (
     <>
-      <div>
-      {news.map((n) => {
-        const { id, title, description, image } = n;
-        return (
-          <div className="mt-4" key={id}>
-            <div className="m-3 mb-6">
-              <h1 className="font-bold text-lg">{title}</h1>
-              <p>{description}</p>
-              <img src={image} alt="" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {news.map((n) => {
+          const { id, title, description, image } = n;
+          return (
+            <div key={id}>
+              <h1 className="text-sm pb-4">{title.slice(0, 60)}</h1>
+              <img src={image} alt={title} className="w-[100%] h-[60%]" />
+              <p className="py-4">{description.slice(0, 150)}</p>
             </div>
-            <hr />
-          </div>
-        );
-      })}
-
-      {/* {
-          news.map(n=><HomePageNews key={n.id} ></HomePageNews>)
-        } */}
-    </div>
+          );
+        })}
+      </div>
     </>
   );
 };
