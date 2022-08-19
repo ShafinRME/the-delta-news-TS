@@ -64,7 +64,7 @@ const InputContact = () => {
             // name="name"
             type="text"
             placeholder="Your name"
-            className="ring-1 ring-error-content  rounded-md pl-3 pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
+            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
             {...register("name", { required: true })}
           />
         </div>
@@ -76,7 +76,7 @@ const InputContact = () => {
             // name="phone"
             type="number"
             placeholder="Your number"
-            className="ring-1 ring-error-content  rounded-md pl-3 pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
+            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
             {...register("phone", { required: true })}
           />
         </div>
@@ -88,7 +88,7 @@ const InputContact = () => {
             // name="email"
             type="email"
             placeholder="Your email"
-            className="ring-1 ring-error-content  rounded-md pl-3 pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
+            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
             {...register("email", { required: true })}
           />
         </div>
@@ -101,7 +101,7 @@ const InputContact = () => {
             placeholder="Message"
             rows={4}
             cols={22}
-            className="ring-1 ring-error-content  rounded-md pl-3 pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
+            className="ring-1 ring-error-content  rounded-md pl-3 pr-14 md:pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
             {...register("message", { required: true })}
           ></textarea>
         </div>
