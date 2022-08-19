@@ -18,6 +18,7 @@ import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import SingleLiveNews from "./pages/LiveNews/SingleLiveNews";
+import Contact from "./pages/contact";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<Signin />} />
             <Route path="/weather" element={<Weather />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/livenews" element={<LiveNews/>} />
             <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} />
           </Route>
