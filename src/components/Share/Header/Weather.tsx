@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import SmallLoading from "../../Loading/SmallLoading";
 
 const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
 const Weather = () => {
-  const [lat, setLat] = useState(0);
-  const [lon, setLon] = useState(0);
+  // const [lat, setLat] = useState(0);
+  // const [lon, setLon] = useState(0);
   // const [weatherData, setWeatherData] = useState([]);
   // const [forecast, setForecast] = useState([]);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition(function (position) {
   //     setLat(position.coords.latitude.toFixed(4));
