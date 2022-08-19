@@ -17,14 +17,24 @@ import DarkMod from "./DarkMod";
 import { Link, NavLink } from "react-router-dom";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 import Clock from "./Clock";
+import Search from "../../Search/Search";
+import SearchResult from "../../Search/SearchResult";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import auth from "../../../config/firebase.init";
+
+export interface SearchData {
+  _id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+}
 
 const Header = () => {
   const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [searchNews, setSearchNews] = useState<SearchData[]>([]);
 
   // for sidebar handle
   const handleSideBar = (): void => {
@@ -34,6 +44,11 @@ const Header = () => {
   //  for searchbox active close
   const handleSearchBar = (): void => {
     setSearchBarActive(!searchBarActive);
+  };
+
+  // search result data
+  const handleSearchNews = (data: SearchData[]) => {
+    setSearchNews(data);
   };
 
   //  for Mobile menu active close
@@ -74,7 +89,6 @@ const Header = () => {
 
   return (
     <>
-    
       <div
         className={
           isScrolled ? "hidden " : "navbar border-b border-b-info pt-4"
@@ -112,7 +126,7 @@ const Header = () => {
                 <TodayDate />
               </div>
               <div className="text-base font-bold mt-1 text-secondary">
-                <Clock/>
+                <Clock />
               </div>
               <div className="text-base mt-1 text-secondary">
                 <Link to="/archives">Archive</Link>
@@ -145,6 +159,8 @@ const Header = () => {
                     : "mr-2 mt-1 hidden"
                 }
               >
+                <Search onSearchData={handleSearchNews} />
+
                 <form>
                   <div className="relative">
                     <input
@@ -249,7 +265,6 @@ const Header = () => {
             <div className="hidden md:flex text-secondary justify-end text-sm font-normal ">
               <Weather />
             </div>
-            
           </div>
         </div>
       </div>
@@ -340,6 +355,14 @@ const Header = () => {
         </h1>
         <MobileNavbar sideBar={sideBar} handleSideBar={handleSideBar} />
       </div>
+      {searchNews?.map((n) => (
+        <SearchResult
+          key={n._id}
+          image={n.image}
+          title={n.title}
+          description={n.description}
+        />
+      ))}
     </>
   );
 };
