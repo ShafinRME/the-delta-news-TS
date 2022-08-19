@@ -3,10 +3,9 @@ import Error from "./pages/404/Error";
 import Home from "./pages/Home/Home";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
-
+import "react-toastify/dist/ReactToastify.css";
 import Weather from "./components/Weather/Weather";
 import LiveNews from "./pages/LiveNews/LiveNews";
-
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
@@ -19,6 +18,7 @@ import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import SingleLiveNews from "./pages/LiveNews/SingleLiveNews";
 import Contact from "./pages/contact";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -31,8 +31,11 @@ function App() {
             <Route path="signin" element={<Signin />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/livenews" element={<LiveNews/>} />
-            <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} />
+            <Route path="/livenews" element={<LiveNews />} />
+            <Route
+              path="livenews/:singlelivenews"
+              element={<SingleLiveNews />}
+            />
           </Route>
           {/* dashboard start */}
           <Route path="/dashboard" element={<Dashboard />}>
@@ -50,6 +53,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </main>
+      <ToastContainer />
     </>
   );
 }
