@@ -36,7 +36,7 @@ const AddNews = () => {
     const title = data.title;
     const newSlug = title
       .split(/\s+|\W+/)
-      .filter((word: string) => word.trim() != "")
+      .filter((word: string) => word.trim() !== "")
       .join("-");
 
     const slug = newSlug;
