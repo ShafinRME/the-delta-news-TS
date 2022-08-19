@@ -1,16 +1,12 @@
 import LiveNewsData from "../../data/LiveNewsData";
-
+import SingleLiveNews from "./SingleLiveNews";
 
 const LiveNews = () => {
-  
   return (
     <div>
       {LiveNewsData.map((singleNews) => {
-        const { text, id } = singleNews;
         return (
-          <div key={id}>
-            <h1>{text}</h1>
-          </div>
+          <SingleLiveNews key={singleNews.id} singleNews={singleNews}></SingleLiveNews>
         );
       })}
     </div>
