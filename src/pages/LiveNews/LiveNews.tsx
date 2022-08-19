@@ -1,6 +1,8 @@
-import LiveNewsData from "../../src/data/LiveNewsData";
+import LiveNewsData from "../../data/LiveNewsData";
+
 
 const LiveNews = () => {
+  
   return (
     <div>
       {LiveNewsData.map((singleNews) => {
