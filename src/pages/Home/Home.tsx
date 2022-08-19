@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type NewsProps = {
   title: string;
@@ -13,7 +13,6 @@ const Home = () => {
     fetch("https://team-delta001.herokuapp.com/api/news")
       .then((res) => res.json())
       .then((data) => setNews(data));
-      
   }, []);
   console.log(news);
   return (
@@ -24,7 +23,7 @@ const Home = () => {
           return (
             <div key={id}>
               <h1 className="text-sm pb-4">{title.slice(0, 60)}</h1>
-              <img src={image} alt={title} className='w-[100%] h-[60%]' />
+              <img src={image} alt={title} className="w-[100%] h-[60%]" />
               <p className="py-4">{description.slice(0, 150)}</p>
             </div>
           );
