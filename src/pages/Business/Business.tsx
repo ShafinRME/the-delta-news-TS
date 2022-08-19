@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
-
 type NewsProps = {
   title: string;
   id: string;
   description: string;
   image: string;
 };
-
-const Home = () => {
+const Business = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch("https://team-delta001.herokuapp.com/api/news")
+    fetch("https://team-delta001.herokuapp.com/api/news/business")
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
   return (
-    <>
-      <div>
+    <div>
       {news.map((n) => {
         const { id, title, description, image } = n;
         return (
@@ -32,11 +29,10 @@ const Home = () => {
       })}
 
       {/* {
-          news.map(n=><HomePageNews key={n.id} ></HomePageNews>)
-        } */}
+            news.map(n=><HomePageNews key={n.id} ></HomePageNews>)
+          } */}
     </div>
-    </>
   );
 };
 
-export default Home;
+export default Business;
