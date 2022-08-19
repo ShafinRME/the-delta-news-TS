@@ -16,18 +16,32 @@ import DarkMod from "./DarkMod";
 // } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
+import Search from "../../Search/Search";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import auth from "../../../config/firebase.init";
+
+export interface SearchData {
+  _id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+}
 
 const Header = () => {
   const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [searchNews, setSearchNews] = useState<SearchData[]>([]);
 
   // for sidebar handle
   const handleSideBar = (): void => {
     setSideBar(!sideBar);
+  };
+
+  // search result data
+  const handleSearchNews = (data: SearchData[]) => {
+    setSearchNews(data);
   };
 
   //  for searchbox active close
@@ -140,23 +154,7 @@ const Header = () => {
                     : "mr-2 mt-1 hidden"
                 }
               >
-                <form>
-                  <div className="relative">
-                    <input
-                      type="search"
-                      id="search"
-                      className="block py-2.5 w-52 lg:w-60 pl-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-secondary focus:outline-none  dark:placeholder-gray-400 "
-                      placeholder="Search"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="text-white absolute right-1 bottom-[3px] bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Search
-                    </button>
-                  </div>
-                </form>
+                <Search onSearchData={handleSearchNews} />
               </div>
               <button
                 onClick={() => handleSearchBar()}
@@ -334,6 +332,14 @@ const Header = () => {
         </h1>
         <MobileNavbar sideBar={sideBar} handleSideBar={handleSideBar} />
       </div>
+
+      {searchNews?.map((n) => (
+        <div key={n._id}>
+          <img src={n.image} alt="" />
+          <h1>{n.title}</h1>
+          <p>{n.description}</p>
+        </div>
+      ))}
     </>
   );
 };
