@@ -4,7 +4,7 @@ import useAllNews from "../../hooks/allNews";
 import { SearchData } from "../Share/Header/Header";
 
 interface FormInput {
-  text?: string;
+  search: string;
 }
 export interface Props {
   title?: string;
@@ -24,7 +24,7 @@ const Search: React.FC<Props> = (props) => {
   const [newses] = useAllNews();
 
   const handleSearch = (event: any): void => {
-    const searchText = event?.text?.toLowerCase();
+    const searchText = event?.search?.toLowerCase();
     const match = newses.filter((news) =>
       news?.title?.toLowerCase().includes(searchText)
     );
@@ -40,18 +40,25 @@ const Search: React.FC<Props> = (props) => {
       >
         <div className="relative">
           <input
-            {...register("text", { required: true })}
+            {...register("search", { required: true })}
             type="search"
             id="search"
             className="block py-2.5 w-60 pl-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none  dark:placeholder-gray-400 "
             placeholder="Search"
             required
           />
+
           <input
             type="submit"
             className="text-white absolute  right-1 bottom-[3px] bg-black hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             value="Search"
           />
+
+          <label className="label">
+            {errors.search && (
+              <small className=" text-red-600">{errors.search.message}</small>
+            )}
+          </label>
         </div>
       </form>
     </div>

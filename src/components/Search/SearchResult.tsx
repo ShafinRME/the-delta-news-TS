@@ -1,5 +1,4 @@
 import React from "react";
-import Loading from "../Loading/Loading";
 interface Props2 {
   title?: string;
   _id?: string;
