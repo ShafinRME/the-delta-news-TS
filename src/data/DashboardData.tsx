@@ -123,6 +123,33 @@ const dashboardData = {
         },
       ],
     },
+    {
+      id: 4,
+      icon: <FaFileInvoice />,
+      title: "Voting",
+      menus: [
+        {
+          id: 1,
+          text: "Add",
+          path: "addNews",
+        },
+        {
+          id: 2,
+          text: "Edit",
+          path: "editNews",
+        },
+        {
+          id: 3,
+          text: "Delete",
+          path: "profile",
+        },
+        {
+          id: 4,
+          text: "List",
+          path: "newsList",
+        },
+      ],
+    },
   ],
   mails: [
     {

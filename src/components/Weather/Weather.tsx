@@ -1,16 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
+import SmallLoading from "../Loading/SmallLoading";
 
-import React, { FC } from "react";
+const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
-interface Props {
-  data:any
-  
-}
+const Weather = () => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=${API_key}`;
 
-const Weather:FC<Props> = ({ data }) => {
+  console.log(url);
 
+  const { isLoading, data } = useQuery(["weatherData"], () =>
+    fetch(url).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <SmallLoading />;
+  }
+  console.log(data);
   return (
     <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 z-10">
-      
       {/* Top */}
       <div className="relative flex justify-between pt-12">
         <div className="flex flex-col items-center">
@@ -22,7 +29,9 @@ const Weather:FC<Props> = ({ data }) => {
           />
           <p className="text-2xl">{data.weather[0].main}</p>
         </div>
-        <p className="text-9xl">{(data?.main.feels_like.toFixed(0)-273.15).toFixed(0)}&#176;</p>
+        <p className="text-9xl">
+          {(data?.main.feels_like.toFixed(0) - 273.15).toFixed(0)}&#176;
+        </p>
       </div>
       {/* Bottom */}
 
@@ -31,7 +40,7 @@ const Weather:FC<Props> = ({ data }) => {
         <div className="flex justify-between text-center">
           <div>
             <p className="font-bold text-2xl">
-            {(data?.main.feels_like.toFixed(0)-273.15).toFixed(0)}&#176;
+              {(data?.main.feels_like.toFixed(0) - 273.15).toFixed(0)}&#176;
             </p>
             <p className="text-xl">Feels Like</p>
           </div>

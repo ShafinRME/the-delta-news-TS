@@ -1,5 +1,4 @@
-
-
+// day
 const dayIndex: number = new Date().getDay();
 const getDayName = (dayIndex: number): string => {
   const days = [
@@ -15,12 +14,32 @@ const getDayName = (dayIndex: number): string => {
 };
 const dayName: string = getDayName(dayIndex);
 
-console.log(dayName);
+// month
+
+const monthIndex: number = new Date().getMonth();
+const getMonthName = (monthIndex: number): string => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "November",
+    "December",
+  ];
+  return months[monthIndex];
+};
+const monthName: string = getMonthName(monthIndex);
+
 
 const date = new Date();
-const fullDate = ` ${dayName}-${date.getDate()}-${
+const fullDate = ` ${dayName}, ${monthName} ${
   date.getMonth() + 1
-}-${date.getFullYear()}`;
+}, ${date.getFullYear()}`;
 
 const TodayDate = () => {
   return <>{fullDate}</>;

@@ -19,12 +19,27 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebaseConfig.init";
+
+import Loading from "../../Loading/Loading";
+import Search from "../../Search/Search";
+import SearchResult from "../../Search/SearchResult";
+import Clock from "./Clock";
+export interface SearchData {
+  _id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
 const Header = () => {
   const [user, loading] = useAuthState(auth);
   const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const [searchNews, setSearchNews] = useState<SearchData[]>([]);
+
   // for sidebar handle
   const handleSideBar = (): void => {
     setSideBar(!sideBar);
@@ -33,6 +48,11 @@ const Header = () => {
   //  for searchbox active close
   const handleSearchBar = (): void => {
     setSearchBarActive(!searchBarActive);
+  };
+
+  // search result data
+  const handleSearchNews = (data: SearchData[]) => {
+    setSearchNews(data);
   };
 
   //  for Mobile menu active close
@@ -70,17 +90,16 @@ const Header = () => {
   const handleLogOut = (): void => {
     signOut(auth);
   };
-  // if (loading) {
-  //   return <p>Loading ...</p>;
-  // }
-  // const userImage: undefined = user?.photoURL;
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   console.log(user);
   return (
     <>
       <div
         className={
-          isScrolled ? "hidden " : " navbar border-b border-b-info pt-4"
+          isScrolled ? "hidden " : "navbar border-b border-b-info pt-4"
         }
       >
         {/* starting Parts */}
@@ -111,8 +130,11 @@ const Header = () => {
             </button>
             <div className="hidden lg:block">
               {/* date import from components\Share\Header\TodayDate.js: */}
-              <div className="text-base font-bold mt-1 text-secondary">
+              <div className="  mt-1 text-secondary text-sm font-medium ">
                 <TodayDate />
+              </div>
+              <div className="text-base font-bold mt-1 text-secondary">
+                <Clock />
               </div>
               <div className="text-base mt-1 text-secondary">
                 <Link to="/archives">Archive</Link>
@@ -145,23 +167,7 @@ const Header = () => {
                     : "mr-2 mt-1 hidden"
                 }
               >
-                <form>
-                  <div className="relative">
-                    <input
-                      type="search"
-                      id="search"
-                      className="block py-2.5 w-52 lg:w-60 pl-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-secondary focus:outline-none  dark:placeholder-gray-400 "
-                      placeholder="Search"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="text-white absolute right-1 bottom-[3px] bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                      Search
-                    </button>
-                  </div>
-                </form>
+                <Search onSearchData={handleSearchNews} />
               </div>
               <button
                 onClick={() => handleSearchBar()}
@@ -258,7 +264,7 @@ const Header = () => {
             </div>
 
             {/* Weather Section */}
-            <div className="hidden md:flex text-secondary justify-end ">
+            <div className="hidden md:flex text-secondary justify-end text-sm font-normal ">
               <Weather />
             </div>
           </div>
@@ -351,6 +357,14 @@ const Header = () => {
         </h1>
         <MobileNavbar sideBar={sideBar} handleSideBar={handleSideBar} />
       </div>
+      {searchNews?.map((n) => (
+        <SearchResult
+          key={n._id}
+          image={n.image}
+          title={n.title}
+          description={n.description}
+        />
+      ))}
     </>
   );
 };
