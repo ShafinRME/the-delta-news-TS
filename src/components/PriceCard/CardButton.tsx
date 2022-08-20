@@ -22,7 +22,7 @@ const CardButton: React.FC<Props> = ({ btn, plan }) => {
   return (
     <>
       <Link to="/">
-        <a
+        <span
           className={`PackageBtn w-full flex opacity-80 hover:opacity-100  transition-opacity duration-300 border-0 mt-8   justify-center px-6 py-4 text-sm uppercase text-white  font-semibold leading-4 text-center rounded-full${
             plan.mostPopular ? " bg-primary-content  " : " bg-error-content   "
           }`}
@@ -31,7 +31,7 @@ const CardButton: React.FC<Props> = ({ btn, plan }) => {
           <span className=" PackageBtn-Icon">
             <HiOutlineArrowNarrowRight />
           </span>
-        </a>
+        </span>
       </Link>
     </>
   );

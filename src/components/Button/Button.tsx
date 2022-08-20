@@ -9,10 +9,10 @@ const Button: React.FC<Props> = ({ buttonText, ButtonIcon }) => {
   return (
     <>
       <Link to="/contact">
-        <a className="px-8 flex items-center justify-center mt-6 lg:mt-0 py-3 bg-error-content font-medium rounded-full text-white hover:opacity-90 transition-opacity duration-300 max-w-[11rem] ">
+        <span className="px-8 flex items-center justify-center mt-6 lg:mt-0 py-3 bg-error-content font-medium rounded-full text-white hover:opacity-90 transition-opacity duration-300 max-w-[11rem] ">
           {buttonText}
           <span className=" ml-2 text-xl">{ButtonIcon}</span>
-        </a>
+        </span>
       </Link>
     </>
   );
