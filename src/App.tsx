@@ -25,6 +25,9 @@ import Contact from "./pages/contact";
 import Health from "./pages/Health/Health";
 import Sports from "./pages/Sports/Sports";
 import Tech from "./pages/Tech/Tech";
+import Advertisement from "./pages/Advertisement";
+import LiveTv from "./pages/LiveTv";
+
 
 
 
@@ -47,6 +50,8 @@ function App() {
             <Route path="/business" element={<Business/>} />
             <Route path="/books" element={<Books/>} />
             {/* <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} /> */}
+            <Route path="/advertisement" element={<Advertisement />} />
+            <Route path="/livetv" element={<LiveTv />} />
           </Route>
           {/* dashboard start */}
           <Route path="/dashboard" element={<Dashboard />}>

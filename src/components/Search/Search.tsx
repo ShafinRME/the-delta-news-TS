@@ -64,11 +64,13 @@ const Search: React.FC<Props> = (props) => {
           />
         </div>
       </form>
-      {/* <label className="label">
+
+      <label className="label">
         {errors.search && (
           <small className=" text-red-600">{errors.search.message}</small>
         )}
-      </label> */}
+      </label>
+
     </div>
   );
 };
