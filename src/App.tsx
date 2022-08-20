@@ -39,7 +39,6 @@ function App() {
             <Route path="signin" element={<Signin />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
-
             <Route path="/livenews" element={<LiveNews/>} />
             <Route path="/sports" element={<Sports/>} />
             <Route path="/health" element={<Health/>} />

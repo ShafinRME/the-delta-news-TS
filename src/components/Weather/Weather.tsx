@@ -6,8 +6,6 @@ const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 const Weather = () => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=${API_key}`;
 
-  console.log(url);
-
   const { isLoading, data } = useQuery(["weatherData"], () =>
     fetch(url).then((res) => res.json())
   );

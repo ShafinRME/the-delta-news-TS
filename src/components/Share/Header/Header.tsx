@@ -79,7 +79,9 @@ const Header = () => {
 
   // theme change
   useEffect(() => {
-    themeChange(false);
+    return()=>{
+      themeChange(false);
+    }
     // false parameter is required for react project
   }, []);
 
