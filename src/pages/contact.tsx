@@ -1,4 +1,3 @@
-import React from 'react';
 import MainContact from '../components/Contact/MainContact';
 
 const Contact = () => {

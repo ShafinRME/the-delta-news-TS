@@ -17,7 +17,7 @@ export interface Props {
 const Search: React.FC<Props> = (props) => {
   const {
     register,
-    formState: { errors },
+    // formState: { errors },
     handleSubmit,
     reset,
   } = useForm<FormInput>();
@@ -36,12 +36,21 @@ const Search: React.FC<Props> = (props) => {
     <div>
       <form
         onSubmit={handleSubmit(handleSearch)}
-        className="flex justify-center"
+        className=""
       >
         <div className="relative">
           <input
-            {...register("search", { required: true })}
-            type="search"
+            {...register("search", {
+              required: {
+                value: true,
+                message: "Filed is required",
+              },
+              minLength: {
+                value: 4,
+                message: "Must be 4 characters or longer",
+              },
+            })}
+            type="text"
             id="search"
             className="block py-2.5 w-60 pl-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none  dark:placeholder-gray-400 "
             placeholder="Search"
@@ -55,11 +64,13 @@ const Search: React.FC<Props> = (props) => {
           />
         </div>
       </form>
+
       <label className="label">
         {errors.search && (
           <small className=" text-red-600">{errors.search.message}</small>
         )}
       </label>
+
     </div>
   );
 };
