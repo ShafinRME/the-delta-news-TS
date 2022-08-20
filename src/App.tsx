@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+
 import "react-toastify/dist/ReactToastify.css";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
@@ -14,21 +15,18 @@ import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import User from "./pages/Dashboard/Pages/User/User";
 import Home from "./pages/Home/Home";
 import LiveNews from "./pages/LiveNews/LiveNews";
-import Signin from "./pages/Signin";
-import SignUp from "./pages/SignUp";
-
+import SignUp from "./pages/SignUP/SignUp";
+import Sports from "./pages/Sports";
 
 import { ToastContainer } from "react-toastify";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/contact";
 import Health from "./pages/Health/Health";
-import Sports from "./pages/Sports/Sports";
+import SignIn from "./pages/SignIn/SignIn";
 import Tech from "./pages/Tech/Tech";
 import Advertisement from "./pages/Advertisement";
 import LiveTv from "./pages/LiveTv";
-
-
 
 
 function App() {
@@ -39,16 +37,16 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="signup" element={<SignUp />} />
-            <Route path="signin" element={<Signin />} />
+            <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
 
-            <Route path="/livenews" element={<LiveNews/>} />
-            <Route path="/sports" element={<Sports/>} />
-            <Route path="/health" element={<Health/>} />
-            <Route path="/tech" element={<Tech/>} />
-            <Route path="/business" element={<Business/>} />
-            <Route path="/books" element={<Books/>} />
+            <Route path="/livenews" element={<LiveNews />} />
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/health" element={<Health />} />
+            <Route path="/tech" element={<Tech />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/books" element={<Books />} />
             {/* <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} /> */}
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
@@ -69,6 +67,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </main>
+
       <ToastContainer />
     </>
   );
