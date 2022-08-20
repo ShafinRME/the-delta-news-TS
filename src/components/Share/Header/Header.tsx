@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { themeChange } from "theme-change";
 // import ActiveLinks from "./ActiveLink";
+import { signOut } from "firebase/auth";
+import DarkMod from "./DarkMod";
 import headerData from "./HeaderData";
+import MobileNavbar from "./MobileNavbar";
 import TodayDate from "./TodayDate";
 import Weather from "./Weather";
-import MobileNavbar from "./MobileNavbar";
-import DarkMod from "./DarkMod";
 // import {
 //   BiLogInCircle,
 //   BiLogOutCircle,
@@ -14,17 +15,16 @@ import DarkMod from "./DarkMod";
 //   BiCog,
 //   BiEdit,
 // } from "react-icons/bi";
-import { Link, NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
-// import { useAuthState } from "react-firebase-hooks/auth";
-// import auth from "../../../config/firebase.init";
-
+import { Link, NavLink } from "react-router-dom";
+import auth from "../../firebaseConfig.init";
 const Header = () => {
+  const [user, loading] = useAuthState(auth);
   const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
   // for sidebar handle
   const handleSideBar = (): void => {
     setSideBar(!sideBar);
@@ -67,10 +67,15 @@ const Header = () => {
     // false parameter is required for react project
   }, []);
 
-  // const logOut = () => {
-  //   signOut(auth);
-  // };
+  const handleLogOut = (): void => {
+    signOut(auth);
+  };
+  // if (loading) {
+  //   return <p>Loading ...</p>;
+  // }
+  // const userImage: undefined = user?.photoURL;
 
+  console.log(user);
   return (
     <>
       <div
@@ -183,7 +188,14 @@ const Header = () => {
                   tabIndex={1}
                   className="text-secondary  btn btn-ghost btn-circle mx-1 flex items-center  "
                 >
-                  <FaUser className="text-lg" />
+                  {user ? (
+                    <h5 className="btn btn-ghost btn-circle bg-primary">
+                      {user?.displayName?.slice(0, 2)}
+                    </h5>
+                  ) : (
+                    <FaUser className="text-lg" />
+                  )}
+                  {/* <FaUser className="text-lg" /> */}
                 </label>
 
                 <div
@@ -212,7 +224,7 @@ const Header = () => {
                             : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
                         }
                       >
-                        <BiCog /> <span>Signup</span>
+                        <BiCog /> <span>Sign up</span>
                       </NavLink>
                     </li>
                     <li className="mb-2">
@@ -224,14 +236,19 @@ const Header = () => {
                             : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
                         }
                       >
-                        <BiLogInCircle /> <span>Login</span>
+                        <BiLogInCircle /> <span>Sign in</span>
                       </NavLink>
                     </li>
-                    <li className="mb-2">
-                      <button className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500">
-                        <BiLogOutCircle /> Logout
-                      </button>
-                    </li>
+                    {user && (
+                      <li className="mb-2">
+                        <button
+                          onClick={handleLogOut}
+                          className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                        >
+                          <BiLogOutCircle /> Logout
+                        </button>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
