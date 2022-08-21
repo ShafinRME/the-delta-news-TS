@@ -17,7 +17,6 @@ import LiveNews from "./pages/LiveNews/LiveNews";
 import Signin from "./pages/Signin";
 import SignUp from "./pages/SignUp";
 
-
 import { ToastContainer } from "react-toastify";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
@@ -26,7 +25,7 @@ import Health from "./pages/Health/Health";
 import Sports from "./pages/Sports/Sports";
 import Tech from "./pages/Tech/Tech";
 
-
+import OneNews from "./pages/LiveNews/OneNews";
 
 function App() {
   return (
@@ -39,14 +38,14 @@ function App() {
             <Route path="signin" element={<Signin />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/livenews" element={<LiveNews />} />
+            {/* <Route path="livenews/:path" element={<OneNews />} /> */}
 
-            <Route path="/livenews" element={<LiveNews/>} />
-            <Route path="/sports" element={<Sports/>} />
-            <Route path="/health" element={<Health/>} />
-            <Route path="/tech" element={<Tech/>} />
-            <Route path="/business" element={<Business/>} />
-            <Route path="/books" element={<Books/>} />
-            {/* <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} /> */}
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/health" element={<Health />} />
+            <Route path="/tech" element={<Tech />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/books" element={<Books />} />
           </Route>
           {/* dashboard start */}
           <Route path="/dashboard" element={<Dashboard />}>
