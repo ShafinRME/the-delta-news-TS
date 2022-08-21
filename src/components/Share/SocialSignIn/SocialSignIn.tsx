@@ -6,7 +6,7 @@ import {
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
-import auth from "../../firebaseConfig.init";
+import auth from "../../../config/firebaseConfig.init";
 interface locationProps {
   state: any;
 }

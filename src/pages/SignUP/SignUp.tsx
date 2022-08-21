@@ -8,7 +8,7 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { HiUserAdd } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../components/firebaseConfig.init";
+import auth from "../../config/firebaseConfig.init";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
 interface FormValues {
   name: string;

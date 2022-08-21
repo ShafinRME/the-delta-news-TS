@@ -18,7 +18,7 @@ import Weather from "./Weather";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
-import auth from "../../firebaseConfig.init";
+import auth from "../../../config/firebaseConfig.init";
 
 import Loading from "../../Loading/Loading";
 import Search from "../../Search/Search";
