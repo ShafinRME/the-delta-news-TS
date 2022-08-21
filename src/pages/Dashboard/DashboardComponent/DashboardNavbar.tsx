@@ -10,7 +10,9 @@ interface dashboardNavbarProps {
 const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
   // theme change
   useEffect(() => {
-    themeChange(false);
+    return () => {
+      themeChange(false);
+    };
     // false parameter is required for react project
   }, []);
 

@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const Error = () => {
   return (
     <>
+    <section>
+      
+    </section>
       <section className="container mx-auto">
         <div className="max-w-6xl min-h-[50vh] py-5 lg:pt-10 lg:pb-24  mx-auto  ">
           <div className="max-w-md mx-auto text-center flex justify-center ">
