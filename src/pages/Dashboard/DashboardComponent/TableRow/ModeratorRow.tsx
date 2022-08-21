@@ -1,11 +1,12 @@
-import { FC } from "react";
+import React, { FC, useState } from "react";
+import ModeratorEditModal from "../Modal/ModeratorEditModal";
 import ModeratorViewModal from "../Modal/ModeratorViewModal";
 
 type Props = {
   news: {
     _id?: string;
     id?: string;
-    title: string;
+    title?: string;
     description?: string;
     image?: string;
     date?: string;
@@ -15,35 +16,66 @@ type Props = {
   index: number;
 };
 
+// export type ModalProps = {
+//   singleNews:{
+//     slug:string
+//   }
+// };
+
 const ModeratorRow: FC<Props> = ({ news, index }) => {
-  const { reference, title, date } = news;
+  const { slug, reference, title, date } = news;
+  const [singleNews, setSingleNews] = useState<string | undefined>(undefined);
+
+  const newsHandle = () => {
+    return setSingleNews(slug);
+  };
+
   return (
     <>
       <tr className="moderator-table hover ">
         <th>{index + 1}</th>
         <td>{date}</td>
-        <td>
-          <div className="text-base">{title.slice(0, 50)}</div>
-          <div className="text-xs">Editor: {reference}</div>
+        <td className=" flex flex-col">
+          <span className="text-base">{`${title?.slice(0, 50)} ...`}</span>
+          <span className="text-xs">Editor: {reference}</span>
         </td>
-        <td>
+
+        <th>
           <label
-            htmlFor="my-modal-3"
-            className=" modal-button font-medium text-sm text-blue-600 dark:text-blue-500 hover:underline capitalize"
+            onClick={newsHandle}
+            htmlFor="moderator-news-view-modal"
+            className=" cursor-pointer modal-button font-medium text-sm text-blue-600 dark:text-blue-500 hover:underline capitalize"
           >
             View
           </label>
-        </td>
-        <td className="font-medium text-sm  text-blue-600 dark:text-blue-500 hover:underline capitalize">
-          Edit
+        </th>
+
+        <td className="font-medium  cursor-pointer  text-sm  text-blue-600 dark:text-blue-500 hover:underline capitalize">
+          <label
+            onClick={newsHandle}
+            htmlFor="moderator-news-edit-modal"
+            className=" cursor-pointer modal-button font-medium text-sm text-blue-600 dark:text-blue-500 hover:underline capitalize"
+          >
+            Edit
+          </label>
         </td>
         <td>Publish</td>
         <td className="text-red-600 font-medium text-sm  hover:underline capitalize ">
           Delete
         </td>
       </tr>
-
-      <ModeratorViewModal />
+      {singleNews && (
+        <ModeratorViewModal
+          singleNews={singleNews}
+          setSingleNews={setSingleNews}
+        />
+      )}
+      {singleNews && (
+        <ModeratorEditModal
+          singleNews={singleNews}
+          setSingleNews={setSingleNews}
+        />
+      )}
     </>
   );
 };

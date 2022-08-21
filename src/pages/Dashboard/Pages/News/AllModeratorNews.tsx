@@ -3,7 +3,6 @@ import Loadings from "../../../../components/Loading/Loadings";
 import ModeratorRow from "../../DashboardComponent/TableRow/ModeratorRow";
 
 const AllModeratorNews = () => {
-
   interface Data {
     _id?: string;
     id?: string;
@@ -22,7 +21,7 @@ const AllModeratorNews = () => {
     return <Loadings />;
   }
 
-  console.log("allNews", data);
+
 
   return (
     <>
@@ -37,7 +36,7 @@ const AllModeratorNews = () => {
       <section className="lg:max-w-6xl mx-auto overflow-x-auto">
         <table className="table rounded-0 w-full">
           {/* table title */}
-          <thead className="sticky top-0 w-full rounded-0">
+          <thead className="static top-20 w-full rounded-0">
             <tr>
               <th>SL</th>
               <th>Date</th>
