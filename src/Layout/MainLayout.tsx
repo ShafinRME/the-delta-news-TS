@@ -9,7 +9,7 @@ const MainLayout = () => {
       <header className="container mx-auto">
         <Header />
       </header>
-      <main className="container mx-auto" >
+      <main className="container mx-auto">
         <Outlet />
       </main>
 

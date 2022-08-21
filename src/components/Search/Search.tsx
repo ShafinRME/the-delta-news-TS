@@ -17,7 +17,7 @@ export interface Props {
 const Search: React.FC<Props> = (props) => {
   const {
     register,
-    // formState: { errors },
+    formState: { errors },
     handleSubmit,
     reset,
   } = useForm<FormInput>();
@@ -34,10 +34,7 @@ const Search: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <form
-        onSubmit={handleSubmit(handleSearch)}
-        className=""
-      >
+      <form onSubmit={handleSubmit(handleSearch)} className="">
         <div className="relative">
           <input
             {...register("search", {
@@ -64,11 +61,12 @@ const Search: React.FC<Props> = (props) => {
           />
         </div>
       </form>
-      {/* <label className="label">
+
+      <label className="label">
         {errors.search && (
           <small className=" text-red-600">{errors.search.message}</small>
         )}
-      </label> */}
+      </label>
     </div>
   );
 };
