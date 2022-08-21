@@ -86,7 +86,7 @@ const SignIn = () => {
                       message: "Email is required",
                     },
                     pattern: {
-                      value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                      value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
                       message: "Provide a valid email",
                     },
                   })}

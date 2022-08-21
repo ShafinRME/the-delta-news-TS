@@ -4,11 +4,10 @@ export default function Clock() {
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      console.log(date);
       setClock(date?.toLocaleTimeString());
     }, 1000);
   }, []);
-  console.log(clock)
+
   return (
     <div>
       <h1>{clock}</h1>

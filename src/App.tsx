@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import "react-toastify/dist/ReactToastify.css";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
@@ -17,17 +16,15 @@ import Home from "./pages/Home/Home";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
-
 import { ToastContainer } from "react-toastify";
+import Advertisement from "./pages/Advertisement";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/contact";
 import Health from "./pages/Health/Health";
+import LiveTv from "./pages/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import Tech from "./pages/Tech/Tech";
-import Advertisement from "./pages/Advertisement";
-import LiveTv from "./pages/LiveTv";
-
 
 function App() {
   return (
@@ -40,7 +37,6 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
-
             <Route path="/livenews" element={<LiveNews />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
