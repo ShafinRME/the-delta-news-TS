@@ -66,9 +66,9 @@ const Search: React.FC<Props> = (props) => {
       </form>
 
       <label className="label">
-        {errors.search && (
+        {/* {errors.search && (
           <small className=" text-red-600">{errors.search.message}</small>
-        )}
+        )} */}
       </label>
 
     </div>
