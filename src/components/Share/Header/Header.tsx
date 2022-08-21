@@ -40,6 +40,13 @@ const Header = () => {
 
   const [searchNews, setSearchNews] = useState<SearchData[]>([]);
 
+  // const windowHeight = 320;
+  useEffect(() => {
+    window.onscroll = () => {
+      setIsScrolled(window.pageYOffset === 0 ? false : true);
+      return () => (window.onscroll = null);
+    };
+  });
   // for sidebar handle
   const handleSideBar = (): void => {
     setSideBar(!sideBar);
@@ -62,14 +69,6 @@ const Header = () => {
 
   // for scrolling navbar active and hidden
 
-  // const windowHeight = 320;
-  useEffect(() => {
-    window.onscroll = () => {
-      setIsScrolled(window.pageYOffset === 0 ? false : true);
-      return () => (window.onscroll = null);
-    };
-  });
-
   // useEffect(()=>{
   //   function windowScroll() {
   //     if (window.scrollY >= 300) {
@@ -83,9 +82,9 @@ const Header = () => {
 
   // theme change
   useEffect(() => {
-    return()=>{
+    return () => {
       themeChange(false);
-    }
+    };
     // false parameter is required for react project
   }, []);
 
@@ -197,9 +196,9 @@ const Header = () => {
                   className="text-secondary  btn btn-ghost btn-circle mx-1 flex items-center  "
                 >
                   {user ? (
-                    <h5 className="btn btn-ghost btn-circle bg-primary">
-                      {user?.displayName?.slice(0, 2)}
-                    </h5>
+                    <p className="btn btn-ghost btn-circle ">
+                      {user?.displayName?.slice(0, 2)}{" "}
+                    </p>
                   ) : (
                     <FaUser className="text-lg" />
                   )}
@@ -211,51 +210,57 @@ const Header = () => {
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box  w-40"
                 >
                   <ul tabIndex={1} className="">
-                    <li className="mb-2">
-                      <NavLink
-                        to="/"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiEdit /> <span>Edit</span>
-                      </NavLink>
-                    </li>
-                    <li className="mb-2">
-                      <NavLink
-                        to="/signup"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiCog /> <span>Sign up</span>
-                      </NavLink>
-                    </li>
-                    <li className="mb-2">
-                      <NavLink
-                        to="/signin"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiLogInCircle /> <span>Sign in</span>
-                      </NavLink>
-                    </li>
-                    {user && (
-                      <li className="mb-2">
-                        <button
-                          onClick={handleLogOut}
-                          className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        >
-                          <BiLogOutCircle /> Logout
-                        </button>
-                      </li>
+                    {user ? (
+                      <>
+                        <li className="mb-2">
+                          <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiEdit /> <span>Edit</span>
+                          </NavLink>
+                        </li>
+                        <li className="mb-2">
+                          <button
+                            onClick={handleLogOut}
+                            className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                          >
+                            <BiLogOutCircle /> Logout
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="mb-2">
+                          <NavLink
+                            to="/signin"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiLogInCircle /> <span>Sign in</span>
+                          </NavLink>
+                        </li>
+
+                        <li className="mb-2">
+                          <NavLink
+                            to="/signup"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiCog /> <span>Sign up</span>
+                          </NavLink>
+                        </li>
+                      </>
                     )}
                   </ul>
                 </div>
@@ -281,25 +286,64 @@ const Header = () => {
             : '"navbar-center hidden lg:block mt-1 mb-2 border-b border-b-secondary   "'
         }
       >
-        <ul
-          tabIndex={0}
-          className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
-        >
-          {headerData.menuItems.map((item) => (
-            <li key={item.text} className="space-x-6 mb-2">
-              <NavLink
-                to={item.path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-primary mr-3 py-3 font-medium text-sm"
-                    : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                }
-              >
-                {item.text}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        {user ? (
+          <>
+            <ul
+              tabIndex={0}
+              className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
+            >
+              {headerData.menuItems.map((item) => (
+                <li key={item.text} className="space-x-6 mb-2">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primary mr-3 py-3 font-medium text-sm"
+                        : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                    }
+                  >
+                    {item.text}
+                  </NavLink>
+                </li>
+              ))}
+
+              <li className="space-x-6 mb-2">
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary mr-3 py-3 font-medium text-sm"
+                      : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            </ul>
+          </>
+        ) : (
+          <>
+            <ul
+              tabIndex={0}
+              className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
+            >
+              {headerData.menuItems.map((item) => (
+                <li key={item.text} className="space-x-6 mb-2">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primary mr-3 py-3 font-medium text-sm"
+                        : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                    }
+                  >
+                    {item.text}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
 
       {/* scrolling navbar */}

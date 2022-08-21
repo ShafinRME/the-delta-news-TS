@@ -6,10 +6,13 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsPersonCircle } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loadings from "../../components/Loading/Loadings";
+import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
 import auth from "../../config/firebaseConfig.init";
+
 interface FormValues {
   name: string;
   email: string;
@@ -37,12 +40,6 @@ const SignIn = () => {
 
   let signInErrorElement;
 
-  const forgotPassword = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    const email = watch("email");
-    await sendPasswordResetEmail(email);
-    toast("Rest email send");
-  };
-
   useEffect(() => {
     if (signInUser) {
       navigate(from, { replace: true });
@@ -50,11 +47,11 @@ const SignIn = () => {
   }, [signInUser, navigate, from, location]);
 
   if (signInLoading || sending) {
-    return <p>Loading ...</p>;
+    return <Loadings />;
   }
   if (signInError) {
     signInErrorElement = (
-      <p className="text-sm font-medium text-primary text-center">
+      <p className="text-sm font-medium text-red-500 text-center">
         {signInError.message}
       </p>
     );
@@ -64,6 +61,12 @@ const SignIn = () => {
     const password: string = data.password;
     signInWithEmailAndPassword(email, password);
     toast.success("Sign In Success");
+  };
+
+  const forgotPassword = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    const email = watch("email");
+    await sendPasswordResetEmail(email);
+    toast("Rest email send");
   };
 
   return (
@@ -161,25 +164,23 @@ const SignIn = () => {
                 </button>
               </div>
             </form>
-            <div className="">
-              <p className="flex justify-between">
-                <small className="font-bold">Forget Password ?</small>
+            <div className="flex items-center justify-between pt-2">
+              <RouteLink
+                to="signup"
+                title="sign up"
+                description="New user Please !"
+              />
+              {/* forgot password */}
+              <div className="text-sm">
                 <button
                   onClick={forgotPassword}
-                  className="font-bold text-primary"
+                  className="text-primary-content  hover:text-[#539bf5] font-semibold "
                 >
-                  Reset Password
+                  Forgot password?
                 </button>
-              </p>
-              <div className="flex justify-between">
-                <small className="font-bold">New To The Delta Times ?</small>
-                <Link to="/signUp">
-                  <small className="font-bold text-primary">
-                    Please sign up
-                  </small>
-                </Link>
               </div>
             </div>
+
             <SocialLogin />
           </div>
         </div>

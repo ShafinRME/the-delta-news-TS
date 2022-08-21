@@ -45,10 +45,7 @@ const headerData = {
       text: "Contact",
       path: "/contact",
     },
-    {
-      text: "Dashboard",
-      path: "/dashboard",
-    },
+
     {
       text: "Live News",
       path: "/liveNews",

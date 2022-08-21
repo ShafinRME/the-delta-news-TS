@@ -5,14 +5,23 @@ import Logo from "../../../Assets/images/logo/icon.png";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { FC } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../config/firebaseConfig.init";
 
 
 
 interface dashboardSidebarProps {
   handleSidebar: () => void;
+  
 }
 
+// type Props = {
+//   src?: string | undefined;
+// };
 const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
+
+  const [user ] = useAuthState(auth)
+
   return (
     <>
       <aside>
@@ -45,21 +54,27 @@ const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
             {/* user image */}
             <div className="avatar">
               <div className="w-12 rounded-full ">
-                <img
+                {/* <img
                   src="https://placeimg.com/192/192/people"
+               
                   alt="user name"
                   width="100"
                   height="100"
-                />
+                /> */}
+                <p className=" btn bt-ghost btn-circle text-primary-content">
+                  {user?.displayName?.slice(0, 2)}
+                </p>
               </div>
             </div>
             <div className="ml-3">
               {/* user name */}
               <h6 className="text-base text-neutral capitalize font-semibold">
-                Minimal UI
+                {user?.displayName}
               </h6>
               {/* user role */}
-              <p className="text-sm font-semibold text-into-content ">Admin</p>
+              <p className="text-sm font-semibold text-into-content ">
+                {user?.displayName}
+              </p>
             </div>
           </div>
           {/* user end */}
