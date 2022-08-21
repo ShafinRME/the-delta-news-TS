@@ -8,8 +8,8 @@ import { BsPersonCircle } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../config/firebaseConfig.init";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
+import auth from "../../config/firebaseConfig.init";
 interface FormValues {
   name: string;
   email: string;
@@ -84,10 +84,6 @@ const SignIn = () => {
                     required: {
                       value: true,
                       message: "Email is required",
-                    },
-                    pattern: {
-                      value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                      message: "Provide a valid email",
                     },
                   })}
                   type="email"
