@@ -151,6 +151,9 @@ const ModeratorEditModal: FC<Props> = ({ singleNews, setSingleNews }) => {
                         value: 20,
                         message: "Must be 20 characters or longer",
                       },
+                      onChange:(e)=>{
+                        console.log(e.target.value);
+                      }
                     })}
                     type="text"
                     placeholder="News Title"
