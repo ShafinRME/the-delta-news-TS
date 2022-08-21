@@ -15,7 +15,7 @@ interface Props {
     mostPopular: boolean;
   }[];
 }
-const PricingPlan: React.FC<Props> = ({ data }) => {
+const PricingPlan : React.FC<Props> = ({ data }) => {
   return (
     <div className="relative">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-12   mx-auto mx-w-7xl sm:px-6 lg:px-8 ">

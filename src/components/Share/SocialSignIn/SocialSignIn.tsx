@@ -6,7 +6,8 @@ import {
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
-import auth from "../../firebaseConfig.init";
+import auth from "../../../config/firebaseConfig.init";
+import Loadings from "../../Loading/Loadings";
 interface locationProps {
   state: any;
 }
@@ -61,14 +62,11 @@ const SocialLogin = () => {
     }
   }, [googleUser, fbUser, navigate, from, location]);
   if (googleLoading || fbLoading) {
-    return <p>Loading ...</p>;
+    return <Loadings />
   }
   return (
     <div>
-      <div className="divider  font-bold">or</div>
-      <h3 className="text-sm text-center  font-medium text-secondary ">
-        Continue With
-      </h3>
+      <div className="divider font-semibold">Or Sign in with</div>
       {/* all errors  */}
       {googleError && (
         <small className="text-sm font-medium text-primary text-center">

@@ -25,6 +25,7 @@ import Health from "./pages/Health/Health";
 import LiveTv from "./pages/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import Tech from "./pages/Tech/Tech";
+import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -48,7 +49,14 @@ function App() {
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
           {/* dashboard start */}
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          >
             <Route index element={<AppsDetails />} />
             <Route path="admin" element={<Admin />} />
             <Route path="moderator" element={<Moderator />} />

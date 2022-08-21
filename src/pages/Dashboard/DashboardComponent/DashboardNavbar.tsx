@@ -1,13 +1,23 @@
+import { signOut } from "firebase/auth";
 import React, { FC, useEffect } from "react";
-import { BiEdit, BiLogOutCircle, BiUserCircle } from "react-icons/bi";
+import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  BiCog,
+  BiEdit,
+  BiLogInCircle,
+  BiLogOutCircle,
+  BiUserCircle,
+} from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { themeChange } from "theme-change";
+import auth from "../../../config/firebaseConfig.init";
 
 interface dashboardNavbarProps {
   handleSidebar: () => void;
 }
 
 const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
+  const [user] = useAuthState(auth);
   // theme change
   useEffect(() => {
     return () => {
@@ -15,7 +25,9 @@ const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
     };
     // false parameter is required for react project
   }, []);
-
+  const handleLogOut = (): void => {
+    signOut(auth);
+  };
   return (
     <>
       <div className=" navbar bg-base-100  lg:px-6   top-0  w-[100%] shadow-3xl  rounded-b-md">
@@ -98,68 +110,96 @@ const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
               </div>
             </div>
           </div>
+
+          {/* user details */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  src="https://placeimg.com/80/80/people"
-                  alt="user "
-                  width="100"
-                  height="100"
-                />
-              </div>
+              {user ? (
+                <p className=" btn bt-ghost btn-circle text-primary-content">
+                  {user.displayName?.slice(0, 2)}
+                </p>
+              ) : (
+                <>
+                  <div className="w-10 rounded-full">
+                    <img
+                      src="https://placeimg.com/80/80/people"
+                      alt="user "
+                      width="100"
+                      height="100"
+                    />
+                  </div>
+                </>
+              )}
             </label>
-            {/* <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link to="/" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/">Settings</Link>
-              </li>
-              <li>
-                <Link to="/">Logout</Link>
-              </li>
-            </ul> */}
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="mb-2">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-primary mr-3 py-3 font-medium text-sm"
-                      : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                  }
-                >
-                  <BiUserCircle /> <span>Profile</span>
-                  <span className="badge">New</span>
-                </NavLink>
-              </li>
-              <li className="mb-2">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-primary mr-3 py-3 font-medium text-sm"
-                      : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                  }
-                >
-                  <BiEdit /> <span>Edit</span>
-                </NavLink>
-              </li>
-              <li className="mb-2">
-                <button className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500">
-                  <BiLogOutCircle /> Logout
-                </button>
-              </li>
+              {user ? (
+                <>
+                  <li className="mb-2">
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary mr-3 py-3 font-medium text-sm"
+                          : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                      }
+                    >
+                      <BiUserCircle /> <span>Profile</span>
+                      <span className="badge">New</span>
+                    </NavLink>
+                  </li>
+                  <li className="mb-2">
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary mr-3 py-3 font-medium text-sm"
+                          : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                      }
+                    >
+                      <BiEdit /> <span>Edit</span>
+                    </NavLink>
+                  </li>
+                  <li className="mb-2">
+                    <button
+                      className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                      onClick={handleLogOut}
+                    >
+                      <BiLogOutCircle /> Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="mb-2">
+                    <NavLink
+                      to="/signin"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary mr-3 py-3 font-medium text-sm"
+                          : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                      }
+                    >
+                      <BiLogInCircle /> <span>Sign in</span>
+                    </NavLink>
+                  </li>
+
+                  <li className="mb-2">
+                    <NavLink
+                      to="/signup"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primary mr-3 py-3 font-medium text-sm"
+                          : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                      }
+                    >
+                      <BiCog /> <span>Sign up</span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

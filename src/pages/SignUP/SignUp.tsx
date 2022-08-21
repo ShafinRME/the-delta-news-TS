@@ -6,10 +6,12 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { HiUserAdd } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../components/firebaseConfig.init";
+import auth from "../../config/firebaseConfig.init";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
+import RouteLink from "../../components/Share/RouterLink/RouteLink";
+import Loadings from "../../components/Loading/Loadings";
 interface FormValues {
   name: string;
   email: string;
@@ -38,7 +40,7 @@ const SignUp = () => {
   }, [emailUser, navigate]);
 
   if (emailLoading || updating) {
-    return <p>Loading</p>;
+    return <Loadings />
   }
   if (emailError) {
     emailErrorElement = (
@@ -180,11 +182,12 @@ const SignUp = () => {
               </div>
             </form>
             <div className="pt-2">
-              <small className="font-bold">Already have an account </small> ?
-              &nbsp;
-              <Link to="/signIn">
-                <small className="font-bold text-primary">Please sign in</small>
-              </Link>
+    
+              <RouteLink
+                to="login"
+                title="please login"
+                description="Already have an account?"
+              />
             </div>
             <SocialLogin />
           </div>
