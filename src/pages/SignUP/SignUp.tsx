@@ -44,7 +44,7 @@ const SignUp = () => {
   }
   if (emailError) {
     emailErrorElement = (
-      <small className="text-sm font-medium text-primary text-center">
+      <small className="text-sm font-medium text-red-500 text-center">
         {emailError.message}
       </small>
     );

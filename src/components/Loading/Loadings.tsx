@@ -4,7 +4,7 @@ const Loadings = () => {
   return (
     <>
       <div className="flex justify-center">
-        <div className="loadingio-spinner-spinner-w3kwwsv7i0k m">
+        <div className="loadingio-spinner-spinner-w3kwwsv7i0k">
           <div className="ldio-ra13xgbwmkd">
             <div></div>
             <div></div>

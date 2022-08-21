@@ -69,12 +69,12 @@ const SocialLogin = () => {
       <div className="divider font-semibold">Or Sign in with</div>
       {/* all errors  */}
       {googleError && (
-        <small className="text-sm font-medium text-primary text-center">
+        <small className="text-sm font-medium text-red-500 text-center">
           {googleError.message}
         </small>
       )}
       {fbError && (
-        <small className="text-sm font-medium text-primary text-center">
+        <small className="text-sm font-medium text-red-500 text-center">
           {fbError.message}
         </small>
       )}

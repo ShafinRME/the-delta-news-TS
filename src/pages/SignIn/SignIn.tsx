@@ -50,7 +50,7 @@ const SignIn = () => {
   }
   if (signInError) {
     signInErrorElement = (
-      <p className="text-sm font-medium text-primary text-center">
+      <p className="text-sm font-medium text-red-500 text-center">
         {signInError.message}
       </p>
     );
