@@ -8,8 +8,8 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { HiUserAdd } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../components/firebaseConfig.init";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
+import auth from "../../config/firebaseConfig.init";
 interface FormValues {
   name: string;
   email: string;
@@ -99,10 +99,6 @@ const SignUp = () => {
                       value: true,
                       message: "Email is required",
                     },
-                    pattern: {
-                      value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-                      message: "Provide a valid email",
-                    },
                   })}
                   type="email"
                   placeholder="Email"
@@ -111,14 +107,12 @@ const SignUp = () => {
                 <label className="label">
                   {errors.email?.type === "required" && (
                     <span className="label-text-alt text-red-500">
-                      {" "}
-                      {errors.email.message}{" "}
+                      {errors.email.message}
                     </span>
                   )}
                   {errors.email?.type === "pattern" && (
                     <span className="label-text-alt text-red-500">
-                      {" "}
-                      {errors.email.message}{" "}
+                      {errors.email.message}
                     </span>
                   )}
                 </label>
