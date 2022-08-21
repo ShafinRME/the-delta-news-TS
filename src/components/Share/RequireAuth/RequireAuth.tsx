@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
 import Loadings from "../../Loading/Loadings";
 
-const RequireAuth = ({children}: { children: JSX.Element }) => {
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const [user, loading] = useAuthState(auth);
   const location = useLocation();
 
@@ -14,7 +14,6 @@ const RequireAuth = ({children}: { children: JSX.Element }) => {
   if (!user) {
     return <Navigate to="/signin" state={{ from: location }} replace />;
   }
-
 
   // if (!user || !admin) {
   //   signOut(auth);

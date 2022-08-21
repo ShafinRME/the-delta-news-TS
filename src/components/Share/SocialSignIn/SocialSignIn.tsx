@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
 import Loadings from "../../Loading/Loadings";
+
 interface locationProps {
   state: any;
 }
@@ -62,7 +63,7 @@ const SocialLogin = () => {
     }
   }, [googleUser, fbUser, navigate, from, location]);
   if (googleLoading || fbLoading) {
-    return <Loadings />
+    return <Loadings />;
   }
   return (
     <div>

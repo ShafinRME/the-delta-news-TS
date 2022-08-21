@@ -6,12 +6,13 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsPersonCircle } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
-import {  useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../config/firebaseConfig.init";
-import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
-import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import Loadings from "../../components/Loading/Loadings";
+import RouteLink from "../../components/Share/RouterLink/RouteLink";
+import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
+import auth from "../../config/firebaseConfig.init";
+
 interface FormValues {
   name: string;
   email: string;
@@ -86,10 +87,6 @@ const SignIn = () => {
                     required: {
                       value: true,
                       message: "Email is required",
-                    },
-                    pattern: {
-                      value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-                      message: "Provide a valid email",
                     },
                   })}
                   type="email"
