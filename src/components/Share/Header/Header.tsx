@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { themeChange } from "theme-change";
 // import ActiveLinks from "./ActiveLink";
+import { signOut } from "firebase/auth";
+import DarkMod from "./DarkMod";
 import headerData from "./HeaderData";
+import MobileNavbar from "./MobileNavbar";
 import TodayDate from "./TodayDate";
 import Weather from "./Weather";
-import MobileNavbar from "./MobileNavbar";
-import DarkMod from "./DarkMod";
 // import {
 //   BiLogInCircle,
 //   BiLogOutCircle,
@@ -14,14 +15,15 @@ import DarkMod from "./DarkMod";
 //   BiCog,
 //   BiEdit,
 // } from "react-icons/bi";
-import { Link, NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
-import Clock from "./Clock";
+import { Link, NavLink } from "react-router-dom";
+import auth from "../../../config/firebaseConfig.init";
+
+import Loading from "../../Loading/Loading";
 import Search from "../../Search/Search";
 import SearchResult from "../../Search/SearchResult";
-// import { useAuthState } from "react-firebase-hooks/auth";
-// import auth from "../../../config/firebase.init";
-
+import Clock from "./Clock";
 export interface SearchData {
   _id?: string;
   title?: string;
@@ -30,12 +32,21 @@ export interface SearchData {
 }
 
 const Header = () => {
+  const [user, loading] = useAuthState(auth);
   const [searchBarActive, setSearchBarActive] = useState<boolean>(false);
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
   const [searchNews, setSearchNews] = useState<SearchData[]>([]);
 
+  // const windowHeight = 320;
+  useEffect(() => {
+    window.onscroll = () => {
+      setIsScrolled(window.pageYOffset === 0 ? false : true);
+      return () => (window.onscroll = null);
+    };
+  });
   // for sidebar handle
   const handleSideBar = (): void => {
     setSideBar(!sideBar);
@@ -58,14 +69,6 @@ const Header = () => {
 
   // for scrolling navbar active and hidden
 
-  // const windowHeight = 320;
-  useEffect(() => {
-    window.onscroll = () => {
-      setIsScrolled(window.pageYOffset === 0 ? false : true);
-      return () => (window.onscroll = null);
-    };
-  });
-
   // useEffect(()=>{
   //   function windowScroll() {
   //     if (window.scrollY >= 300) {
@@ -79,14 +82,20 @@ const Header = () => {
 
   // theme change
   useEffect(() => {
-    themeChange(false);
+    return () => {
+      themeChange(false);
+    };
     // false parameter is required for react project
   }, []);
 
-  // const logOut = () => {
-  //   signOut(auth);
-  // };
+  const handleLogOut = (): void => {
+    signOut(auth);
+  };
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
+  console.log(user);
   return (
     <>
       <div
@@ -186,7 +195,14 @@ const Header = () => {
                   tabIndex={1}
                   className="text-secondary  btn btn-ghost btn-circle mx-1 flex items-center  "
                 >
-                  <FaUser className="text-lg" />
+                  {user ? (
+                    <p className="btn btn-ghost btn-circle ">
+                      {user?.displayName?.slice(0, 2)}{" "}
+                    </p>
+                  ) : (
+                    <FaUser className="text-lg" />
+                  )}
+                  {/* <FaUser className="text-lg" /> */}
                 </label>
 
                 <div
@@ -194,47 +210,58 @@ const Header = () => {
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box  w-40"
                 >
                   <ul tabIndex={1} className="">
-                    <li className="mb-2">
-                      <NavLink
-                        to="/"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiEdit /> <span>Edit</span>
-                      </NavLink>
-                    </li>
-                    <li className="mb-2">
-                      <NavLink
-                        to="/signup"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiCog /> <span>Signup</span>
-                      </NavLink>
-                    </li>
-                    <li className="mb-2">
-                      <NavLink
-                        to="/signin"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-primary mr-3 py-3 font-medium text-sm"
-                            : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                        }
-                      >
-                        <BiLogInCircle /> <span>Login</span>
-                      </NavLink>
-                    </li>
-                    <li className="mb-2">
-                      <button className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500">
-                        <BiLogOutCircle /> Logout
-                      </button>
-                    </li>
+                    {user ? (
+                      <>
+                        <li className="mb-2">
+                          <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiEdit /> <span>Edit</span>
+                          </NavLink>
+                        </li>
+                        <li className="mb-2">
+                          <button
+                            onClick={handleLogOut}
+                            className="text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                          >
+                            <BiLogOutCircle /> Logout
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="mb-2">
+                          <NavLink
+                            to="/signin"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiLogInCircle /> <span>Sign in</span>
+                          </NavLink>
+                        </li>
+
+                        <li className="mb-2">
+                          <NavLink
+                            to="/signup"
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-primary mr-3 py-3 font-medium text-sm"
+                                : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                            }
+                          >
+                            <BiCog /> <span>Sign up</span>
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -259,25 +286,64 @@ const Header = () => {
             : '"navbar-center hidden lg:block mt-1 mb-2 border-b border-b-secondary   "'
         }
       >
-        <ul
-          tabIndex={0}
-          className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
-        >
-          {headerData.menuItems.map((item) => (
-            <li key={item.text} className="space-x-6 mb-2">
-              <NavLink
-                to={item.path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-primary mr-3 py-3 font-medium text-sm"
-                    : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
-                }
-              >
-                {item.text}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        {user ? (
+          <>
+            <ul
+              tabIndex={0}
+              className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
+            >
+              {headerData.menuItems.map((item) => (
+                <li key={item.text} className="space-x-6 mb-2">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primary mr-3 py-3 font-medium text-sm"
+                        : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                    }
+                  >
+                    {item.text}
+                  </NavLink>
+                </li>
+              ))}
+
+              <li className="space-x-6 mb-2">
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-primary mr-3 py-3 font-medium text-sm"
+                      : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            </ul>
+          </>
+        ) : (
+          <>
+            <ul
+              tabIndex={0}
+              className="flex flex-row justify-center items-center border-b border-b-secondary mb-1 mt-2"
+            >
+              {headerData.menuItems.map((item) => (
+                <li key={item.text} className="space-x-6 mb-2">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primary mr-3 py-3 font-medium text-sm"
+                        : "text-secondary mr-3 py-3 font-medium text-sm hover:text-primary transition-colors duration-500"
+                    }
+                  >
+                    {item.text}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
 
       {/* scrolling navbar */}

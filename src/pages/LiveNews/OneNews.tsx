@@ -1,15 +1,33 @@
 import React from "react";
-type OneProps = {
-    singleNews : {
-      id: number;
-      image: string;
-      text: string;
-      link: string;
-      path: string;
-    };
-  };
+import ReactPlayer from "react-player";
+import { useParams } from "react-router-dom";
 
-export default function OneNews({ singleNews }: OneProps) {
-    const {path}=singleNews
-  return <div>OneNews {path}</div>;
-}
+import LiveNewsData from "../../data/LiveNewsData";
+
+const OneNews = () => {
+  const { path } = useParams();
+
+  return (
+    <div className="mx-auto">
+      <div>
+        {LiveNewsData?.map((item) => {
+          const pathData = item.path;
+
+          if (pathData === path) {
+            return (
+              <ReactPlayer
+                key={item.id}
+                playing={true}
+                controls={true}
+                width="100%"
+                url={item.link}
+              />
+            );
+          }
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default OneNews;

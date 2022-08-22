@@ -1,9 +1,11 @@
-import React from 'react';
+import Loadings from '../../../../components/Loading/Loadings';
 
 const Ecommerce = () => {
   return (
     <>
-      ecccom
+      ecom
+
+      <Loadings />
     </>
   );
 };

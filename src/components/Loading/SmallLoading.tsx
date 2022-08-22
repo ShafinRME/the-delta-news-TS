@@ -3,7 +3,7 @@ import React from 'react';
 const SmallLoading = () => {
   return (
     <>
-      <div className="h-screen flex justify-center">
+      <div className="">
         <button
           disabled
           type="button"

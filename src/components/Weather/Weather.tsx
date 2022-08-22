@@ -16,6 +16,7 @@ const Weather = () => {
   const [location, setLocation] = useState("");
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}`;
 
+
   const searchLocation = (event: any) => {
     if (event.key === "Enter") {
       fetch(url)
@@ -28,6 +29,11 @@ const Weather = () => {
 //   const { isLoading, data } = useQuery(["weatherData"], () =>
 //     fetch(url).then((res) => res.json())
 //   );
+
+  const { isLoading, data } = useQuery(["weatherData"], () =>
+    fetch(url).then((res) => res.json())
+  );
+
 
 //   if (isLoading) {
 //     return <SmallLoading />;
