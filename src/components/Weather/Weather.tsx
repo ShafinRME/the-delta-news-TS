@@ -1,38 +1,28 @@
-import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import SmallLoading from "../Loading/SmallLoading";
+// import { useQuery } from "@tanstack/react-query";
+// import { useState } from "react";
 
-const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
-interface WeatherProps {
-  description: string;
-  icon: string;
-  id: number;
-  main: string;
-}
+// const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
 const Weather = () => {
-  const [weather, setWeather] = useState({});
-  const [location, setLocation] = useState("");
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}`;
+  // const [weather, setWeather] = useState({});
+  // const [location, setLocation] = useState("");
+  // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}`;
 
 
-  const searchLocation = (event: any) => {
-    if (event.key === "Enter") {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => setWeather(data));
-      setLocation("");
-    }
-  };
+  // const searchLocation = (event: any) => {
+  //   if (event.key === "Enter") {
+  //     fetch(url)
+  //       .then((res) => res.json())
+  //       .then((data) => setWeather(data));
+  //     setLocation("");
+  //   }
+  // };
 
 //   const { isLoading, data } = useQuery(["weatherData"], () =>
 //     fetch(url).then((res) => res.json())
 //   );
 
-  const { isLoading, data } = useQuery(["weatherData"], () =>
-    fetch(url).then((res) => res.json())
-  );
 
 
 //   if (isLoading) {
@@ -42,13 +32,13 @@ const Weather = () => {
   return (
     <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 text-gray-300 z-10">
       <div className="search">
-        <input
+        {/* <input
           value={location}
           onChange={(event) => setLocation(event.target.value)}
           onKeyPress={searchLocation}
           placeholder="Enter Location"
           type="text"
-        />
+        /> */}
       </div>
       {/* Top */}
       <div className="relative flex justify-between pt-12">
