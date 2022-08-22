@@ -26,6 +26,7 @@ import LiveTv from "./pages/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import Tech from "./pages/Tech/Tech";
 import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
+import SingleNews from "./pages/Home/SingleNews";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/tech" element={<Tech />} />
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/singleNews/:slug" element={<SingleNews />} />
             {/* <Route path="livenews/:singlelivenews" element={<SingleLiveNews />} /> */}
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />

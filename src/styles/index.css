@@ -25,6 +25,18 @@ a {
   .heading-title {
     @apply text-secondary font-semibold text-xl md:text-lg;
   }
+  .news-sub-title {
+    @apply font-heading text-lg md:text-[1.65rem] text-secondary hover:text-neutral hover:transition-colors hover:duration-300 font-light;
+  }
+  .news-live-title {
+    @apply font-heading text-lg md:text-[1.2rem] text-secondary hover:text-neutral hover:transition-colors hover:duration-300 font-semibold leading-[1.5rem] ;
+  }
+  .news-details {
+    @apply font-description  text-[1rem] tracking-wide leading-5 pt-2 text-neutral;
+  }
+  .news-live-details {
+    @apply font-description  text-[1rem] tracking-wide leading-5 pt-2 text-neutral;
+  }
 
   .details {
     @apply text-neutral text-lg md:text-base font-medium md:font-normal;
@@ -46,7 +58,9 @@ a {
   font-family: "Aclonica";
   src: url("../../public/font/Aclonica-Regular.ttf");
 }
-
+/* font-family: 'Merriweather', serif;
+font-family: 'Source Serif Pro', serif;
+font-family: 'Tinos', serif; */
 /* input field */
 /* ::-webkit-file-upload-button{
   background: #007a70 ;

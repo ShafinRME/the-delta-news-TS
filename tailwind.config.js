@@ -18,7 +18,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ["Aclonica", "sans - serif"],
+        display: ["Aclonica", "sans-serif"],
+        title: ["Source Serif Pro", "serif"],
+        heading: ["Merriweather", "serif"],
+        description: ["Tinos", "serif"],
       },
       boxShadow: {
         "3xl": "rgb(113 122 131 / 11%) 0px 7px 30px 0px",
@@ -51,6 +54,7 @@ module.exports = {
           // error: "#176f6b",
           error: "#111111",
           "error-content": "#007a70",
+          "error-content1": "#c7c7c7",
         },
       },
       {
@@ -72,6 +76,7 @@ module.exports = {
           "warning-content": "#444c56", ///border colors
           error: "#347d39",
           "error-content": "#347d39",
+          "error-content1": "#444c56",
         },
       },
     ],
