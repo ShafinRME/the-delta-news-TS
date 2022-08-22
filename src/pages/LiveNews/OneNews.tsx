@@ -24,6 +24,7 @@ const OneNews = () => {
               />
             );
           }
+          return null;
         })}
       </div>
     </div>
