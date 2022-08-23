@@ -20,6 +20,7 @@ import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import User from "./pages/Dashboard/Pages/User/User";
 import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
+import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
 import LiveTv from "./pages/LiveTv";
@@ -27,7 +28,6 @@ import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
-
 
 function App() {
   return (
@@ -47,6 +47,7 @@ function App() {
             <Route path="/tech" element={<Tech />} />
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/singleNews/:slug" element={<SingleNews />} />
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
