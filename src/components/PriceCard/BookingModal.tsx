@@ -127,7 +127,7 @@ const BookingModal: React.FC<Props> = ({
               readOnly
               name="price"
               type="price"
-              value={`$ ${bookingServices.price}`}
+              value={`Price: $ ${bookingServices.price} ${bookingServices.currency}`}
               className={` input input-bordered input-primary w-full max-w-xs ${
                 bookingServices.mostPopular
                   ? " input-primary  "
