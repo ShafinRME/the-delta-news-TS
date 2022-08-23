@@ -37,8 +37,13 @@ const Header = () => {
   // const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [sideBar, setSideBar] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
   const [searchNews, setSearchNews] = useState<SearchData[]>([]);
+
+  // theme change
+  useEffect(  () => {
+    themeChange(false);
+    // false parameter is required for react project
+  });
 
   // const windowHeight = 320;
   useEffect(() => {
@@ -80,14 +85,6 @@ const Header = () => {
   //   window.addEventListener("scroll", windowScroll);
   // })
 
-  // theme change
-  useEffect(() => {
-    return () => {
-      themeChange(false);
-    };
-    // false parameter is required for react project
-  }, []);
-
   const handleLogOut = (): void => {
     signOut(auth);
   };
@@ -95,7 +92,6 @@ const Header = () => {
     return <Loading></Loading>;
   }
 
-  console.log(user);
   return (
     <>
       <div

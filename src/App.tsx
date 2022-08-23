@@ -1,8 +1,14 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
 import Error from "./pages/404/Error";
+import Advertisement from "./pages/Advertisement";
+import Books from "./pages/Books/Books";
+import Business from "./pages/Business/Business";
+import Contact from "./pages/contact";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
@@ -12,24 +18,16 @@ import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import User from "./pages/Dashboard/Pages/User/User";
+import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
 import LiveNews from "./pages/LiveNews/LiveNews";
-
-import SignUp from "./pages/SignUP/SignUp";
-import Sports from "./pages/Sports";
-
-import { ToastContainer } from "react-toastify";
-import Advertisement from "./pages/Advertisement";
-import Books from "./pages/Books/Books";
-import Business from "./pages/Business/Business";
-import Contact from "./pages/contact";
-import Health from "./pages/Health/Health";
+import OneNews from "./pages/LiveNews/OneNews";
 import LiveTv from "./pages/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUP/SignUp";
+import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
 
-import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
-import OneNews from "./pages/LiveNews/OneNews";
 
 function App() {
   return (
@@ -44,13 +42,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/livenews" element={<LiveNews />}></Route>
             <Route path="/livenews/:path" element={<OneNews />} />
-
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
             <Route path="/tech" element={<Tech />} />
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
-
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
