@@ -55,12 +55,28 @@ const Home = () => {
               ))}
             </div>
           </div>
-          {/* last three card title and details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 ">
+          {/* middle three card title and details */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 border-b border-b-warning-content pb-4">
             {news?.slice(9, 12).map((item) => (
               <div
                 key={item.id}
-                className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0"
+                className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
+              >
+                <Link to={`singleNews/${item.slug}`}>
+                  <h1 className="news-sub-title-three-col">{item.title}</h1>
+                  <p className="news-details pt-4">
+                    {`${item.description.slice(0, 90)}...`}
+                  </p>
+                </Link>
+              </div>
+            ))}
+          </div>
+          {/* last six card title and details and picture */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 ">
+            {news?.slice(12, 15).map((item) => (
+              <div
+                key={item.id}
+                className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
               >
                 <Link to={`singleNews/${item.slug}`}>
                   <h1 className="news-sub-title-three-col">{item.title}</h1>
@@ -74,6 +90,7 @@ const Home = () => {
         </div>
         {/* first row  layout right*/}
         <div className="xl:col-span-3 xl:border-l xl:border-l-warning-content xl:pl-4 ">
+          {/* advertisement start */}
           {news.slice(0, 1).map((item) => (
             <div
               key={item.id}
@@ -94,35 +111,39 @@ const Home = () => {
               </div>
             </div>
           ))}
+          {/* advertisement end */}
           {/* first row  layout right last two parts*/}
-          <div className="grid grid-cols-1 md:grid-cols-2 pt-4 gap-4 ">
-            {news.slice(18, 19).map((item) => (
-              <div key={item.id} className="div">
-                <Link to={`singleNews/${item.slug}`}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-[95%] xl:h-24"
-                  />
-                  <h2 className="feature-news-title ">{item.title}</h2>
-                </Link>
-              </div>
-            ))}
-            {news.slice(14, 15).map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 pt-4 gap-4 xl:gap-0  ">
+            {news.slice(18, 20).map((item) => (
               <div
                 key={item.id}
-                className="xl:border-l xl:border-l-warning-content pl-4"
+                className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
                 <Link to={`singleNews/${item.slug}`}>
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-[95%] xl:h-24"
+                    className=" xl:h-24"
                   />
                   <h2 className="feature-news-title ">{item.title}</h2>
                 </Link>
               </div>
             ))}
+            {/* {news.slice(14, 15).map((item) => (
+              <div
+                key={item.id}
+                className="xl:border-l xl:border-l-warning-content xl:pl-4"
+              >
+                <Link to={`singleNews/${item.slug}`}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="md:w-[95%] xl:h-24"
+                  />
+                  <h2 className="feature-news-title ">{item.title}</h2>
+                </Link>
+              </div>
+            ))} */}
           </div>
         </div>
       </section>
