@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyCE5m0YBN1oZamkK4FixxPvmefcAKBgUpo",
+  authDomain: "the-delta-times-ba960.firebaseapp.com",
+  projectId: "the-delta-times-ba960",
+  storageBucket: "the-delta-times-ba960.appspot.com",
+  messagingSenderId: "327848298287",
+  appId: "1:327848298287:web:da04b18b2de92bfdcfc3da",
 };
 
 // Initialize Firebase

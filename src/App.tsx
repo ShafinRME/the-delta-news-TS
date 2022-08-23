@@ -25,9 +25,8 @@ import Contact from "./pages/contact";
 import Health from "./pages/Health/Health";
 import SignIn from "./pages/SignIn/SignIn";
 import Tech from "./pages/Tech/Tech";
-import Advertisement from "./pages/Advertisement";
 import LiveTv from "./pages/LiveTv";
-
+import Advertisement from "./pages/Advertisement";
 
 function App() {
   return (

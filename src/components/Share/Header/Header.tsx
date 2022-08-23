@@ -85,7 +85,7 @@ const Header = () => {
   useEffect(() => {
     themeChange(false);
     // false parameter is required for react project
-  }, []);
+  });
 
   const handleLogOut = (): void => {
     signOut(auth);
@@ -94,7 +94,7 @@ const Header = () => {
     return <Loading></Loading>;
   }
 
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <div

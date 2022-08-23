@@ -14,7 +14,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
-  console.log(news);
+  // console.log(news);
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
