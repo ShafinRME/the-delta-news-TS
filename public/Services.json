@@ -18,9 +18,8 @@
       "title": "Silver",
       "price": 9.99,
       "currency": "USD",
-      "frequency": "/month",
-      "description":
-           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+      "frequency": "/3 days",
+      "description":"That is our popular package. On this package you can show your advertisement on our site for 3 days. For booking please continue with START NOW button.",
       "features": [
            "We will show your banner 3 days",
            "Basic analytics",
@@ -43,9 +42,9 @@
       "title": "Gold",
       "price": 29.99,
       "currency": "USD",
-      "frequency": "/month",
+      "frequency": "/5 days",
       "description":
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+        "That is our most popular package. On this package you can show your advertisement on our site for 5 days. For booking please continue with START NOW button.",
       "features": [
         "We will show your banner 5 days",
         "Basic analytics",
@@ -70,9 +69,9 @@
        "title": "Diamond",
        "price": 49.99,
        "currency": "USD",
-       "frequency": "/month",
+       "frequency": "/7 days",
        "description":
-         "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+         "That is our popular package. On this package you can show your advertisement on our site for 7 days. For booking please continue with START NOW button.",
        "features": [
          "We will show your banner 7 days",
          "Basic analytics",
@@ -99,9 +98,9 @@
       "title": "Silver",
       "price": 4.99,
       "currency": "USD",
-      "frequency": "/month",
+      "frequency": "/7 days",
       "description":
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+        "That is our popular package. On this package you can see 2 live television Chanel for 7 days. For booking please continue with START NOW button.",
       "features": [
         " 7 days Limit",
         "Email Notification",
@@ -124,9 +123,9 @@
       "title": "Gold",
       "price": 8.99,
       "currency": "USD",
-      "frequency": "/month",
+      "frequency": "/15 days",
       "description":
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+        "That is our most popular package. On this package you can see 4 live television Chanel for 15 days. For booking please continue with START NOW button.",
       "features": [
         " 15 days Limit",
         "Email Notification",
@@ -150,7 +149,7 @@
       "currency": "USD",
       "frequency": "/month",
       "description":
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, soluta!",
+        "That is our popular package. On this package you can see 6 live television Chanel for 1 month. For booking please continue with START NOW button.",
       "features": [
         " 30 days Limit",
         "Email Notification",
