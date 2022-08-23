@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
-  useUpdateProfile,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { HiUserAdd } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import auth from "../../components/firebaseConfig.init";
+import Loadings from "../../components/Loading/Loadings";
+import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
+import auth from "../../config/firebaseConfig.init";
+
 interface FormValues {
   name: string;
   email: string;
@@ -38,11 +41,11 @@ const SignUp = () => {
   }, [emailUser, navigate]);
 
   if (emailLoading || updating) {
-    return <p>Loading</p>;
+    return <Loadings />;
   }
   if (emailError) {
     emailErrorElement = (
-      <small className="text-sm font-medium text-primary text-center">
+      <small className="text-sm font-medium text-red-500 text-center">
         {emailError.message}
       </small>
     );
@@ -99,10 +102,6 @@ const SignUp = () => {
                       value: true,
                       message: "Email is required",
                     },
-                    pattern: {
-                      value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                      message: "Provide a valid email",
-                    },
                   })}
                   type="email"
                   placeholder="Email"
@@ -111,14 +110,12 @@ const SignUp = () => {
                 <label className="label">
                   {errors.email?.type === "required" && (
                     <span className="label-text-alt text-red-500">
-                      {" "}
-                      {errors.email.message}{" "}
+                      {errors.email.message}
                     </span>
                   )}
                   {errors.email?.type === "pattern" && (
                     <span className="label-text-alt text-red-500">
-                      {" "}
-                      {errors.email.message}{" "}
+                      {errors.email.message}
                     </span>
                   )}
                 </label>
@@ -180,11 +177,11 @@ const SignUp = () => {
               </div>
             </form>
             <div className="pt-2">
-              <small className="font-bold">Already have an account </small> ?
-              &nbsp;
-              <Link to="/signIn">
-                <small className="font-bold text-primary">Please sign in</small>
-              </Link>
+              <RouteLink
+                to="login"
+                title="please login"
+                description="Already have an account?"
+              />
             </div>
             <SocialLogin />
           </div>

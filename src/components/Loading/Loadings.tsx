@@ -1,9 +1,9 @@
-import './Loadings.css'
+import './Loadings.css';
 
-const Loading = () => {
+const Loadings = () => {
   return (
     <>
-      <div className="h-screen flex justify-center">
+      <div className="flex justify-center">
         <div className="loadingio-spinner-spinner-w3kwwsv7i0k">
           <div className="ldio-ra13xgbwmkd">
             <div></div>
@@ -26,4 +26,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Loadings;
