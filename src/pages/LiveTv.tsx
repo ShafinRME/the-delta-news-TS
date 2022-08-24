@@ -7,14 +7,15 @@ import HeroData from "../components/Hero/HeroData";
 import PricingPlan from "../components/PriceCard/PricingPlan";
 import SectionTitle from "../components/Share/SectionTitle/SectionTitle";
 import faqData from "../data/faqData";
-import pricingData from "../data/pricingData";
 import ServicesData from "../data/ServicesData";
+import useServices from "../hooks/AllServicesData";
 import liveNews from "../Images/service/liveNews.png";
 import updateNews from "../Images/service/updateNews.png";
 
 const LiveTv = () => {
+  const [services] = useServices();
   const data = ServicesData.newsService;
-  const liveNewsPlan = pricingData.newsPlan;
+  const liveNewsPlan = services[1];
   const liveData = HeroData.liveData;
   const advDescription = HeroData.advDescription;
 

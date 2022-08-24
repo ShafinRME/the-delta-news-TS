@@ -10,7 +10,7 @@ const PageTitle = ({
   return (
     <>
       <Helmet>
-        <title>{title}- Delta News</title>
+        <title>{title}</title>
         {description && <meta name="description" content={description}></meta>}
       </Helmet>
     </>
