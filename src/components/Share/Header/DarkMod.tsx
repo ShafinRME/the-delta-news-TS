@@ -1,11 +1,13 @@
-import React from 'react';
-
 const DarkMod = () => {
   return (
     <>
       <label className="swap swap-rotate btn btn-ghost btn-circle">
         {/* <!-- this hidden checkbox controls the state --> */}
-        <input type="checkbox" data-toggle-theme="light,dark" />
+        <input
+          type="checkbox"
+          data-toggle-theme="light,dark"
+          data-act-class="ACTIVECLASS"
+        />
 
         {/* <!-- sun icon --> */}
         <svg

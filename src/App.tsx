@@ -30,6 +30,7 @@ import Tech from "./pages/Tech/Tech";
 
 import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import OneNews from "./pages/LiveNews/OneNews";
+import Photo from "./pages/Photo/Photo";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
+            <Route path="/photo" element={<Photo />}></Route>
           </Route>
           {/* dashboard start */}
           <Route

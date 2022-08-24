@@ -1,10 +1,9 @@
-
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 // import { yupResolver } from "@hookform/resolvers/yup";
 import categoryData from "../../../../data/category";
-import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
-import { toast } from "react-toastify";
 import SubmitModal from "../../DashboardComponent/Modal/SubmitModal";
+import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
 
 const AddNews = () => {
   // const [slugValue, setSlugValue] = useState(null);
@@ -19,7 +18,10 @@ const AddNews = () => {
     title: string;
     reference: string;
     category: string;
+    subCategory: string;
     date: string;
+    photo: string;
+    breakingNews: string;
     description: string;
     image: string;
     type: string;
@@ -41,9 +43,12 @@ const AddNews = () => {
 
     const slug = newSlug;
     const category = data.category;
+    const subCategory = data.subCategory;
     console.log("first dat", category);
     const date = fullDate;
     const reference = data.reference;
+    const photo = data.photo;
+    const breakingNews = data.breakingNews;
     const description = data.description;
     const image = data.image[0];
     const formDate = new FormData();
@@ -62,8 +67,11 @@ const AddNews = () => {
             date: date,
             title: title,
             category: category,
+            subCategory: subCategory,
             slug: slug,
             reference: reference,
+            photo: photo,
+            breakingNews: breakingNews,
             description: description,
             image: image,
           };
@@ -187,6 +195,35 @@ const AddNews = () => {
             </div>
           </div>
 
+          {/* News subCategory's */}
+          <div className="">
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className=" label-text-modify">Sub-Category</span>
+              </label>
+              <select
+                defaultValue={"DEFAULT"}
+                className="select input-modify   font-normal w-full"
+                {...register("subCategory")}
+              >
+                <option value="DEFAULT" disabled>
+                  Choose a category...
+                </option>
+                {categoryData.category.map((item) => (
+                  <option key={item.id}>{item.title}</option>
+                ))}
+              </select>
+
+              <label className="label">
+                {errors.category?.type === "required" && (
+                  <small className="text-red-500">
+                    {errors.category.message}
+                  </small>
+                )}
+              </label>
+            </div>
+          </div>
+
           {/* News Reference */}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="form-control w-full ">
@@ -239,6 +276,37 @@ const AddNews = () => {
               </label>
             </div>
           </div>
+
+          {/* News Photo */}
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text-modify">Photo</span>
+              </label>
+              <select {...register("photo")} className="input-modify">
+                <option selected disabled>
+                  Choose
+                </option>
+                <option defaultValue="Yes">Yes</option>
+                <option defaultValue="No">No</option>
+              </select>
+            </div>
+
+            {/* Braking News */}
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text-modify">Braking News</span>
+              </label>
+              <select {...register("breakingNews")} className="input-modify">
+                <option selected disabled>
+                  Choose
+                </option>
+                <option defaultValue="Yes">Yes</option>
+                <option defaultValue="No">No</option>
+              </select>
+            </div>
+          </div>
+
           {/* Description */}
           <div className="form-control">
             <label className="label">

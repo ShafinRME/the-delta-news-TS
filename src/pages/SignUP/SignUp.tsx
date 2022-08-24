@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
-  useUpdateProfile
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { HiUserAdd } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loadings from "../../components/Loading/Loadings";
 import RouteLink from "../../components/Share/RouterLink/RouteLink";
@@ -17,6 +17,10 @@ interface FormValues {
   name: string;
   email: string;
   password: string;
+}
+
+interface locationProps {
+  state: any;
 }
 
 const SignUp = () => {
@@ -32,13 +36,17 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  const location: locationProps = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   let emailErrorElement;
 
   useEffect(() => {
     if (emailUser) {
-      navigate("/signin");
+      navigate(from, { replace: true });
     }
-  }, [emailUser, navigate]);
+  }, [emailUser, navigate, from, location]);
 
   if (emailLoading || updating) {
     return <Loadings />;
@@ -178,8 +186,8 @@ const SignUp = () => {
             </form>
             <div className="pt-2">
               <RouteLink
-                to="login"
-                title="please login"
+                to="signIn"
+                title="please signIn"
                 description="Already have an account?"
               />
             </div>
