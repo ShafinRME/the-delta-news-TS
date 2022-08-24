@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaTelegramPlane } from "react-icons/fa";
 import { toast } from "react-toastify";
@@ -102,7 +102,7 @@ const InputContact = () => {
             </div>
             <div className="border-b border-error-content">
               <input
-                type="tel"
+                type="number"
                 className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none"
                 {...register("phone", {required: true, pattern:/^[0-9+-]+$/, minLength: 6, maxLength: 12})}
               />
