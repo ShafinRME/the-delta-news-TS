@@ -27,6 +27,8 @@ import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
+import Video from "./pages/Videos/Video";
+import Videos from "./pages/Videos/Videos";
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/livenews" element={<LiveNews />}></Route>
             <Route path="/livenews/:path" element={<OneNews />} />
+            <Route path="/videos" element={<Videos />}></Route>
+            <Route path="/videos/:path" element={<Video />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
             <Route path="/tech" element={<Tech />} />
