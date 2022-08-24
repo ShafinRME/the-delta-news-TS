@@ -5,6 +5,7 @@ interface Props {
 }
 
 const CardBody: React.FC<Props> = ({ feature }) => {
+  // console.log(advSlot);
   return (
     <>
       <li className="text-sm text-secondary leading-6 flex items-center">
@@ -19,6 +20,7 @@ const CardBody: React.FC<Props> = ({ feature }) => {
             fill="currentColor"
           />
         </svg>
+
         <p className="ml-3 text-sm ">{feature}</p>
       </li>
     </>

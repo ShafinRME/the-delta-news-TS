@@ -40,7 +40,7 @@ const Header = () => {
   const [searchNews, setSearchNews] = useState<SearchData[]>([]);
 
   // theme change
-  useEffect(  () => {
+  useEffect(() => {
     themeChange(false);
     // false parameter is required for react project
   });
@@ -84,6 +84,12 @@ const Header = () => {
   //   }
   //   window.addEventListener("scroll", windowScroll);
   // })
+
+  // theme change
+  useEffect(() => {
+    themeChange(false);
+    // false parameter is required for react project
+  });
 
   const handleLogOut = (): void => {
     signOut(auth);

@@ -9,9 +9,15 @@ import Advertisement from "./pages/Advertisement";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/contact";
+
+import Currency from "./pages/Currency/Currency";
+
+import Covid from "./pages/Covid";
+
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
+
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
@@ -20,6 +26,7 @@ import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
 import User from "./pages/Dashboard/Pages/User/User";
 import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
+import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
 import LiveTv from "./pages/LiveTv";
@@ -29,7 +36,6 @@ import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
 import Video from "./pages/Videos/Video";
 import Videos from "./pages/Videos/Videos";
-
 
 function App() {
   return (
@@ -42,7 +48,9 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/covid" element={<Covid />} />
             <Route path="/livenews" element={<LiveNews />}></Route>
+            <Route path="/currency" element={<Currency />}></Route>
             <Route path="/livenews/:path" element={<OneNews />} />
             <Route path="/videos" element={<Videos />}></Route>
             <Route path="/videos/:path" element={<Video />} />
@@ -51,6 +59,7 @@ function App() {
             <Route path="/tech" element={<Tech />} />
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
+            <Route path="/singleNews/:slug" element={<SingleNews />} />
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>

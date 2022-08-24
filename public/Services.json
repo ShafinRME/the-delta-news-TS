@@ -1,0 +1,165 @@
+[
+    
+  [
+     {
+      "_id":"1",
+      "slot":[
+        "Sep 1 - Sep 3",
+        "Sep 4 - Sep 6",
+        "Sep 7 - Sep 9",
+        "Sep 10 - Sep 12",
+        "Sep 13 - Sep 15",
+        "Sep 16 - Sep 18",
+        "Sep 19 - Sep 21",
+        "Sep 22 - Sep 24",
+        "Sep 25 - Sep 27",
+        "Sep 28 - Sep 30"
+         ],
+      "title": "Silver",
+      "price": 9.99,
+      "currency": "USD",
+      "frequency": "/3 days",
+      "description":"That is our popular package. On this package you can show your advertisement on our site for 3 days. For booking please continue with START NOW button.",
+      "features": [
+           "We will show your banner 3 days",
+           "Basic analytics",
+           "Affordable"
+         ],
+      "btn": "Start Now",
+      "mostPopular": false
+    },
+    { 
+      "_id":"2",
+      "slot":[
+        "Sep 1 - Sep 5",
+        "Sep 6 - Sep 10",
+        "Sep 11 - Sep 15",
+        "Sep 16 - Sep 20",
+        "Sep 21 - Sep 25",
+        "Sep 26 - Sep 30"
+        
+      ],
+      "title": "Gold",
+      "price": 29.99,
+      "currency": "USD",
+      "frequency": "/5 days",
+      "description":
+        "That is our most popular package. On this package you can show your advertisement on our site for 5 days. For booking please continue with START NOW button.",
+      "features": [
+        "We will show your banner 5 days",
+        "Basic analytics",
+        "Affordable"
+      ],
+      "btn": "Start Now",
+      "mostPopular": true
+
+    },
+    { 
+      "_id":"3", 
+      
+
+      "slot":[
+        "Sep 1 - Sep 7",
+        "Sep 8 - Sep 14",
+        "Sep 15 - Sep 21",
+        "Sep 22 - Sep 28",
+        "Sep 29 -  Oct 5"
+       
+       ],
+       "title": "Diamond",
+       "price": 49.99,
+       "currency": "USD",
+       "frequency": "/7 days",
+       "description":
+         "That is our popular package. On this package you can show your advertisement on our site for 7 days. For booking please continue with START NOW button.",
+       "features": [
+         "We will show your banner 7 days",
+         "Basic analytics",
+         "Affordable"
+       ],
+       "btn": "Start Now",
+       "mostPopular": false
+
+      }
+    
+  ]
+,
+  
+  [
+    {
+      "_id":"1",
+      "slot":[
+        "Sep 1 - Sep 7",
+        "Sep 8 - Sep 14",
+        "Sep 15 - Sep 21",
+        "Sep 22 - Sep 28",
+        "Sep 29 - Oct 5"
+      ],
+      "title": "Silver",
+      "price": 4.99,
+      "currency": "USD",
+      "frequency": "/7 days",
+      "description":
+        "That is our popular package. On this package you can see 2 live television Chanel for 7 days. For booking please continue with START NOW button.",
+      "features": [
+        " 7 days Limit",
+        "Email Notification",
+        "24/7 your packages time",
+        "2 Chanel"
+      ],
+      "btn": "Start Now",
+      "mostPopular": false
+    },
+    { 
+      "_id":"2",
+      "slot":[
+        "Sep 1 - Sep 15",
+        "Sep 16 - Sep 30",
+        "Oct 1 - Oct 15",
+        "Oct 16 - Oct 31",
+        "Nov 1 - Nov 15" 
+      ]
+      ,
+      "title": "Gold",
+      "price": 8.99,
+      "currency": "USD",
+      "frequency": "/15 days",
+      "description":
+        "That is our most popular package. On this package you can see 4 live television Chanel for 15 days. For booking please continue with START NOW button.",
+      "features": [
+        " 15 days Limit",
+        "Email Notification",
+        "24/7 your packages time",
+        "4 Chanel"
+      ],
+      "btn": "Start Now",
+      "mostPopular": true
+    },
+    {
+      "_id":"3",
+      "slot":[
+        "Sep 1 - Sep 30",
+        "Oct 1 - Oct 31",
+        "Nov 1 - Nov 30", 
+        "Dec 1 - Dec 31", 
+        "Jan 1 - Jan 31" 
+      ],
+      "title": "Diamond",
+      "price": 12.99,
+      "currency": "USD",
+      "frequency": "/month",
+      "description":
+        "That is our popular package. On this package you can see 6 live television Chanel for 1 month. For booking please continue with START NOW button.",
+      "features": [
+        " 30 days Limit",
+        "Email Notification",
+        "24/7 your packages time",
+        "6 Chanel"
+      ],
+      "btn": "Start Now",
+      "mostPopular": false
+    }
+  ]
+
+    
+]
