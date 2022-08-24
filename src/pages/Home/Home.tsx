@@ -20,6 +20,7 @@ const Home = () => {
       .then((data) => setNews(data));
   }, []);
 
+
   if( news === undefined){
     return <Loadings />
   }
