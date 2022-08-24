@@ -1,12 +1,12 @@
-import React from "react";
-// import ReCAPTCHA from 'react-google-recaptcha';
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaTelegramPlane } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const InputContact = () => {
   interface FromInputs {
-    name: any;
+    firstName: string;
+    lastName: string;
     phone: number;
     email: string;
     message: string;
@@ -14,11 +14,12 @@ const InputContact = () => {
 
   const { register, handleSubmit, reset } = useForm<FromInputs>();
   const onSubmit: SubmitHandler<FromInputs> = (data) => {
-    const name = data.name;
+    const firstName = data.firstName;
+    const lastName = data.lastName;
     const phone = data.phone;
     const email = data.email;
     const description = data.message;
-    const user = { name, phone, email, description };
+    const user = { firstName, lastName, phone, email, description };
 
     // post data to server
 
@@ -43,79 +44,88 @@ const InputContact = () => {
   // const [verified, setVerified] = useState(false);
 
   // function onChange(value: any) {
-  //     console.log("Captcha value:", value);
-  //     if(setVerified(true)){
-  //     }
-  //     else{
-  //       toast.success('You are verified')
-  //     }
-  //   }
+  //   console.log("Captcha value:", value);
+  //   setVerified(value)
+  // }
   return (
-    <div className="relative z-10 bg-success rounded-xl shadow-lg p-8 text-black md:w-92">
+    <div className="relative flex flex-col justify-between text-accent-content text-opacity-70 pt-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-4"
       >
-        <div>
-          <label htmlFor="">Your name</label>
+        <div className="flex flex-row space-x-2">
+          <div className="flex flex-col">
+            <div className="">
+              <label htmlFor="">First name</label>
+            </div>
+            <div className="border-b border-error-content">
+              <input
+                type="text"
+                className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none "
+                {...register("firstName", {required: true, pattern: /^[a-zA-Z]+$/, maxLength: 16})}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <div>
+              <label htmlFor="">Last name</label>
+            </div>
+            <div className="border-b border-error-content">
+              <input
+                type="text"
+                className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none"
+                {...register("lastName", {required: true, pattern: /^[a-zA-Z]+$/, maxLength: 16})}
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <input
-            // name="name"
-            type="text"
-            placeholder="Your name"
-            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
-            {...register("name", { required: true })}
-          />
+
+        <div className="flex flex-row space-x-2">
+
+          <div className="flex flex-col">
+            <div>
+              <label htmlFor="">Email Address</label>
+            </div>
+            <div className="border-b border-error-content">
+              <input
+                type="text"
+                className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none"
+                {...register("email", {required: true, pattern: /^\S+@\S+$/i})}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <div>
+              <label htmlFor="">Phone Number</label>
+            </div>
+            <div className="border-b border-error-content">
+              <input
+                type="tel"
+                className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none"
+                {...register("phone", {required: true, pattern:/^[0-9+-]+$/, minLength: 6, maxLength: 12})}
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <label htmlFor="">Phone Number</label>
-        </div>
-        <div>
-          <input
-            // name="phone"
-            type="number"
-            placeholder="Your number"
-            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
-            {...register("phone", { required: true })}
-          />
-        </div>
-        <div>
-          <label htmlFor="">Email Address</label>
-        </div>
-        <div>
-          <input
-            // name="email"
-            type="email"
-            placeholder="Your email"
-            className="ring-1 ring-error-content  rounded-md pl-3 md:pr-28 py-2 pr-12 outline-none focus:ring-2 focus:ring-error-content"
-            {...register("email", { required: true })}
-          />
-        </div>
-        <div>
+
+        <div className="flex flex-col border-b border-error-content">
           <label htmlFor="">Message</label>
-        </div>
-        <div>
           <textarea
-            // name="message"
-            placeholder="Message"
-            rows={4}
-            cols={22}
-            className="ring-1 ring-error-content  rounded-md pl-3 pr-14 md:pr-28 py-2 outline-none focus:ring-2 focus:ring-error-content"
-            {...register("message", { required: true })}
+            className="appearance-none bg-transparent border-none w-full text-accent-content mr-3 py-1 px-2 leading-tight focus:outline-none"
+            {...register("message", {required: true, maxLength: 100})}
           ></textarea>
         </div>
         <div>
           {/* <ReCAPTCHA
-                        
-                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" //global key only for testing purpose
-                        onChange={onChange}
-                        />, */}
+            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            onChange={onChange} />,*/}
         </div>
-        <div>
+        <div className="flex justify-end">
           <button
             type="submit"
-            className="flex items-center justify-center bg-error-content font-medium rounded-lg text-white hover:opacity-90 transition-opacity duration-300 max-w-[11rem] p-4"
+            className="flex items-center justify-center bg-primary font-medium rounded-lg text-white hover:opacity-90 transition-opacity duration-300 max-w-[11rem] p-4"
             // disabled={!verified}
           >
             SEND MESSAGE <FaTelegramPlane />
