@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SecondAdvertisement from "../../Assets/images/home/advertisement.png";
+import Loadings from "../../components/Loading/Loadings";
 
 type NewsProps = {
   title: string;
@@ -17,6 +19,10 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
+
+  if( news === undefined){
+    return <Loadings />
+  }
   console.log(news);
   return (
     <>
@@ -57,13 +63,15 @@ const Home = () => {
           </div>
           {/* middle three card title and details */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 border-b border-b-warning-content pb-4">
-            {news?.slice(9, 12).map((item) => (
+            {news?.slice(17, 20).map((item) => (
               <div
                 key={item.id}
                 className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
               >
                 <Link to={`singleNews/${item.slug}`}>
-                  <h1 className="news-sub-title-three-col">{item.title}</h1>
+                  <h1 className="news-sub-title-three-col">
+                    {item.title.slice(0, 60)}
+                  </h1>
                   <p className="news-details pt-4">
                     {`${item.description.slice(0, 90)}...`}
                   </p>
@@ -71,18 +79,25 @@ const Home = () => {
               </div>
             ))}
           </div>
-          {/* last six card title and details and picture */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 ">
-            {news?.slice(12, 15).map((item) => (
+          {/* last two card title and details and picture */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 pt-4 gap-4 xl:gap-0 ">
+            {news?.slice(20, 22).map((item) => (
               <div
                 key={item.id}
-                className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
+                className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
-                  <h1 className="news-sub-title-three-col">{item.title}</h1>
-                  <p className="news-details pt-4">
-                    {`${item.description.slice(0, 90)}...`}
-                  </p>
+                <Link
+                  to={`singleNews/${item.slug}`}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <h1 className="news-sub-title-three-col">
+                    {item.title.slice(0, 60)}
+                  </h1>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className=" xl:h-28 w-full"
+                  />
                 </Link>
               </div>
             ))}
@@ -113,41 +128,133 @@ const Home = () => {
           ))}
           {/* advertisement end */}
           {/* first row  layout right last two parts*/}
-          <div className="grid grid-cols-1 md:grid-cols-2 pt-4 gap-4 xl:gap-0  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 pt-4 gap-4 xl:gap-0 border-b border-b-warning-content pb-4 ">
             {news.slice(18, 20).map((item) => (
               <div
                 key={item.id}
                 className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
                 <Link to={`singleNews/${item.slug}`}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className=" xl:h-24"
-                  />
+                  <img src={item.image} alt={item.title} className=" xl:h-24" />
                   <h2 className="feature-news-title ">{item.title}</h2>
                 </Link>
               </div>
             ))}
-            {/* {news.slice(14, 15).map((item) => (
+          </div>
+          <div className="grid grid-cols-1 pt-4 gap-4 xl:gap-0 ">
+            {news?.slice(17, 18).map((item) => (
               <div
                 key={item.id}
-                className="xl:border-l xl:border-l-warning-content xl:pl-4"
+                className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
+                <Link
+                  to={`singleNews/${item.slug}`}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <h1 className="news-sub-title-three-col">
+                    {item.title.slice(0, 60)}
+                  </h1>
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="md:w-[95%] xl:h-24"
+                    className=" xl:h-28 w-full"
                   />
-                  <h2 className="feature-news-title ">{item.title}</h2>
                 </Link>
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
       </section>
       {/* first row layout end */}
+      {/* first advertisement section */}
+      <section className=" border-b border-b-warning-content">
+        <div className="py-8 max-w-5xl mx-auto">
+          <a href="https://singerbd.com/" target="_blank" rel="noreferrer">
+            <img
+              src={SecondAdvertisement}
+              alt="singer add"
+              className="w-full md:h-52"
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* reading and others section */}
+      <section className="pt-14">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 border-b pb-4">
+          {/* left section */}
+          <div className="xl:col-span-3 ">
+            {news.slice(13, 17).map((item) => (
+              <div
+                key={item.id}
+                className="md:border-b md:last:border-none pt-4 first:pt-0"
+              >
+                <Link to={`singleNews/${item.slug}`}>
+                  <h1 className=" news-live-title">{`${item.title.slice(
+                    0,
+                    120
+                  )} `}</h1>
+                  <p className="pt-2 news-live-details-2 pb-4 ">
+                    {`${item.description.slice(0, 90)}..`}
+                  </p>
+                </Link>
+              </div>
+            ))}
+          </div>
+          {/* Middle  section */}
+          <div className="border-l border-r px-4 xl:col-span-6">
+            {news.slice(13, 14).map((item) => (
+              <div key={item.id} className="div">
+                <Link to={`singleNews/${item.slug}`}>
+                  <img src={item.image} alt={item.title} />
+                </Link>
+              </div>
+            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 pt-6 gap-4 xl:gap-6 ">
+              {news.slice(18, 20).map((item) => (
+                <div key={item.id} className="">
+                  <Link to={`singleNews/${item.slug}`}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full xl:h-40"
+                    />
+                    <h2 className="feature-news-title ">
+                      {item.title.slice(0, 60)}
+                    </h2>
+                    <p className="news-live-details-2 pt-4 ">
+                      {`${item.description.slice(0, 90)}..`}
+                    </p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* right section */}
+          <div className="xl:col-span-3">
+            {news?.slice(17, 22).map((item) => (
+              <div
+                key={item.id}
+                className="xl:border-b xl:last:border-none xl:border-b-warning-content pb-4 last:pb-0 pt-4 first:pt-0 "
+              >
+                <Link
+                  to={`singleNews/${item.slug}`}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <h1 className="news-sub-title-three-col">
+                    {item.title.slice(0, 50)}
+                  </h1>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className=" xl:h-20  w-full "
+                  />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
