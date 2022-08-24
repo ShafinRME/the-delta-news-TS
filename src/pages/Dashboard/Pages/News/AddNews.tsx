@@ -116,6 +116,10 @@ const AddNews = () => {
                   value: 20,
                   message: "Must be 20 characters or longer",
                 },
+                maxLength: {
+                  value: 90,
+                  message: "Must be 90 characters or lower",
+                },
               })}
               type="text"
               placeholder="News Title"

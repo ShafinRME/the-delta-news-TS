@@ -6,18 +6,20 @@ import faqData from "../data/faqData";
 import FaQ from "../components/FaQ/FaQ";
 import SectionTitle from "../components/Share/SectionTitle/SectionTitle";
 import ContactSection from "../components/ContactSection/ContactSection";
-import pricingData from "../data/pricingData";
 import Services from "../components/Advertisement/Services";
 import ServicesData from "../data/ServicesData";
 import HeroData from "../components/Hero/HeroData";
 import Why from "../Images/service/why.png";
 import Adv from "../Images/service/adv.png";
+import useServices from "../hooks/AllServicesData";
 
 const Advertisement = () => {
+  const [services] = useServices();
+  const advSlots = services[0];
   const data = ServicesData.advService;
   const heroData = HeroData.advData;
   const advDescription = HeroData.advDescription;
-  const advPricePlan = pricingData.advPlan;
+
   return (
     <div className="mt-10">
       <section className="">
@@ -52,7 +54,7 @@ const Advertisement = () => {
           title="Our Price Plans"
           subTitle="Choose Your Price Plans"
         />
-        <PricingPlan data={advPricePlan} />
+        <PricingPlan data={advSlots} />
       </section>
       {/* faq section */}
       <section className="pb-14">
