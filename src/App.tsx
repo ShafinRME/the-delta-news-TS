@@ -49,11 +49,11 @@ function App() {
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />}></Route>
-            <Route path="/currency" element={<Currency />}></Route>
+            <Route path="/livenews" element={<LiveNews />} />
             <Route path="/livenews/:path" element={<OneNews />} />
-            <Route path="/videos" element={<Videos />}></Route>
+            <Route path="/videos" element={<Videos />} />
             <Route path="/videos/:path" element={<Video />} />
+            <Route path="/currency" element={<Currency />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
             <Route path="/tech" element={<Tech />} />
