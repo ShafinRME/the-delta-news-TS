@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 
-const useToken = (user:any) => {
+
+
+const useToken = (user: any) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     const email = user?.user?.email;
+    console.log(email);
     const currentUser = { email: email };
     if (email) {
-      fetch(`https://auto-parts0.herokuapp.com/user/${email}`, {
+      fetch(`http://localhost:5000/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -15,9 +18,11 @@ const useToken = (user:any) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          const accessToken = data.token;
-          localStorage.setItem("accessToken", accessToken);
-          setToken(accessToken);
+          // const accessToken = data.token;
+          // localStorage.setItem("accessToken", accessToken);
+          // setToken(accessToken);
+          setToken(data);
+          console.log(data);
         });
     }
   }, [user]);

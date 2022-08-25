@@ -9,15 +9,10 @@ import Advertisement from "./pages/Advertisement";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/contact";
-
-import Currency from "./pages/Currency/Currency";
-
 import Covid from "./pages/Covid";
-
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
-
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
@@ -48,7 +43,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/covid" element={<Covid />} />
             <Route path="/livenews" element={<LiveNews />}></Route>
-            <Route path="/currency" element={<Currency />}></Route>
             <Route path="/livenews/:path" element={<OneNews />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />

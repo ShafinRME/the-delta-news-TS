@@ -24,7 +24,7 @@ const Home = () => {
   if( news === undefined){
     return <Loadings />
   }
-  console.log(news);
+
   return (
     <>
       {/* first row  layout start */}

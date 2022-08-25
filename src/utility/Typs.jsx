@@ -20,5 +20,15 @@ interface Data {
   category?:string
 }
 
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
+}
 
-export { DetailsNews, Data };
+interface locationProps {
+  state: any;
+}
+
+
+export { DetailsNews, Data, FormValues, locationProps };
