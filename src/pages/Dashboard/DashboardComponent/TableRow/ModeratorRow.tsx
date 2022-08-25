@@ -1,28 +1,11 @@
 import React, { FC, useState } from "react";
 import ModeratorEditModal from "../Modal/ModeratorEditModal";
 import ModeratorViewModal from "../Modal/ModeratorViewModal";
+import { ModeratorRowProps } from "../../../../utility/Typs";
 
-type Props = {
-  news: {
-    _id?: string;
-    id?: string;
-    title?: string;
-    description?: string;
-    image?: string;
-    date?: string;
-    slug?: string;
-    reference?: string;
-  };
-  index: number;
-};
 
-// export type ModalProps = {
-//   singleNews:{
-//     slug:string
-//   }
-// };
 
-const ModeratorRow: FC<Props> = ({ news, index }) => {
+const ModeratorRow: FC<ModeratorRowProps> = ({ news, index }) => {
   const { slug, reference, title, date } = news;
   const [singleNews, setSingleNews] = useState<string | undefined>(undefined);
 
@@ -33,14 +16,14 @@ const ModeratorRow: FC<Props> = ({ news, index }) => {
   return (
     <>
       <tr className="moderator-table hover ">
-        <th>{index + 1}</th>
+        <td>{index + 1}</td>
         <td>{date}</td>
         <td className=" flex flex-col">
           <span className="text-base">{`${title?.slice(0, 50)} ...`}</span>
           <span className="text-xs">Editor: {reference}</span>
         </td>
 
-        <th>
+        <td>
           <label
             onClick={newsHandle}
             htmlFor="moderator-news-view-modal"
@@ -48,7 +31,7 @@ const ModeratorRow: FC<Props> = ({ news, index }) => {
           >
             View
           </label>
-        </th>
+        </td>
 
         <td className="font-medium  cursor-pointer  text-sm  text-blue-600 dark:text-blue-500 hover:underline capitalize">
           <label

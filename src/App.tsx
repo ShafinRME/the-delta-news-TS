@@ -9,23 +9,20 @@ import Advertisement from "./pages/Advertisement";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/contact";
-
-import Currency from "./pages/Currency/Currency";
-
 import Covid from "./pages/Covid";
-
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
-
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
-import User from "./pages/Dashboard/Pages/User/User";
+import AllUsers from "./pages/Dashboard/Pages/User/AllUsers";
+import User from "./pages/Dashboard/Pages/User/AllUsers";
 import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
+import News from "./pages/Home/News";
 import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
@@ -48,7 +45,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/covid" element={<Covid />} />
             <Route path="/livenews" element={<LiveNews />}></Route>
-            <Route path="/currency" element={<Currency />}></Route>
             <Route path="/livenews/:path" element={<OneNews />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
@@ -56,6 +52,7 @@ function App() {
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
             <Route path="/singleNews/:slug" element={<SingleNews />} />
+            <Route path="/News/:slug" element={<News />} />
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
@@ -76,6 +73,7 @@ function App() {
             <Route path="addNews" element={<AddNews />} />
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
+            <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}
 

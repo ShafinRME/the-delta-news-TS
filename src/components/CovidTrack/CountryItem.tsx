@@ -12,6 +12,7 @@ const CountryItem: FC<Props> = ({country}) => {
             <p className='text-center font-semibold mb-1'>{country.Country}</p>
             <p>New Confirmed: {country.NewConfirmed}</p>
             <p>New Deaths: {country.NewDeaths}</p>
+            <p>New Recovered: {country.NewRecovered}</p>
             </li> 
         </div>
     );
