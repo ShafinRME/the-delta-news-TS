@@ -22,6 +22,7 @@ import AllUsers from "./pages/Dashboard/Pages/User/AllUsers";
 import User from "./pages/Dashboard/Pages/User/AllUsers";
 import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
+import News from "./pages/Home/News";
 import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
@@ -51,6 +52,7 @@ function App() {
             <Route path="/business" element={<Business />} />
             <Route path="/books" element={<Books />} />
             <Route path="/singleNews/:slug" element={<SingleNews />} />
+            <Route path="/News/:slug" element={<News />} />
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>

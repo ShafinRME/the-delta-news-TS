@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Loadings from "../../../../components/Loading/Loadings";
-import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
+// import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
 import UserRow from "../../DashboardComponent/TableRow/UserRow";
 
 interface UserData {
@@ -82,13 +82,13 @@ const AllUsers = () => {
           </tbody>
         </table>
 
-        {user && (
+        {/* {user && (
           <UserDeleteConfirmModal
             setUser={setUser}
             // refetch={refetch}
             user={user}
           />
-        )}
+        )} */}
       </section>
     </>
   );

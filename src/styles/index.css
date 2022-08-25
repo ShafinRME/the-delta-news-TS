@@ -46,6 +46,12 @@ a {
   .news-live-details-2 {
     @apply font-description  text-[.875rem] tracking-wide leading-5 pt-2 text-neutral;
   }
+  .news-live-details-3 {
+    @apply font-description  text-[.875rem] tracking-wide leading-5 text-neutral;
+  }
+  .news-live-details-4 {
+    @apply font-description text-base md:text-[1.3rem] tracking-wide leading-6 text-neutral;
+  }
 
   .details {
     @apply text-neutral text-lg md:text-base font-medium md:font-normal;
