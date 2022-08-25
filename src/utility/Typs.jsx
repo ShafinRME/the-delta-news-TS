@@ -17,7 +17,8 @@ interface Data {
   image?: string;
   date?: string;
   slug?: string;
-  category?:string
+  category?:string;
+  reference?:string;
 }
 
 interface FormValues {

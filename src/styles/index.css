@@ -50,7 +50,7 @@ a {
     @apply font-description  text-[.875rem] tracking-wide leading-5 text-neutral;
   }
   .news-live-details-4 {
-    @apply font-description text-base md:text-[1.3rem] tracking-wide leading-6 text-neutral;
+    @apply font-description text-base md:text-[1.2rem] tracking-wide leading-6 text-neutral;
   }
 
   .details {
