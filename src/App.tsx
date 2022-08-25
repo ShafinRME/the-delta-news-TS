@@ -18,7 +18,8 @@ import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
-import User from "./pages/Dashboard/Pages/User/User";
+import AllUsers from "./pages/Dashboard/Pages/User/AllUsers";
+import User from "./pages/Dashboard/Pages/User/AllUsers";
 import Health from "./pages/Health/Health";
 import Home from "./pages/Home/Home";
 import SingleNews from "./pages/Home/SingleNews";
@@ -70,6 +71,7 @@ function App() {
             <Route path="addNews" element={<AddNews />} />
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
+            <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}
 

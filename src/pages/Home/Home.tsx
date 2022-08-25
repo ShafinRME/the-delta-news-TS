@@ -2,26 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SecondAdvertisement from "../../Assets/images/home/advertisement.png";
 import Loadings from "../../components/Loading/Loadings";
+import { NewsProps } from "../../utility/Typs";
 
-type NewsProps = {
-  title: string;
-  id: string;
-  _id: string;
-  description: string;
-  image: string;
-  slug: string;
-};
+
 
 const Home = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
     fetch("https://team-delta001.herokuapp.com/api/news")
       .then((res) => res.json())
-      .then((data) => setNews(data));
+      .then((data) => {
+        setNews(data);
+        
+      });
   }, []);
+console.log(news);
 
-
-  if( news === undefined){
+  if( news === undefined ){
     return <Loadings />
   }
 

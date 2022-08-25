@@ -1,5 +1,5 @@
 import {
-  FaCalendarAlt, FaCalendarCheck, FaChartLine, FaEnvelopeOpenText, FaFileInvoice, FaLandmark, FaNewspaper, FaShopify, FaTachometerAlt, FaUser
+  FaCalendarAlt, FaCalendarCheck, FaChartLine, FaEnvelopeOpenText, FaFileInvoice, FaLandmark, FaNewspaper, FaShopify, FaTachometerAlt, FaUser, FaUserCircle, FaVoteYea
 } from "react-icons/fa";
 
 const dashboardData = {
@@ -39,8 +39,8 @@ const dashboardData = {
   management: [
     {
       id: 1,
-      icon: <FaUser />,
-      title: "user",
+      icon: <FaUserCircle />,
+      title: "Profile",
       menus: [
         {
           id: 1,
@@ -66,6 +66,23 @@ const dashboardData = {
     },
     {
       id: 2,
+      icon: <FaUser />,
+      title: "user",
+      menus: [
+        {
+          id: 1,
+          text: "List",
+          path: "allUser",
+        },
+        {
+          id: 2,
+          text: "Details",
+          path: "profile",
+        }, 
+      ],
+    },
+    {
+      id: 3,
       icon: <FaNewspaper />,
       title: "News",
       menus: [
@@ -97,7 +114,7 @@ const dashboardData = {
       ],
     },
     {
-      id: 3,
+      id: 4,
       icon: <FaFileInvoice />,
       title: "Invoice",
       menus: [
@@ -124,8 +141,8 @@ const dashboardData = {
       ],
     },
     {
-      id: 4,
-      icon: <FaFileInvoice />,
+      id: 5,
+      icon: <FaVoteYea />,
       title: "Voting",
       menus: [
         {

@@ -30,5 +30,48 @@ interface locationProps {
   state: any;
 }
 
+type NewsProps = {
+  title: string,
+  id: string,
+  _id: string,
+  description: string,
+  image: string,
+  slug: string,
+};
 
-export { DetailsNews, Data, FormValues, locationProps };
+type ModeratorRowProps = {
+  news: {
+    _id?: string,
+    id?: string,
+    title?: string,
+    description?: string,
+    image?: string,
+    date?: string,
+    slug?: string,
+    reference?: string,
+  },
+  index: number,
+};
+
+
+interface allNewsData {
+  _id?: string;
+  id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  date?: string;
+  slug?: string;
+  category?: string;
+}
+
+
+export {
+  DetailsNews,
+  Data,
+  FormValues,
+  locationProps,
+  allNewsData,
+  NewsProps,
+  ModeratorRowProps,
+};
