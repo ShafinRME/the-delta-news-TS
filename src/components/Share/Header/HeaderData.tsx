@@ -56,6 +56,11 @@ const headerData = {
       path: "/videos",
     },
     
+    {
+      text: "Weather",
+      path: "/weather",
+    },
+    
   ],
   usersItem: [
     {
