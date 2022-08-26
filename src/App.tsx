@@ -5,10 +5,10 @@ import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
 import Error from "./pages/404/Error";
-import Advertisement from "./pages/Advertisement";
+import Advertisement from "./pages/Advertisement/Advertisement";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
-import Contact from "./pages/contact";
+import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
@@ -26,10 +26,11 @@ import News from "./pages/Home/News";
 import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
-import LiveTv from "./pages/LiveTv";
+import LiveTv from "./pages/LiveTV/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
-import Sports from "./pages/Sports";
+import Sports from "./pages/Sports/Sports";
+
 import Tech from "./pages/Tech/Tech";
 
 function App() {

@@ -139,7 +139,7 @@ const SingleNews = () => {
               </a>
             </div>
 
-            {categoryNews?.map((item) => (
+            {categoryNews?.slice(0,4).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
