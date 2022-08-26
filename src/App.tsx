@@ -5,7 +5,6 @@ import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
 import Error from "./pages/404/Error";
-import Advertisement from "./pages/Advertisement/Advertisement";
 import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
@@ -31,6 +30,7 @@ import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/LiveTv/LiveTv";
 import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
+import Advertisement from "./pages/Advertisement/Advertisement";
 
 function App() {
   return (
