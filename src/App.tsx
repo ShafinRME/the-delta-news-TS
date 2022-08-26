@@ -5,9 +5,11 @@ import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
 import Error from "./pages/404/Error";
-import Advertisement from "./pages/Advertisement";
+import Advertisement from "./pages/Advertisement/Advertisement";
+import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
+import Calender from "./pages/Dashboard/Pages/Calender/Calender";
 import Contact from "./pages/contact";
 import Covid from "./pages/Covid";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -24,11 +26,11 @@ import Home from "./pages/Home/Home";
 import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
-import LiveTv from "./pages/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
+import LiveTv from "./pages/LiveTv/LiveTv";
 
 function App() {
   return (
@@ -70,6 +72,8 @@ function App() {
             <Route path="addNews" element={<AddNews />} />
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="calendar" element={<Calender />} />
           </Route>
           {/* dashboard end*/}
 

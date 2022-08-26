@@ -1,5 +1,14 @@
 import {
-  FaCalendarAlt, FaCalendarCheck, FaChartLine, FaEnvelopeOpenText, FaFileInvoice, FaLandmark, FaNewspaper, FaShopify, FaTachometerAlt, FaUser
+  FaCalendarAlt,
+  FaCalendarCheck,
+  FaChartLine,
+  FaEnvelopeOpenText,
+  FaFileInvoice,
+  FaLandmark,
+  FaNewspaper,
+  FaShopify,
+  FaTachometerAlt,
+  FaUser,
 } from "react-icons/fa";
 
 const dashboardData = {
@@ -32,8 +41,8 @@ const dashboardData = {
     {
       id: 5,
       icon: <FaCalendarCheck />,
-      text: "Booking",
-      path: "booking",
+      text: "Calendar",
+      path: "calendar",
     },
   ],
   management: [
@@ -167,6 +176,5 @@ const dashboardData = {
     },
   ],
 };
-
 
 export default dashboardData;

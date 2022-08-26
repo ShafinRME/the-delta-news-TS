@@ -1,16 +1,17 @@
 import React from "react";
-import Services from "../components/Advertisement/Services";
-import ContactSection from "../components/ContactSection/ContactSection";
-import FaQ from "../components/FaQ/FaQ";
-import Hero from "../components/Hero/Hero";
-import HeroData from "../components/Hero/HeroData";
-import PricingPlan from "../components/PriceCard/PricingPlan";
-import SectionTitle from "../components/Share/SectionTitle/SectionTitle";
-import faqData from "../data/faqData";
-import ServicesData from "../data/ServicesData";
-import useServices from "../hooks/AllServicesData";
-import liveNews from "../Images/service/liveNews.png";
-import updateNews from "../Images/service/updateNews.png";
+import Services from "../../components/Advertisement/Services";
+import ContactSection from "../../components/ContactSection/ContactSection";
+import FaQ from "../../components/FaQ/FaQ";
+import Hero from "../../components/Hero/Hero";
+import HeroData from "../../components/Hero/HeroData";
+import PricingPlan from "../../components/PriceCard/PricingPlan";
+import SectionTitle from "../../components/Share/SectionTitle/SectionTitle";
+import faqData from "../../data/faqData";
+import ServicesData from "../../data/ServicesData";
+import useServices from "../../hooks/AllServicesData";
+
+import liveNews from "../../Images/service/liveNews.png";
+import updateNews from "../../Images/service/updateNews.png";
 
 const LiveTv = () => {
   const [services] = useServices();
