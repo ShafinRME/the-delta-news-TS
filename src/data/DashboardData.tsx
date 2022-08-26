@@ -1,5 +1,14 @@
 import {
-  FaCalendarAlt, FaCalendarCheck, FaChartLine, FaEnvelopeOpenText, FaFileInvoice, FaLandmark, FaNewspaper, FaShopify, FaTachometerAlt, FaUser
+  FaCalendarAlt,
+  FaCalendarCheck,
+  FaChartLine,
+  FaEnvelopeOpenText,
+  FaFileInvoice,
+  FaLandmark,
+  FaNewspaper,
+  FaShopify,
+  FaTachometerAlt,
+  FaUser,
 } from "react-icons/fa";
 
 const dashboardData = {
@@ -52,16 +61,6 @@ const dashboardData = {
           text: "List",
           path: "profile",
         },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
-          text: "Edit",
-          path: "profile",
-        },
       ],
     },
     {
@@ -76,21 +75,11 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: " All News",
           path: "moderatorNewsList",
         },
         {
-          id: 5,
+          id: 3,
           text: "All News",
           path: "adminNewsList",
         },
@@ -108,16 +97,6 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: "List",
           path: "newsList",
         },
@@ -135,16 +114,6 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: "List",
           path: "newsList",
         },
@@ -167,6 +136,5 @@ const dashboardData = {
     },
   ],
 };
-
 
 export default dashboardData;
