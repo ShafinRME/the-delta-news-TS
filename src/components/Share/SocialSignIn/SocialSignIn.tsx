@@ -7,17 +7,17 @@ import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
+import useToken from "../../../hooks/useToken";
 import Loadings from "../../Loading/Loadings";
-
-interface locationProps {
-  state: any;
-}
+import { locationProps } from "../../../utility/Typs";
 
 const SocialLogin = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithFacebook, fbUser, fbLoading, fbError] =
     useSignInWithFacebook(auth);
+
+  const [token] = useToken(googleUser || fbUser);
   // Google singing
   const handleGoogleSignIn = (): void => {
     signInWithGoogle();
@@ -58,10 +58,11 @@ const SocialLogin = () => {
     },
   ];
   useEffect(() => {
-    if (googleUser || fbUser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [googleUser, fbUser, navigate, from, location]);
+  }, [token, navigate, from, location]);
+
   if (googleLoading || fbLoading) {
     return <Loadings />;
   }

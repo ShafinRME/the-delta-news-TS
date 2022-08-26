@@ -1,41 +1,15 @@
+
 import axios from "axios";
-import { reload } from "firebase/auth";
-import { STATUS_CODES } from "http";
+
 import { useState } from "react";
 
-const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
-interface WeatherProps {
-  weatherdata: {
-    description: string;
-    icon: string;
-    id: number;
-    main: string;
-  };
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-  wind: {
-    speed: number;
-    deg: number;
-  };
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
-  weather: {
-    description: string;
-    icon: string;
-    id: number;
-    main: string;
-  }[];
-}
+
+
+
+// const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
 
 const Weather = () => {
+
   const [weather, setWeather] = useState<WeatherProps | null>(null);
   const [location, setLocation] = useState("");
   const [celsius, setCelsius] = useState("");
@@ -53,9 +27,22 @@ const Weather = () => {
         }
       });
 
-      setLocation("");
-    }
-  };
+
+
+  // const searchLocation = (event: any) => {
+  //   if (event.key === "Enter") {
+  //     fetch(url)
+  //       .then((res) => res.json())
+  //       .then((data) => setWeather(data));
+  //     setLocation("");
+  //   }
+  // };
+
+//   const { isLoading, data } = useQuery(["weatherData"], () =>
+//     fetch(url).then((res) => res.json())
+//   );
+
+
 
   return (
     <div
@@ -77,9 +64,7 @@ const Weather = () => {
           />
         </div>
         {/* Top */}
-        <div>
-          <p>{error}</p>
-        </div>
+       
         <div className="relative flex justify-between pt-12  text-gray-800">
           <div className="flex flex-col items-center">
             {weather ? (
@@ -96,8 +81,16 @@ const Weather = () => {
           </div>
 
           {weather ? <p className="lg:text-9xl text-7xl">{celsius}°C</p> : null}
+
+  
         </div>
-        {/* Bottom */}
+        
+        {/* <p className="text-9xl">
+          {(data?.main.feels_like.toFixed(0) - 273.15).toFixed(0)}&#176;
+        </p> */}
+      </div>
+      {/* Bottom */}
+
 
         {weather ? (
           <div className="bg-white/75 relative p-8 rounded-md">
@@ -120,6 +113,9 @@ const Weather = () => {
                 <p className="text-xl">Winds</p>
               </div>
             </div>
+
+  
+
           </div>
         ) : null}
       </div>

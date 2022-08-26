@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
-  useUpdateProfile
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BsFillPersonPlusFill } from "react-icons/bs";
@@ -12,6 +12,7 @@ import Loadings from "../../components/Loading/Loadings";
 import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
 import auth from "../../config/firebaseConfig.init";
+import useToken from "../../hooks/useToken";
 
 interface FormValues {
   name: string;
@@ -29,16 +30,17 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating] = useUpdateProfile(auth);
+  const [token] = useToken(emailUser);
 
   const navigate = useNavigate();
 
   let emailErrorElement;
 
   useEffect(() => {
-    if (emailUser) {
+    if (token) {
       navigate("/signin");
     }
-  }, [emailUser, navigate]);
+  }, [token, navigate]);
 
   if (emailLoading || updating) {
     return <Loadings />;
