@@ -9,7 +9,6 @@ import Advertisement from "./pages/Advertisement/Advertisement";
 import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
-import Calender from "./pages/Dashboard/Pages/Calender/Calender";
 import Contact from "./pages/contact";
 import Covid from "./pages/Covid";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -31,6 +30,7 @@ import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/LiveTv/LiveTv";
+import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 
 function App() {
   return (
@@ -73,7 +73,7 @@ function App() {
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
             <Route path="analytics" element={<Analytics />} />
-            <Route path="calendar" element={<Calender />} />
+            <Route path="calendar" element={<BigCalendar />} />
           </Route>
           {/* dashboard end*/}
 

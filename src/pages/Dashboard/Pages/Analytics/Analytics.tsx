@@ -13,7 +13,6 @@ const Analytics = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-y-20 my-12 ">
-        {/* <img src="https://placeimg.com/640/480/nature" alt="" /> */}
         <div className="grid gap-5 lg:grid-cols-12  ">
           <div className="lg:col-span-7">
             <Analytics1 />

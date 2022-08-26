@@ -58,7 +58,7 @@ interface Event1 {
   allDay?: undefined;
 }
 
-const Calender = () => {
+const BigCalendar = () => {
   const [newEvent, setNewEvent] = useState<NewEvent>({ title: "" });
   const [allEvents, setAllEvents] =
     useState<(NewEvent | Event | Event1)[]>(events);
@@ -131,4 +131,4 @@ const Calender = () => {
   );
 };
 
-export default Calender;
+export default BigCalendar;
