@@ -1,17 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import Loadings from "../../../../components/Loading/Loadings";
 import ModeratorRow from "../../DashboardComponent/TableRow/ModeratorRow";
+import { Data } from "../../../../utility/Typs";
 
 const AllModeratorNews = () => {
-  interface Data {
-    _id?: string;
-    id?: string;
-    title: string;
-    description?: string;
-    image?: string;
-    date?: string;
-    slug?: string;
-  }
+  // interface Data {
+  //   _id?: string;
+  //   id?: string;
+  //   title: string;
+  //   description?: string;
+  //   image?: string;
+  //   date?: string;
+  //   slug?: string;
+  // }
   const url = `https://team-delta001.herokuapp.com/api/news`;
   const { isLoading, data } = useQuery<Data[], Error>(["allNews"], () =>
     fetch(url).then((res) => res.json())

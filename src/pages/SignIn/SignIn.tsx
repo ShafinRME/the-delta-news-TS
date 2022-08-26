@@ -12,16 +12,8 @@ import Loadings from "../../components/Loading/Loadings";
 import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
 import auth from "../../config/firebaseConfig.init";
-
-interface FormValues {
-  name: string;
-  email: string;
-  password: string;
-}
-
-interface locationProps {
-  state: any;
-}
+import useToken from "../../hooks/useToken";
+import { FormValues, locationProps } from "../../utility/Typs";
 
 const SignIn = () => {
   const {
@@ -33,6 +25,7 @@ const SignIn = () => {
   const [signInWithEmailAndPassword, signInUser, signInLoading, signInError] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [token] = useToken(signInUser);
   const navigate = useNavigate();
   const location: locationProps = useLocation();
 
@@ -41,10 +34,10 @@ const SignIn = () => {
   let signInErrorElement;
 
   useEffect(() => {
-    if (signInUser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [signInUser, navigate, from, location]);
+  }, [token, navigate, from, location]);
 
   if (signInLoading || sending) {
     return <Loadings />;

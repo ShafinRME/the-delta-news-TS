@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { useState } from "react";
 
 const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
@@ -75,7 +76,7 @@ const Weather = () => {
           />
         </div>
         {/* Top */}
-
+        
         <div className="relative flex justify-between pt-12  text-gray-800">
           <div className="flex flex-col items-center">
             {weather ? (
