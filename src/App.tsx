@@ -30,7 +30,7 @@ import LiveTv from "./pages/LiveTV/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports/Sports";
-
+import International from './pages/International/International'
 import Tech from "./pages/Tech/Tech";
 
 function App() {
@@ -55,6 +55,7 @@ function App() {
             <Route path="/singleNews/:slug" element={<SingleNews />} />
             <Route path="/News/:slug" element={<News />} />
             <Route path="/advertisement" element={<Advertisement />} />
+            <Route path="/international" element={<International />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
           {/* dashboard start */}

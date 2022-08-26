@@ -22,6 +22,10 @@ const headerData = {
     },
 
     {
+      text: "International",
+      path: "/international",
+    },
+    {
       text: "Sports",
       path: "/sports",
     },
@@ -50,7 +54,6 @@ const headerData = {
       text: "Live News",
       path: "/liveNews",
     },
-    
   ],
   usersItem: [
     {

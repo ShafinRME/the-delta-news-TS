@@ -38,6 +38,9 @@ type NewsProps = {
   description: string,
   image: string,
   slug: string,
+  category:string,
+  date:string,
+  
 };
 
 type ModeratorRowProps = {

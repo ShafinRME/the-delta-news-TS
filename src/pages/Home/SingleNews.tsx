@@ -17,6 +17,7 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share-rc-18";
+import { url as urls } from "../../utility/Urls";
 
 const SingleNews = () => {
   const { slug } = useParams();
@@ -31,7 +32,7 @@ const SingleNews = () => {
   const baseUrl = `https://delta-times.netlify.app/singleNews/${slug}`;
 
   useEffect(() => {
-    const baseUrl = `https://team-delta001.herokuapp.com/api/news/${category}`;
+    const baseUrl = `${urls}/${category}`;
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {
