@@ -1,35 +1,36 @@
 import React from "react";
-import Services from "../components/Advertisement/Services";
-import ContactSection from "../components/ContactSection/ContactSection";
-import FaQ from "../components/FaQ/FaQ";
-import Hero from "../components/Hero/Hero";
-import HeroData from "../components/Hero/HeroData";
-import PricingPlan from "../components/PriceCard/PricingPlan";
-import SectionTitle from "../components/Share/SectionTitle/SectionTitle";
-import faqData from "../data/faqData";
-import ServicesData from "../data/ServicesData";
-import useServices from "../hooks/AllServicesData";
-import liveNews from "../Images/service/liveNews.png";
-import updateNews from "../Images/service/updateNews.png";
+// import MainLayout from "../Layout/MainLayout";
+import PricingPlan from "../../components/PriceCard/PricingPlan";
+import Hero from "../../components/Hero/Hero";
+import faqData from "../../data/faqData";
+import FaQ from "../../components/FaQ/FaQ";
+import SectionTitle from "../../components/Share/SectionTitle/SectionTitle";
+import ContactSection from "../../components/ContactSection/ContactSection";
+import Services from "../../components/Advertisement/Services";
+import ServicesData from "../../data/ServicesData";
+import HeroData from "../../components/Hero/HeroData";
+import Why from "../../Images/service/why.png";
+import Adv from "../../Images/service/adv.png";
+import useServices from "../../hooks/AllServicesData";
 
-const LiveTv = () => {
+const Advertisement = () => {
   const [services] = useServices();
-  const data = ServicesData.newsService;
-  const liveNewsPlan = services[1];
-  const liveData = HeroData.liveData;
+  const advSlots = services[0];
+  const data = ServicesData.advService;
+  const heroData = HeroData.advData;
   const advDescription = HeroData.advDescription;
 
   return (
     <div className="mt-10">
       <section className="">
         <Hero
-          headerSpanTextOne="Live Sport "
-          headerTextOne="and "
-          headerTextTwo="TV-shows for best"
-          headerSpanTextTwo=" friends"
-          data={liveData}
+          headerSpanTextOne="Build"
+          headerTextOne="Your"
+          headerTextTwo="Clean Ads"
+          headerSpanTextTwo="with us"
+          data={heroData}
           description={advDescription}
-          img={updateNews}
+          img={Adv}
         />
       </section>
 
@@ -37,9 +38,9 @@ const LiveTv = () => {
       <section className="py-24">
         <Services
           data={data}
-          img={liveNews}
+          img={Why}
           title="Why Us"
-          subTitle="We are provide 20+ premium live news chanel "
+          subTitle="We have advertisement creator full team, Give us your concept"
           description="We have advertisement creator full team, Give us your concept,We
             have advertisement creator full team, Give us your concept"
         />
@@ -53,7 +54,7 @@ const LiveTv = () => {
           title="Our Price Plans"
           subTitle="Choose Your Price Plans"
         />
-        <PricingPlan data={liveNewsPlan} />
+        <PricingPlan data={advSlots} />
       </section>
       {/* faq section */}
       <section className="pb-14">
@@ -84,4 +85,4 @@ const LiveTv = () => {
   );
 };
 
-export default LiveTv;
+export default Advertisement;
