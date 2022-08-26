@@ -1,4 +1,4 @@
-import MainContact from '../../components/Contact/MainContact';
+import MainContact from "../../components/Contact/MainContact";
 
 const Contact = () => {
   return (
