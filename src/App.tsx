@@ -10,6 +10,7 @@ import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
+import Currency from "./pages/Currency/Currency";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
