@@ -22,6 +22,14 @@ const headerData = {
     },
 
     {
+      text: "Bangladesh",
+      path: "/bangladesh",
+    },
+    {
+      text: "International",
+      path: "/international",
+    },
+    {
       text: "Sports",
       path: "/sports",
     },

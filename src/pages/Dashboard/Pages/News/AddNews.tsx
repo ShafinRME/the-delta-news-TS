@@ -211,20 +211,12 @@ const AddNews = () => {
                 {...register("subCategory")}
               >
                 <option value="DEFAULT" disabled>
-                  Choose a category...
+                  Choose a Subcategory...
                 </option>
-                {categoryData.category.map((item) => (
+                {categoryData.subCategory.map((item) => (
                   <option key={item.id}>{item.title}</option>
                 ))}
               </select>
-
-              <label className="label">
-                {errors.category?.type === "required" && (
-                  <small className="text-red-500">
-                    {errors.category.message}
-                  </small>
-                )}
-              </label>
             </div>
           </div>
 
@@ -287,8 +279,12 @@ const AddNews = () => {
               <label className="label">
                 <span className="label-text-modify">Photo</span>
               </label>
-              <select {...register("photo")} className="input-modify">
-                <option selected disabled>
+              <select
+                {...register("photo")}
+                defaultValue={"DEFAULT"}
+                className="input-modify"
+              >
+                <option value={"DEFAULT"} disabled>
                   Choose
                 </option>
                 <option defaultValue="Yes">Yes</option>
@@ -301,8 +297,12 @@ const AddNews = () => {
               <label className="label">
                 <span className="label-text-modify">Braking News</span>
               </label>
-              <select {...register("breakingNews")} className="input-modify">
-                <option selected disabled>
+              <select
+                {...register("breakingNews")}
+                defaultValue={"DEFAULT"}
+                className="input-modify"
+              >
+                <option value={"DEFAULT"} disabled>
                   Choose
                 </option>
                 <option defaultValue="Yes">Yes</option>

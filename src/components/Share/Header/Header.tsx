@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { themeChange } from "theme-change";
+
 // import ActiveLinks from "./ActiveLink";
 import { signOut } from "firebase/auth";
 import DarkMod from "./DarkMod";
@@ -20,6 +20,7 @@ import { BiCog, BiEdit, BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
 
+import { themeChange } from "theme-change";
 import Loading from "../../Loading/Loading";
 import Search from "../../Search/Search";
 import SearchResult from "../../Search/SearchResult";
@@ -91,9 +92,9 @@ const Header = () => {
     // false parameter is required for react project
   });
 
-  const handleLogOut = (): void => {
+  function handleLogOut(): void {
     signOut(auth);
-  };
+  }
   if (loading) {
     return <Loading></Loading>;
   }

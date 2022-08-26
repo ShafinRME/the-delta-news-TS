@@ -1,21 +1,23 @@
-import Slider from "../../components/Share/Slider/Slider";
+import { useEffect, useState } from "react";
+import { BiDownload } from "react-icons/bi";
+import { BsFillEyeFill } from "react-icons/bs";
 
-// interface PhotosProps {
-//   image: string;
-// }
+interface PhotosProps {
+  image: string;
+}
 const Photo = () => {
-  // const [photos, setPhotos] = useState<PhotosProps[]>([]);
+  const [photos, setPhotos] = useState<PhotosProps[]>([]);
 
-  // useEffect(() => {
-  //   fetch("https://team-delta001.herokuapp.com/api/news")
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setPhotos(result);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://team-delta001.herokuapp.com/api/news")
+      .then((res) => res.json())
+      .then((result) => {
+        setPhotos(result);
+      });
+  }, []);
   return (
     <>
-      {/* <div className="grid grid-cols-3 gap-5 ">
+      <div className="grid grid-cols-3 gap-5 ">
         {photos.map((photo) => (
           <div className="relative">
             <img
@@ -34,8 +36,7 @@ const Photo = () => {
             </div>
           </div>
         ))}
-      </div> */}
-      <Slider />
+      </div>
     </>
   );
 };

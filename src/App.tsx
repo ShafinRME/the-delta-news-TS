@@ -35,6 +35,9 @@ import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports";
 import Tech from "./pages/Tech/Tech";
 
+import BanglaDesh from "./pages/BanglaDesh/BanglaDesh";
+import Politics from "./pages/BanglaDesh/Politics/Politics";
+import International from "./pages/International/International";
 import Photo from "./pages/Photo/Photo";
 function App() {
   return (
@@ -60,6 +63,13 @@ function App() {
             <Route path="/advertisement" element={<Advertisement />} />
             <Route path="/livetv" element={<LiveTv />} />
             <Route path="/photo" element={<Photo />}></Route>
+            {/* bangladesh start */}
+            <Route path="/bangladesh" element={<BanglaDesh />}>
+              <Route index element={<Politics />}></Route>
+              <Route element={<Politics />}></Route>
+            </Route>
+
+            <Route path="/international" element={<International />}></Route>
           </Route>
           {/* dashboard start */}
           <Route
