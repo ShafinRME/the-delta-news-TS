@@ -1,6 +1,4 @@
 import axios from "axios";
-import { reload } from "firebase/auth";
-import { STATUS_CODES } from "http";
 import { useState } from "react";
 
 const API_key = `b0d4ce51b0759ab8d2f7af06c0667dd4`;
@@ -39,7 +37,7 @@ const Weather = () => {
   const [weather, setWeather] = useState<WeatherProps | null>(null);
   const [location, setLocation] = useState("");
   const [celsius, setCelsius] = useState("");
-  const [error, setError] = useState<any>(null);
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_key}`;
 
   const searchLocation = (event: any) => {
@@ -77,9 +75,7 @@ const Weather = () => {
           />
         </div>
         {/* Top */}
-        <div>
-          <p>{error}</p>
-        </div>
+
         <div className="relative flex justify-between pt-12  text-gray-800">
           <div className="flex flex-col items-center">
             {weather ? (

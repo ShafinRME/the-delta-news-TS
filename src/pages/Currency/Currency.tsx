@@ -3,14 +3,12 @@ import { CurrencyNews } from "./types";
 
 const Currency = () => {
   const [currency, setCurrency] = useState<CurrencyNews | null>(null);
-  const [key, setKey] = useState("");
+
   useEffect(() => {
     fetch("https://api.exchangerate.host/latest?base=USD")
       .then((res) => res.json())
       .then((data) => {
         setCurrency(data);
-        setKey(data.rates);
-        console.log(key);
       });
   }, []);
 
