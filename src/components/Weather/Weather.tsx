@@ -49,12 +49,17 @@ const Weather = () => {
           const celsius = (response.data.main.feels_like - 273.15).toFixed(0);
           setCelsius(celsius);
           console.log(response.status);
+        }if(response.status === 404){
+          setCelsius('error');
+          console.log();
         }
       });
 
       setLocation("");
     }
   };
+
+  console.log(weather)
 
   return (
     <div
@@ -64,10 +69,10 @@ const Weather = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="relative flex flex-col justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 z-10">
+      <div className="relative flex flex-col  justify-between max-w-[500px] w-full h-[90vh] m-auto p-4 z-10">
         <div className="search">
           <input
-            className="text-black-300 text-center p-4 w-full"
+            className="text-black-300 text-center border py-3 focus:transition-colors duration-300 w-full focus:outline-none focus:border focus:border-primary"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
             onKeyPress={searchLocation}
@@ -76,7 +81,7 @@ const Weather = () => {
           />
         </div>
         {/* Top */}
-        
+
         <div className="relative flex justify-between pt-12  text-gray-800">
           <div className="flex flex-col items-center">
             {weather ? (
@@ -97,7 +102,7 @@ const Weather = () => {
         {/* Bottom */}
 
         {weather ? (
-          <div className="bg-white/75 relative p-8 rounded-md">
+          <div className=" relative p-8 rounded-md">
             <p className="text-2xl text-center pb-6">
               Weather in {weather?.name}
             </p>
