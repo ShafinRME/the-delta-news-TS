@@ -51,6 +51,16 @@ const headerData = {
       path: "/liveNews",
     },
     
+    {
+      text: "Videos",
+      path: "/videos",
+    },
+    
+    {
+      text: "Weather",
+      path: "/weather",
+    },
+    
   ],
   usersItem: [
     {
