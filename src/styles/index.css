@@ -26,7 +26,7 @@ a {
     @apply text-secondary font-semibold text-xl md:text-lg;
   }
   .news-sub-title {
-    @apply font-heading text-lg md:text-[1.65rem] text-secondary hover:text-neutral hover:transition-colors hover:duration-300 font-light;
+    @apply font-heading text-lg md:text-[1.4rem] text-secondary hover:text-neutral hover:transition-colors hover:duration-300 font-light ;
   }
   .news-sub-title-three-col {
     @apply font-heading text-lg  text-secondary hover:text-neutral hover:transition-colors hover:duration-300  font-semibold leading-[1.4rem] ;
