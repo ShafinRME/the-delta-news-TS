@@ -7,9 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
 import {
-  EffectFade,
   Navigation,
-  Pagination,
   Mousewheel,
   Keyboard,
 } from "swiper";
@@ -38,7 +36,6 @@ const Voting = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>({mode:"onChange"});
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
