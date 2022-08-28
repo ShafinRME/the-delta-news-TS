@@ -140,22 +140,28 @@ const SingleNews = () => {
               </a>
             </div>
 
-            {categoryNews?.slice(0,4).map((item) => (
+            {categoryNews?.slice(0, 4).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
               >
-                <div>
-                  <h1 className="news-sub-title-three-col pb-2">
-                    {item?.title}
-                  </h1>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <p className="news-live-details ">
-                    {item?.description?.slice(0, 100)}
-                  </p>
-                  <img src={item?.image} alt={item?.title} className="w-full" />
-                </div>
+                <Link to={`${item.category}/${item.slug}`} >
+                  <div>
+                    <h1 className="news-sub-title-three-col pb-2">
+                      {item?.title}
+                    </h1>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <p className="news-live-details ">
+                      {item?.description?.slice(0, 100)}
+                    </p>
+                    <img
+                      src={item?.image}
+                      alt={item?.title}
+                      className="w-full"
+                    />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -180,8 +186,8 @@ const SingleNews = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 pt-6 border-t border-t-warning-content">
           {categoryNews?.slice(0, 4).map((item) => (
             <div className="div">
-              <img src={item.image} alt={item.title} />
-              <h1>{item.title}</h1>
+              <img src={item.image} alt={item.title} className="h-44 w-full" />
+              <h1 className="news-sub-title-three-col pt-2">{item.title}</h1>
             </div>
           ))}
         </div>
