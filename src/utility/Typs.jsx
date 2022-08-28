@@ -42,6 +42,33 @@ type NewsProps = {
   date:string,
   
 };
+type SectionProps = {
+  news: {
+    title: string,
+    id: string,
+    _id: string,
+    description: string,
+    image: string,
+    slug: string,
+    category: string,
+    date: string,
+  }[]
+  
+};
+type SectionNewsProps = {
+  news: {
+    title: string,
+    id: string,
+    _id: string,
+    description: string,
+    image: string,
+    slug: string,
+    category: string,
+    date: string,
+  }[],
+  linkUrl:string,
+  linkText:string,
+};
 
 type ModeratorRowProps = {
   news: {
@@ -78,4 +105,6 @@ export {
   allNewsData,
   NewsProps,
   ModeratorRowProps,
+  SectionNewsProps,
+  SectionProps,
 };

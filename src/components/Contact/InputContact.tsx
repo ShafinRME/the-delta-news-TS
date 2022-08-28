@@ -20,6 +20,7 @@ const InputContact = () => {
     const email = data.email;
     const description = data.message;
     const user = { firstName, lastName, phone, email, description };
+    console.log(user);
 
     // post data to server
 
@@ -37,6 +38,8 @@ const InputContact = () => {
           reset();
         } else toast.error(`You message has failed to sent`);
       });
+
+      console.log(user)
   };
 
   // reCaptcha

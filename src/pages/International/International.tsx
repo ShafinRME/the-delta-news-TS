@@ -58,7 +58,7 @@ const Sports = () => {
                   <div className="xl:col-span-8">
                     {news.slice(0, 1).map((item) => (
                       <div key={item.id}>
-                        <Link to={`singleNews/${item.slug}`}>
+                        <Link to={`${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -72,7 +72,7 @@ const Sports = () => {
                   <div className="xl:col-span-4 xl:border-l   border-warning-content xl:pl-4">
                     {news.slice(1, 2).map((item) => (
                       <div key={item.id}>
-                        <Link to={`singleNews/${item.slug}`}>
+                        <Link to={`${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -97,18 +97,20 @@ const Sports = () => {
                       key={item.id}
                       className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0 "
                     >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="lg:h-36 w-full"
-                      />
-                      <h1 className="news-sub-title-three-col pt-2">
-                        {item.title}
-                      </h1>
-                      <p className="news-live-details ">{`${item.description.slice(
-                        0,
-                        120
-                      )} ...`}</p>
+                      <Link to={`${item.slug}`}>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="lg:h-36 w-full"
+                        />
+                        <h1 className="news-sub-title-three-col pt-2">
+                          {item.title}
+                        </h1>
+                        <p className="news-live-details ">{`${item.description.slice(
+                          0,
+                          120
+                        )} ...`}</p>
+                      </Link>
                     </div>
                   ))}
                 </div>
