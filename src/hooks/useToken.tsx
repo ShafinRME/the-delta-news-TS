@@ -16,16 +16,17 @@ const useToken = (user: any) => {
         method: "PUT",
         headers: {
           "content-type": "application/json",
+          
         },
         body: JSON.stringify(currentUser),
       })
         .then((res) => res.json())
         .then((data) => {
-          // const accessToken = data.token;
-          // localStorage.setItem("accessToken", accessToken);
-          // setToken(accessToken);
+          const accessToken = data.token;
+          localStorage.setItem("accessToken", accessToken);
+          setToken(accessToken);
           setToken(data);
-          console.log(data);
+          console.log( "user", data);
         });
     }
   }, [user]);

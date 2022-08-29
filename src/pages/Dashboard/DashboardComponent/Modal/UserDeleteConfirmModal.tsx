@@ -11,35 +11,36 @@ interface User {
   };
 }
 
-interface UserRowProps{
+interface UserRowProps {
   user: {
-    email: string ;
+    email: string;
     _id: string;
     name: string;
     role: string;
-  };
-  setUser: React.Dispatch<React.SetStateAction< User | {}>>;
-};
+  }
+  refetch:any;
+  setUser: React.Dispatch<React.SetStateAction<User | {}>>;
+}
 
 const UserDeleteConfirmModal: FC<UserRowProps> = ({
   user,
-  // refetch,
+  refetch,
   setUser,
 }) => {
-  const { name, _id, email } = user;
+  const { name, email } = user;
   const handleDelete = () => {
-    fetch(`https://auto-parts0.herokuapp.com/product/${_id}`, {
+    fetch(`http://localhost:5000/api/users/${email}`, {
       method: "DELETE",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      // },
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          toast.success(`Product: ${name} is deleted`);
+          toast.success(`User: ${name} is deleted`);
           setUser({});
-          // refetch();
+          refetch();
         }
       });
   };
