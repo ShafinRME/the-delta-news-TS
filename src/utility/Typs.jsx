@@ -17,8 +17,62 @@ interface Data {
   image?: string;
   date?: string;
   slug?: string;
-  category?:string
+  category?:string;
+  reference?:string;
+}
+
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
+}
+
+interface locationProps {
+  state: any;
+}
+
+type NewsProps = {
+  title: string,
+  id: string,
+  _id: string,
+  description: string,
+  image: string,
+  slug: string,
+};
+
+type ModeratorRowProps = {
+  news: {
+    _id?: string,
+    id?: string,
+    title?: string,
+    description?: string,
+    image?: string,
+    date?: string,
+    slug?: string,
+    reference?: string,
+  },
+  index: number,
+};
+
+
+interface allNewsData {
+  _id?: string;
+  id?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  date?: string;
+  slug?: string;
+  category?: string;
 }
 
 
-export { DetailsNews, Data };
+export {
+  DetailsNews,
+  Data,
+  FormValues,
+  locationProps,
+  allNewsData,
+  NewsProps,
+  ModeratorRowProps,
+};
