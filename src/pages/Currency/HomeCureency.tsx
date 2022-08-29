@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CurrencyNews } from "./types";
 
-const Currency = () => {
+const HomeCurrency = () => {
   const [currency, setCurrency] = useState<CurrencyNews | null>(null);
 
   useEffect(() => {
@@ -9,58 +9,49 @@ const Currency = () => {
       .then((res) => res.json())
       .then((data) => {
         setCurrency(data);
+        console.log(data);
       });
   }, []);
 
   return (
     <div>
-      {/* <h1 classNameName="uppercase">usd {currency?.rates.USD.toFixed(0)}</h1>
-      <h1 classNameName="uppercase"></h1>
-      <h1 classNameName="uppercase"></h1>
-      <h1 classNameName="uppercase"></h1>
-      <h1 classNameName="uppercase"></h1> */}
       <div className="overflow-x-auto">
-        <table className="table w-full">
-          <thead>
+        <h1 className="news-live-details-3 pt-2">
+          Currency Base on 1 USD Dollar equals
+        </h1>
+        <p className="news-live-details-3 pt-1">Date:{currency?.date}</p>
+        <table className="table table-compact w-full max-w-[5rem] mx-auto ">
+          <tbody className="text-xs font-semibold font-description text-neutral">
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Currency in USD</th>
-              {/* <th>Favorite Color</th> */}
+              <th>Country</th>
+              <td>Currency</td>
+              <td>Amount</td>
+              <td>Name</td>
             </tr>
-          </thead>
-          <tbody>
             <tr>
-              <th>1</th>
-              <td>USD</td>
-              <td>{currency?.rates.USD.toFixed(0)}</td>
-              {/* <td>Blue</td> */}
-            </tr>
-
-            <tr>
-              <th>2</th>
+              <th>UAE</th>
               <td>AED</td>
               <td> {currency?.rates.AED.toFixed(0)}</td>
-              {/* <td>Purple</td> */}
+              <td>Dirham</td>
             </tr>
 
             <tr>
-              <th>3</th>
+              <th>EU</th>
               <td>EUR</td>
               <td> {currency?.rates.EUR.toFixed(0)}</td>
-              {/* <td>Red</td> */}
+              <td>Euro </td>
             </tr>
             <tr>
-              <th>4</th>
+              <th>Qatar</th>
               <td>QAT</td>
               <td> {currency?.rates.QAR.toFixed(0)}</td>
-              {/* <td>Red</td> */}
+              <td>Qatari Riyal</td>
             </tr>
             <tr>
-              <th>5</th>
+              <th>Bangladesh</th>
               <td>BDT</td>
               <td>{currency?.rates.BDT.toFixed(0)}</td>
-              {/* <td>Red</td> */}
+              <td>Taka</td>
             </tr>
           </tbody>
         </table>
@@ -69,4 +60,4 @@ const Currency = () => {
   );
 };
 
-export default Currency;
+export default HomeCurrency;

@@ -8,10 +8,10 @@ import CategorySmallAdds2 from "../../Assets/images/singleAdd/categorySmall.gif"
 import CategoryAdds2 from "../../Assets/images/singleAdd/categoryadds2.png";
 import CategorySmallAdds3 from "../../Assets/images/singleAdd/categorySmallAdds2.gif";
 
-const Business = () => {
+const Sports = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch(`${url}/Business`)
+    fetch(`${url}/International`)
       .then((res) => res.json())
       .then((data) => setNews(data));
   }, []);
@@ -58,7 +58,7 @@ const Business = () => {
                   <div className="xl:col-span-8">
                     {news.slice(0, 1).map((item) => (
                       <div key={item.id}>
-                        <Link to={`singleNews/${item.slug}`}>
+                        <Link to={`${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -72,7 +72,7 @@ const Business = () => {
                   <div className="xl:col-span-4 xl:border-l   border-warning-content xl:pl-4">
                     {news.slice(1, 2).map((item) => (
                       <div key={item.id}>
-                        <Link to={`singleNews/${item.slug}`}>
+                        <Link to={`${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -97,18 +97,20 @@ const Business = () => {
                       key={item.id}
                       className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0 "
                     >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="lg:h-36 w-full"
-                      />
-                      <h1 className="news-sub-title-three-col pt-2">
-                        {item.title}
-                      </h1>
-                      <p className="news-live-details ">{`${item.description.slice(
-                        0,
-                        120
-                      )} ...`}</p>
+                      <Link to={`${item.slug}`}>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="lg:h-36 w-full"
+                        />
+                        <h1 className="news-sub-title-three-col pt-2">
+                          {item.title}
+                        </h1>
+                        <p className="news-live-details ">{`${item.description.slice(
+                          0,
+                          120
+                        )} ...`}</p>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -171,7 +173,7 @@ const Business = () => {
                 {news.slice(10).map((item) => (
                   <div
                     key={item.id}
-                    className="grid grid-cols-1 gap-4 md:grid-cols-2 md:max-w-xl md:ml-auto pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"
+                    className="grid grid-cols-1 grid-flow-dense gap-4 md:grid-cols-2 md:max-w-xl md:ml-auto pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"
                   >
                     <div className="div">
                       <h1 className="news-sub-title-three-col">{item.title}</h1>
@@ -180,11 +182,11 @@ const Business = () => {
                         170
                       )} ...`}</p>
                     </div>
-                    <div className="div">
+                    <div className="order-first md:order-last">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full "
+                        className="w-full h-44 "
                       />
                     </div>
                   </div>
@@ -214,4 +216,4 @@ const Business = () => {
   );
 };
 
-export default Business;
+export default Sports;

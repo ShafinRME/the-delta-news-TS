@@ -10,6 +10,7 @@ import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
+import Currency from "./pages/Currency/Currency";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
@@ -29,11 +30,14 @@ import OneNews from "./pages/LiveNews/OneNews";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports/Sports";
-
+import International from './pages/International/International'
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/LiveTv/LiveTv";
 import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 import Advertisement from "./pages/Advertisement/Advertisement";
+import Video from "./pages/Videos/Video";
+import Videos from "./pages/Videos/Videos";
+
 
 function App() {
   return (
@@ -47,8 +51,11 @@ function App() {
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />}></Route>
+            <Route path="/livenews" element={<LiveNews />} />
             <Route path="/livenews/:path" element={<OneNews />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/videos/:path" element={<Video />} />
+            <Route path="/currency" element={<Currency />} />
             <Route path="/sports" element={<Sports />} />
             <Route path="/health" element={<Health />} />
             <Route path="/tech" element={<Tech />} />
@@ -57,6 +64,8 @@ function App() {
             <Route path="/singleNews/:slug" element={<SingleNews />} />
             <Route path="/News/:slug" element={<News />} />
             <Route path="/advertisement" element={<Advertisement />} />
+            <Route path="/international" element={<International />} />
+            <Route path="/international/:slug" element={<SingleNews />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
           {/* dashboard start */}

@@ -7,11 +7,11 @@
 //   BsFillPersonPlusFill,
 // } from "react-icons/bs";
 import {
+  BiCog,
+  BiEdit,
   BiLogInCircle,
   BiLogOutCircle,
   BiUserPlus,
-  BiCog,
-  BiEdit,
 } from "react-icons/bi";
 
 const headerData = {
@@ -21,6 +21,10 @@ const headerData = {
       path: "/",
     },
 
+    {
+      text: "International",
+      path: "/international",
+    },
     {
       text: "Sports",
       path: "/sports",
@@ -50,7 +54,15 @@ const headerData = {
       text: "Live News",
       path: "/liveNews",
     },
-    
+    {
+      text: "Videos",
+      path: "/videos",
+    },
+
+    {
+      text: "Weather",
+      path: "/weather",
+    },
   ],
   usersItem: [
     {
