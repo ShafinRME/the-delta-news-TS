@@ -12,7 +12,7 @@ const useToken = (user: any) => {
     };
     console.log(currentUser);
     if (email) {
-      fetch(`http://localhost:5000/api/users/${email}`, {
+      fetch(`https://team-delta001.herokuapp.com/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -21,11 +21,11 @@ const useToken = (user: any) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // const accessToken = data.token;
-          // localStorage.setItem("accessToken", accessToken);
-          // setToken(accessToken);
+          const accessToken = data.token;
+          localStorage.setItem("accessToken", accessToken);
+          setToken(accessToken);
           setToken(data);
-          console.log(data);
+          console.log("user", data);
         });
     }
   }, [user]);

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Loadings from "../../../../components/Loading/Loadings";
+import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
 // import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
 import UserRow from "../../DashboardComponent/TableRow/UserRow";
 
@@ -13,39 +14,26 @@ interface UserData {
 }
 
 
-interface User {
-  email?: string;
-  _id?: string;
-  name?: string;
-  role?: string;
-}
-
-type UserRowProps = {
-  user: {
-    email: string;
-    _id: string;
-    name: string;
-    role: string;
-  } 
-  setUser: React.Dispatch<React.SetStateAction< {} | User>>;
-};
-
 
 const AllUsers = () => {
-
-  const [user, setUser] = useState<UserRowProps | {}>({});
+  const [user, setUser] = useState<any>(null);
 
   const url = `https://team-delta001.herokuapp.com/api/users`;
-  const { isLoading, data } = useQuery<UserData[], Error>(["allNews"], () =>
-    fetch(url).then((res) => res.json())
+  const { isLoading, error, refetch, data } = useQuery<UserData[], Error>(["allNews"],() =>fetch(url, {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
   );
 
   if (isLoading) {
     return <Loadings />;
   }
-
-
-  console.log(user)
+  if (error) {
+    return <h1>{error.message}</h1>;
+  }
+  console.log(user);
   return (
     <>
       <section className="p-5 text-lg font-semibold text-left text-accent">
@@ -82,13 +70,13 @@ const AllUsers = () => {
           </tbody>
         </table>
 
-        {/* {user && (
+        {user && (
           <UserDeleteConfirmModal
             setUser={setUser}
-            // refetch={refetch}
+            refetch={refetch}
             user={user}
           />
-        )} */}
+        )}
       </section>
     </>
   );
