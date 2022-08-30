@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Loadings from "../../../../components/Loading/Loadings";
-import ModeratorRow from "../../DashboardComponent/TableRow/ModeratorRow";
 import { Data } from "../../../../utility/Typs";
+import ModeratorRow from "../../DashboardComponent/TableRow/ModeratorRow";
 
 const AllModeratorNews = () => {
   // interface Data {
@@ -13,7 +13,7 @@ const AllModeratorNews = () => {
   //   date?: string;
   //   slug?: string;
   // }
-  const url = `https://team-delta001.herokuapp.com/api/news`;
+  const url = `https://the-delta-times-server.vercel.app/api/news`;
   const { isLoading, data } = useQuery<Data[], Error>(["allNews"], () =>
     fetch(url).then((res) => res.json())
   );

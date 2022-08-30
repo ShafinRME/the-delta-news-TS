@@ -2,19 +2,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 // import "swiper/css/effect-fade";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
-import {
-  Navigation,
-  Mousewheel,
-  Keyboard,
-} from "swiper";
 import { useEffect, useState } from "react";
-import { NewsProps } from "../../utility/Typs";
+import { SubmitHandler, useForm } from "react-hook-form";
+import {
+    Keyboard, Mousewheel, Navigation
+} from "swiper";
 import SmallLoading from "../../components/Loading/SmallLoading";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { NewsProps } from "../../utility/Typs";
 
 type Inputs = {
   example: string;
@@ -26,7 +23,7 @@ type Inputs = {
 const Voting = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch("https://team-delta001.herokuapp.com/api/news")
+    fetch("https://the-delta-times-server.vercel.app/api/news")
       .then((res) => res.json())
       .then((data) => {
         setNews(data);

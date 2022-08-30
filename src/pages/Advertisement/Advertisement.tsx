@@ -9,8 +9,8 @@ import ContactSection from "../../components/ContactSection/ContactSection";
 import Services from "../../components/Advertisement/Services";
 import ServicesData from "../../data/ServicesData";
 import HeroData from "../../components/Hero/HeroData";
-import Why from "../../Images/service/why.png";
-import Adv from "../../Images/service/adv.png";
+import Why from "../../Assets/images/service/why.png";
+import Adv from "../../Assets/images/service/adv.png";
 import useServices from "../../hooks/AllServicesData";
 
 const Advertisement = () => {

@@ -13,27 +13,29 @@ interface UserData {
   Index?: number;
 }
 
-
-
 const AllUsers = () => {
   const [user, setUser] = useState<any>(null);
-
-  const url = `https://team-delta001.herokuapp.com/api/users`;
-  const { isLoading, error, refetch, data } = useQuery<UserData[], Error>(["allNews"],() =>fetch(url, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }).then((res) => res.json())
+  const url = `https://the-delta-times-server.vercel.app/api/users`;
+  const { isLoading, isError, error, refetch, data } = useQuery<
+    UserData[],
+    Error
+  >(["allNews"], () =>
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
   if (isLoading) {
     return <Loadings />;
   }
-  if (error) {
+  if (isError) {
     return <h1>{error.message}</h1>;
   }
-  console.log(user);
+
+  console.log("user", user);
   return (
     <>
       <section className="p-5 text-lg font-semibold text-left text-accent">

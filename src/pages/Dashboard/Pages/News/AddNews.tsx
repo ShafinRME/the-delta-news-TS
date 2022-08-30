@@ -1,10 +1,10 @@
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup";
-import categoryData from "../../../../data/category";
-import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
 import { toast } from "react-toastify";
+import categoryData from "../../../../data/category";
 import SubmitModal from "../../DashboardComponent/Modal/SubmitModal";
+import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
 
 const AddNews = () => {
   // const [slugValue, setSlugValue] = useState(null);
@@ -68,7 +68,7 @@ const AddNews = () => {
             image: image,
           };
           // this fetch for save from data in mongodb
-          fetch(`https://team-delta001.herokuapp.com/api/news`, {
+          fetch(`https://the-delta-times-server.vercel.app/api/news`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

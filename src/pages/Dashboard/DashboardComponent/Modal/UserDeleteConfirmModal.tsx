@@ -18,10 +18,9 @@ const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
   refetch,
   setUser,
 }) => {
-  
   const { name, email } = user;
   const handleDelete = () => {
-    fetch(`http://localhost:5000/api/users/${email}`, {
+    fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
