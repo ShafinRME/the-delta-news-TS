@@ -38,7 +38,7 @@ const menuItems = {
 
     {
       text: "Live News",
-      path: "liveTv",
+      path: "livetv",
       icon: <BsBroadcastPin />,
     },
   ],
