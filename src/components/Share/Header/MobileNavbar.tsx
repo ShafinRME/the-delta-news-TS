@@ -5,16 +5,15 @@ import headerData from "./HeaderData";
 import { Link, NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../config/firebaseConfig.init";
+import Clock from "./Clock";
 
 interface Props {
   sideBar: boolean;
   handleSideBar: () => void;
 }
 
-
-const MobileNavbar :FC<Props> = ({ handleSideBar, sideBar }) => {
-
-  const [user ] = useAuthState(auth)
+const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
+  const [user] = useAuthState(auth);
 
   return (
     <>
@@ -76,8 +75,13 @@ const MobileNavbar :FC<Props> = ({ handleSideBar, sideBar }) => {
                 </form>
               </div>
               <div className="mt-4 flex justify-around items-center">
-                <div className="text-sm font-medium text-secondary mt-1">
-                  <TodayDate />
+                <div>
+                  <div className="text-sm font-medium text-secondary mt-1">
+                    <TodayDate />
+                  </div>
+                  <div className="text-sm font-medium text-secondary mt-1 font-bold">
+                    <Clock />
+                  </div>
                 </div>
                 <div className="text-base text-secondary">
                   <Link to="/archives">Archive</Link>
