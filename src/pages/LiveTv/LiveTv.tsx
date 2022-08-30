@@ -9,8 +9,8 @@ import SectionTitle from "../../components/Share/SectionTitle/SectionTitle";
 import faqData from "../../data/faqData";
 import ServicesData from "../../data/ServicesData";
 import useServices from "../../hooks/AllServicesData";
-import liveNews from "../../Images/service/liveNews.png";
-import updateNews from "../../Images/service/updateNews.png";
+import liveNews from "../../Assets/images/service/liveNews.png";
+import updateNews from "../../Assets/images/service/updateNews.png";
 
 const LiveTv = () => {
   const [services] = useServices();
