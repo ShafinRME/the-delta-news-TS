@@ -32,7 +32,7 @@ import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports/Sports";
 import International from './pages/International/International'
 import Tech from "./pages/Tech/Tech";
-import LiveTv from "./pages/LiveTv/LiveTv";
+import LiveTv from "./pages/LiveTv/LiveTvs";
 import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 import Advertisement from "./pages/Advertisement/Advertisement";
 import Video from "./pages/Videos/Video";
