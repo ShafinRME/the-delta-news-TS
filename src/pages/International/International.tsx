@@ -10,14 +10,35 @@ import CategorySmallAdds3 from "../../Assets/images/singleAdd/categorySmallAdds2
 
 const Sports = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
-    fetch(`${url}/International`)
-      .then((res) => res.json())
-      .then((data) => setNews(data));
-  }, []);
+    const baseUrl = `${url}/International`;
+
+    fetch(baseUrl)
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Data Not Found");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setNews(data);
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, [error]);
 
   return (
     <>
+      {error && (
+        <div className="pt-14">
+          <h1 className="text-2xl font-semibold font-description text-center text-primary ">
+            {error}
+          </h1>
+        </div>
+      )}
       {news.length <= 0 ? (
         <Loadings />
       ) : (
@@ -56,7 +77,7 @@ const Sports = () => {
               <div className="xl:col-span-9">
                 <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 pb-4 border-b border-warning-content">
                   <div className="xl:col-span-8">
-                    {news.slice(0, 1).map((item) => (
+                    {news?.slice(0, 1).map((item) => (
                       <div key={item.id}>
                         <Link to={`${item.slug}`}>
                           <img
@@ -70,7 +91,7 @@ const Sports = () => {
                   </div>
                   {/* middle parts */}
                   <div className="xl:col-span-4 xl:border-l   border-warning-content xl:pl-4">
-                    {news.slice(1, 2).map((item) => (
+                    {news?.slice(1, 2).map((item) => (
                       <div key={item.id}>
                         <Link to={`${item.slug}`}>
                           <img
@@ -92,7 +113,7 @@ const Sports = () => {
                 </div>
                 {/* last three cards */}
                 <div className="grid grid-cols-1 xl:grid-cols-3 pt-4 gap-4 ">
-                  {news.slice(3, 6).map((item) => (
+                  {news?.slice(3, 6).map((item) => (
                     <div
                       key={item.id}
                       className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0 "
@@ -130,7 +151,7 @@ const Sports = () => {
                     />
                   </a>
                 </div>
-                {news.slice(6, 10).map((item) => (
+                {news?.slice(6, 10).map((item) => (
                   <div
                     key={item.id}
                     className="border-b border-warning-content last:border-0 pb-4 last:pb-0 pt-2"
@@ -170,7 +191,7 @@ const Sports = () => {
             <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-12 gap-4  pb-4 pt-14">
               {/* left part */}
               <div className="xl:col-span-9">
-                {news.slice(10).map((item) => (
+                {news?.slice(10).map((item) => (
                   <div
                     key={item.id}
                     className="grid grid-cols-1 grid-flow-dense gap-4 md:grid-cols-2 md:max-w-xl md:ml-auto pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"

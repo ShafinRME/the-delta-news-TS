@@ -1,13 +1,6 @@
 import React, { FC } from "react";
 
-interface User {
-  user: {
-    email?: string;
-    id?: string;
-    name?: string;
-    role?: string;
-  };
-}
+
 
 type UserRowProps = {
   user: {
@@ -17,7 +10,7 @@ type UserRowProps = {
     role?: string;
   };
   index: number;
-  setUser: React.Dispatch<React.SetStateAction<User | {}>>;
+  setUser: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const UserRow: FC<UserRowProps> = ({ user, index, setUser }) => {

@@ -29,7 +29,7 @@ const SingleNews = () => {
   );
 
   const category = data?.category;
-  const baseUrl = `https://delta-times.netlify.app/singleNews/${slug}`;
+  const baseUrl = `https://team-delta001.herokuapp.com/singleNews/${slug}`;
 
   useEffect(() => {
     const baseUrl = `${urls}/${category}`;

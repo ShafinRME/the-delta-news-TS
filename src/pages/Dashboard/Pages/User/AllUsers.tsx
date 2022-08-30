@@ -13,27 +13,12 @@ interface UserData {
   Index?: number;
 }
 
-interface User {
-  email?: string;
-  _id?: string;
-  name?: string;
-  role?: string;
-}
 
-type UserRowProps = {
-  user: {
-    email: string;
-    _id: string;
-    name: string;
-    role: string;
-  };
-  setUser: React.Dispatch<React.SetStateAction<{} | User>>;
-};
 
 const AllUsers = () => {
-  const [user, setUser] = useState<UserRowProps | {}>({});
+  const [user, setUser] = useState<any>(null);
 
-  const url = `http://localhost:5000/api/users`;
+  const url = `https://team-delta001.herokuapp.com/api/users`;
   const { isLoading, error, refetch, data } = useQuery<UserData[], Error>(["allNews"],() =>fetch(url, {
         method: "GET",
         headers: {
@@ -48,7 +33,6 @@ const AllUsers = () => {
   if (error) {
     return <h1>{error.message}</h1>;
   }
-
   console.log(user);
   return (
     <>
