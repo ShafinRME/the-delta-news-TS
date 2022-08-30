@@ -5,7 +5,7 @@ import RequireAuth from "./components/Share/RequireAuth/RequireAuth";
 import Weather from "./components/Weather/Weather";
 import MainLayout from "./Layout/MainLayout";
 import Error from "./pages/404/Error";
-import Advertisement from "./pages/Advertisement/Advertisement";
+import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import Books from "./pages/Books/Books";
 import Business from "./pages/Business/Business";
 import Contact from "./pages/Contact/contact";
@@ -27,14 +27,17 @@ import News from "./pages/Home/News";
 import SingleNews from "./pages/Home/SingleNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
-import LiveTv from "./pages/LiveTV/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports/Sports";
 import International from './pages/International/International'
 import Tech from "./pages/Tech/Tech";
+import LiveTv from "./pages/LiveTv/LiveTv";
+import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
+import Advertisement from "./pages/Advertisement/Advertisement";
 import Video from "./pages/Videos/Video";
 import Videos from "./pages/Videos/Videos";
+
 
 function App() {
   return (
@@ -82,6 +85,8 @@ function App() {
             <Route path="addNews" element={<AddNews />} />
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="calendar" element={<BigCalendar />} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}
