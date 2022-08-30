@@ -9,7 +9,7 @@ const News = () => {
   const { slug } = useParams();
 
   const [categoryNews, setCategoryNews] = useState<undefined | Data[]>([]);
-  const url = `https://team-delta001.herokuapp.com/api/news/${slug}`;
+  const url = `https://the-delta-times-server.vercel.app/api/news/${slug}`;
   const { isLoading, data } = useQuery<Data, Error>(["allNews"], () =>
     fetch(url).then((res) => res.json())
   );
@@ -17,7 +17,7 @@ const News = () => {
   const category = data?.category;
 
   useEffect(() => {
-    const baseUrl = `https://team-delta001.herokuapp.com/api/news/${category}`;
+    const baseUrl = `https://the-delta-times-server.vercel.app/api/news/${category}`;
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {

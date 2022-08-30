@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
 import axios from "axios";
-import { useForm, SubmitHandler } from "react-hook-form";
-import categoryData from "../../../../data/category";
-import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
+import React, { FC, useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import categoryData from "../../../../data/category";
 import SubmitModal from "../../DashboardComponent/Modal/SubmitModal";
+import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
 
 interface Props {
   singleNews: string | undefined;
@@ -37,7 +37,7 @@ const ModeratorEditModal: FC<Props> = ({ singleNews, setSingleNews }) => {
   const [slugPerNews, setSlugPerNews] = useState<slugNewsProps | null>(null);
 
   useEffect(() => {
-    const url = `https://team-delta001.herokuapp.com/api/news/${singleNews}`;
+    const url = `https://the-delta-times-server.vercel.app/api/news/${singleNews}`;
     axios.get(url).then((res) => {
       setSlugPerNews(res.data);
     });
@@ -93,7 +93,7 @@ const ModeratorEditModal: FC<Props> = ({ singleNews, setSingleNews }) => {
             image: image,
           };
           // this fetch for save from data in mongodb
-          fetch(`https://team-delta001.herokuapp.com/api/news`, {
+          fetch(`https://the-delta-times-server.vercel.app/api/news`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

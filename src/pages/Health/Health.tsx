@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 type NewsProps = {
     title: string;
     id: string;
@@ -8,7 +8,7 @@ type NewsProps = {
 const Health = () => {
     const [news, setNews] = useState<NewsProps[]>([]);
     useEffect(() => {
-      fetch("https://team-delta001.herokuapp.com/api/news/health")
+      fetch("https://the-delta-times-server.vercel.app/api/news/health")
         .then((res) => res.json())
         .then((data) => setNews(data));
     }, []);

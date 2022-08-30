@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SecondAdvertisement from "../../Assets/images/home/advertisement.png";
+import HomeFirstAdds from "../../Assets/images/home/homeFirstAdds.gif";
 import Loadings from "../../components/Loading/Loadings";
 import { NewsProps } from "../../utility/Typs";
-import HomeFirstAdds from "../../Assets/images/home/homeFirstAdds.gif";
 // import HomeFirstSmallAdds from "../../Assets/images/home/homeFirstSmallgif.gif";
 import HomeFirstBigAdds2 from "../../Assets/images/home/homeBigAdds2.gif";
-import Voting from "./Voting";
-import FirstSection from "./FirstSection";
-import SecondSection from "./SecondSection";
-import BangladeshSection from "./BangladeshSection";
-import InternationalSection from "./InternationalSection";
-import HealthSection from "./HealthSection";
-import BusinessSection from "./BusinessSection";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
+import BangladeshSection from "./BangladeshSection";
+import BusinessSection from "./BusinessSection";
+import FirstSection from "./FirstSection";
+import HealthSection from "./HealthSection";
+import InternationalSection from "./InternationalSection";
+import SecondSection from "./SecondSection";
+import Voting from "./Voting";
 
 const Home = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch("https://team-delta001.herokuapp.com/api/news")
+    fetch("https://the-delta-times-server.vercel.app/api/news")
       .then((res) => res.json())
       .then((data) => {
         setNews(data.reverse());

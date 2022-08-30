@@ -21,7 +21,7 @@ const ModeratorViewModal: FC<Props> = ({ singleNews, setSingleNews }) => {
   const [slugPerNews, setSlugPerNews] = useState<slugNewsProps | null>(null);
 
   useEffect(() => {
-    const url = `https://team-delta001.herokuapp.com/api/news/${singleNews}`;
+    const url = `https://the-delta-times-server.vercel.app/api/news/${singleNews}`;
     axios.get(url).then((res) => {
       setSlugPerNews(res.data);
     });

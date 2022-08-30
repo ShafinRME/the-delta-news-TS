@@ -7,7 +7,7 @@ export interface AllNews {
 const useAllNews = () => {
   const [AllNews, setAllNews] = useState<AllNews[]>([]);
   useEffect(() => {
-    const url = "https://team-delta001.herokuapp.com/api/news/";
+    const url = "https://the-delta-times-server.vercel.app/api/news/";
 
     fetch(url)
       .then((res) => res.json())

@@ -1,4 +1,3 @@
-import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaTelegramPlane } from "react-icons/fa";
 import { toast } from "react-toastify";
@@ -24,7 +23,7 @@ const InputContact = () => {
 
     // post data to server
 
-    fetch("https://team-delta001.herokuapp.com/api/contacts", {
+    fetch("https://the-delta-times-server.vercel.app/api/contacts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

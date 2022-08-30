@@ -1,4 +1,3 @@
-import { useContext, useEffect } from "react";
 // import { NewsContext } from "../App";
 
 
@@ -29,7 +28,7 @@ type UseContext = {
 const useNews = () => {
   // const [news, setNews] = useContext< UseContext >(NewsContext);
   // useEffect(() => {
-  //   fetch("https://team-delta001.herokuapp.com/api/news")
+  //   fetch("https://the-delta-times-server.vercel.app/api/news")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setNews(data);

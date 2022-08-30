@@ -1,3 +1,3 @@
-const url = `https://team-delta001.herokuapp.com/api/news/category`;
+const url = `https://the-delta-times-server.vercel.app/api/news/category`;
 
 export { url };

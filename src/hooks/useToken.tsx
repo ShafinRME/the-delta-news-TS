@@ -8,11 +8,11 @@ const useToken = (user: any) => {
     const currentUser = {
       email: email,
       name: name,
-      role: 'general',
+      role: "general",
     };
     console.log(currentUser);
     if (email) {
-      fetch(`https://team-delta001.herokuapp.com/api/users/${email}`, {
+      fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
