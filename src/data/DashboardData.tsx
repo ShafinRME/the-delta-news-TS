@@ -63,16 +63,6 @@ const dashboardData = {
           text: "List",
           path: "profile",
         },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
-          text: "Edit",
-          path: "profile",
-        },
       ],
     },
     {
@@ -104,21 +94,11 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: " All News",
           path: "moderatorNewsList",
         },
         {
-          id: 5,
+          id: 3,
           text: "All News",
           path: "adminNewsList",
         },
@@ -136,16 +116,6 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: "List",
           path: "newsList",
         },
@@ -163,16 +133,6 @@ const dashboardData = {
         },
         {
           id: 2,
-          text: "Edit",
-          path: "editNews",
-        },
-        {
-          id: 3,
-          text: "Delete",
-          path: "profile",
-        },
-        {
-          id: 4,
           text: "List",
           path: "newsList",
         },

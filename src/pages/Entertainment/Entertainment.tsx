@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const Sports = () => {
+const Entertainment = () => {
   return (
     <>
       <Outlet />
@@ -8,4 +8,4 @@ const Sports = () => {
   );
 };
 
-export default Sports;
+export default Entertainment;

@@ -1,4 +1,3 @@
-
 import { SubmitHandler, useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
@@ -19,6 +18,9 @@ const AddNews = () => {
     title: string;
     reference: string;
     category: string;
+    subCategory: string;
+    photo: string;
+    breakingNews: string;
     date: string;
     description: string;
     image: string;
@@ -41,6 +43,10 @@ const AddNews = () => {
 
     const slug = newSlug;
     const category = data.category;
+    const subCategory = data.subCategory;
+    const photo = data.photo;
+    const breakingNews = data.breakingNews;
+    console.log("first dat", category);
     const date = fullDate;
     const reference = data.reference;
     const description = data.description;
@@ -61,6 +67,9 @@ const AddNews = () => {
             date: date,
             title: title,
             category: category,
+            subCategory: subCategory,
+            photo: photo,
+            breakingNews: breakingNews,
             slug: slug,
             reference: reference,
             description: description,
@@ -190,6 +199,31 @@ const AddNews = () => {
             </div>
           </div>
 
+          {/* News subCategory's */}
+          <div className="">
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className=" label-text-modify">Sub-Category</span>
+              </label>
+              <select
+                defaultValue={"DEFAULT"}
+                className="select input-modify   font-normal w-full"
+                {...register("subCategory")}
+              >
+                <option value="DEFAULT" disabled>
+                  Choose a Subcategory...
+                </option>
+                {categoryData.category.map((item) => (
+                  <optgroup label={item.title} key={item.id}>
+                    {categoryData.subCategory.map((item) => (
+                      <option key={item.id}>{item.title}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </div>
+          </div>
+
           {/* News Reference */}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="form-control w-full ">
@@ -202,9 +236,9 @@ const AddNews = () => {
                     value: true,
                     message: "News reference is required",
                   },
-                  minLength: {
-                    value: 4,
-                    message: "Must be 4 characters or longer",
+                  maxLength: {
+                    value: 20,
+                    message: "Must be 20 characters or longer",
                   },
                 })}
                 type="text"
@@ -242,6 +276,45 @@ const AddNews = () => {
               </label>
             </div>
           </div>
+
+          {/* News Photo */}
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text-modify">Photo</span>
+              </label>
+              <select
+                {...register("photo")}
+                defaultValue={"DEFAULT"}
+                className="input-modify"
+              >
+                <option value={"DEFAULT"} disabled>
+                  Choose
+                </option>
+                <option defaultValue="Yes">Yes</option>
+                <option defaultValue="No">No</option>
+              </select>
+            </div>
+
+            {/* Braking News */}
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text-modify">Braking News</span>
+              </label>
+              <select
+                {...register("breakingNews")}
+                defaultValue={"DEFAULT"}
+                className="input-modify"
+              >
+                <option value={"DEFAULT"} disabled>
+                  Choose
+                </option>
+                <option defaultValue="Yes">Yes</option>
+                <option defaultValue="No">No</option>
+              </select>
+            </div>
+          </div>
+
           {/* Description */}
           <div className="form-control">
             <label className="label">
