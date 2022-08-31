@@ -7,11 +7,11 @@
 //   BsFillPersonPlusFill,
 // } from "react-icons/bs";
 import {
+  BiCog,
+  BiEdit,
   BiLogInCircle,
   BiLogOutCircle,
   BiUserPlus,
-  BiCog,
-  BiEdit,
 } from "react-icons/bi";
 
 const headerData = {
@@ -20,22 +20,13 @@ const headerData = {
       text: "Home",
       path: "/",
     },
-
     {
-      text: "Sports",
-      path: "/sports",
+      text: "International",
+      path: "/international",
     },
     {
-      text: "Tech",
-      path: "/tech",
-    },
-    {
-      text: "Health",
-      path: "/health",
-    },
-    {
-      text: "Books",
-      path: "/books",
+      text: "Bangladesh",
+      path: "/bangladesh",
     },
     {
       text: "Business",
@@ -45,12 +36,30 @@ const headerData = {
       text: "Contact",
       path: "/contact",
     },
-
+    {
+      text: "Entertainment",
+      path: "/entertainment",
+    },
+    {
+      text: "Environment",
+      path: "/environment",
+    },
     {
       text: "Live News",
       path: "/liveNews",
     },
-    
+    {
+      text: "Photo",
+      path: "/photo",
+    },
+    {
+      text: "Sports",
+      path: "/sports",
+    },
+    {
+      text: "Tech",
+      path: "/tech",
+    },
   ],
   usersItem: [
     {

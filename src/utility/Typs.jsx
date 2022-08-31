@@ -37,6 +37,8 @@ type NewsProps = {
   _id: string,
   description: string,
   image: string,
+  category:string,
+  subCategory:string,
   slug: string,
 };
 
@@ -76,3 +78,4 @@ export {
   NewsProps,
   ModeratorRowProps,
 };
+
