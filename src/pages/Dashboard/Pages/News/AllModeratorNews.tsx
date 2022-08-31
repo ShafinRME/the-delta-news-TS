@@ -42,6 +42,7 @@ const AllModeratorNews = () => {
               <th>SL</th>
               <th>Date</th>
               <th>Title</th>
+              <th>Image</th>
               <th>View</th>
               <th>Edit</th>
               <th>Request</th>

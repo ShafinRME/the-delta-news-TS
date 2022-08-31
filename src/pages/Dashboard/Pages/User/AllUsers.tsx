@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Loadings from "../../../../components/Loading/Loadings";
 import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
+import UserModeratorConfirmModal from "../../DashboardComponent/Modal/UserModeratorConfirmModal";
 // import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
 import UserRow from "../../DashboardComponent/TableRow/UserRow";
 
@@ -31,24 +32,17 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loadings />;
   }
-  if (isError ) {
+  if (isError) {
     return <h1>{error.message}</h1>;
   }
-
-  console.log("user all user", user);
   return (
     <>
-      {data?.length <= 0  ? (
+      {data?.length <= 0 ? (
         <Loadings />
       ) : (
         <>
-          <section className="p-5 text-lg font-semibold text-left text-accent">
-            All Users
-            <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-              Browse a list of Flowbite products designed to help you work and
-              play, stay organized, get answers, keep in touch, grow your
-              business, and more.
-            </p>
+          <section className="p-5 text-lg lg:max-w-6xl mx-auto font-semibold text-left text-accent">
+            <h1>All Users {data?.length}</h1>
           </section>
           <section className="lg:max-w-6xl mx-auto overflow-x-auto">
             <table className="table rounded-0 w-full">
@@ -59,6 +53,7 @@ const AllUsers = () => {
                   <th>Name</th>
                   <th>Email</th>
                   <th>Role</th>
+                  <th>Make Moderator</th>
                   <th>Make Admin</th>
                   <th>Action</th>
                 </tr>
@@ -78,6 +73,13 @@ const AllUsers = () => {
 
             {user && (
               <UserDeleteConfirmModal
+                setUser={setUser}
+                refetch={refetch}
+                user={user}
+              />
+            )}
+            {user && (
+              <UserModeratorConfirmModal
                 setUser={setUser}
                 refetch={refetch}
                 user={user}

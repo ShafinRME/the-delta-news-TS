@@ -37,13 +37,13 @@ const monthName: string = getMonthName(monthIndex);
 
 
 const date = new Date();
-const fullDate = ` ${dayName}, ${monthName} ${
-  date.getDate() + 1
-}, ${date.getFullYear()}`;
+const fullDate = ` ${dayName}, ${
+  monthName
+} ${date.getDate()}, ${date.getFullYear()}`;
 
 const TodayDate = () => {
   return <>{fullDate}</>;
-  // return <><h1> hello </h1></>;
+ 
 };
 
 export default TodayDate;
