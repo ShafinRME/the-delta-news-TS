@@ -38,7 +38,7 @@ const monthName: string = getMonthName(monthIndex);
 
 const date = new Date();
 const fullDate = ` ${dayName}, ${monthName} ${
-  date.getMonth() + 1
+  date.getDate() + 1
 }, ${date.getFullYear()}`;
 
 const TodayDate = () => {

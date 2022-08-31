@@ -2,44 +2,38 @@ import { FC } from "react";
 import { HiOutlineUpload } from "react-icons/hi";
 import { toast } from "react-toastify";
 
-interface User {
+interface DeleteUsersProps {
   user: {
-    email?: string;
-    _id?: string;
-    name?: string;
-    role?: string;
-  };
-}
-
-interface UserRowProps{
-  user: {
-    email: string ;
+    email: string;
     _id: string;
     name: string;
     role: string;
   };
-  setUser: React.Dispatch<React.SetStateAction< User | {}>>;
-};
+  refetch: any;
+  setUser: any;
+}
 
-const UserDeleteConfirmModal: FC<UserRowProps> = ({
+const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
   user,
-  // refetch,
+  refetch,
   setUser,
 }) => {
-  const { name, _id, email } = user;
+  const { name, email } = user;
   const handleDelete = () => {
-    fetch(`https://auto-parts0.herokuapp.com/product/${_id}`, {
+    fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
       method: "DELETE",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      // },
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("delete user", data);
         if (data.deletedCount) {
-          toast.success(`Product: ${name} is deleted`);
-          setUser({});
-          // refetch();
+          toast.success(`User: ${name} is deleted`);
+          setUser(null);
+          refetch();
         }
       });
   };
@@ -55,7 +49,6 @@ const UserDeleteConfirmModal: FC<UserRowProps> = ({
         <div className="modal-box py-3">
           <label
             htmlFor="user-delete-confirm-modal"
-            onClick={() => setUser({})}
             className="btn btn-sm text-primary bg-transparent btn-circle absolute right-2 top-2"
           >
             ✕
@@ -77,7 +70,7 @@ const UserDeleteConfirmModal: FC<UserRowProps> = ({
           </svg>
 
           <h1 className="text-base text-center text-semibold text-primary-content">
-            Are You Want to Delete User?
+            {user.name}
           </h1>
 
           {/* cancel btn */}
@@ -85,6 +78,7 @@ const UserDeleteConfirmModal: FC<UserRowProps> = ({
             <label
               htmlFor="my-modal-6"
               className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 "
+              onClick={() => setUser(null)}
             >
               No, Cancel
             </label>

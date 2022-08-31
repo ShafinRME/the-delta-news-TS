@@ -1,37 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import {
+    FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton
+} from "react-share-rc-18";
+import SingleBigAdd from "../../Assets/images/singleAdd/singleBig.jpg";
+import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
+import SingleSmallAdd from "../../Assets/images/singleAdd/singleSmall.gif";
 import Loadings from "../../components/Loading/Loadings";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
 import { Data } from "../../utility/Typs";
-import SingleBigAdd from "../../Assets/images/singleAdd/singleBig.jpg";
-import SingleSmallAdd from "../../Assets/images/singleAdd/singleSmall.gif";
-import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-} from "react-share-rc-18";
+import { url as urls } from "../../utility/Urls";
 
 const SingleNews = () => {
   const { slug } = useParams();
 
   const [categoryNews, setCategoryNews] = useState<undefined | Data[]>([]);
-  const url = `https://team-delta001.herokuapp.com/api/news/${slug}`;
+  const url = `https://the-delta-times-server.vercel.app/api/news/${slug}`;
   const { isLoading, data } = useQuery<Data, Error>(["allNews"], () =>
     fetch(url).then((res) => res.json())
   );
 
   const category = data?.category;
-  const baseUrl = `https://delta-times.netlify.app/singleNews/${slug}`;
+  const baseUrl = `https://the-delta-times-server.vercel.app/singleNews/${slug}`;
 
   useEffect(() => {
-    const baseUrl = `https://team-delta001.herokuapp.com/api/news/${category}`;
+    const baseUrl = `${urls}/${category}`;
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -139,22 +133,28 @@ const SingleNews = () => {
               </a>
             </div>
 
-            {categoryNews?.slice(0,4).map((item) => (
+            {categoryNews?.slice(0, 4).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
               >
-                <div>
-                  <h1 className="news-sub-title-three-col pb-2">
-                    {item?.title}
-                  </h1>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <p className="news-live-details ">
-                    {item?.description?.slice(0, 100)}
-                  </p>
-                  <img src={item?.image} alt={item?.title} className="w-full" />
-                </div>
+                <Link to={`${item.category}/${item.slug}`} >
+                  <div>
+                    <h1 className="news-sub-title-three-col pb-2">
+                      {item?.title}
+                    </h1>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <p className="news-live-details ">
+                      {item?.description?.slice(0, 100)}
+                    </p>
+                    <img
+                      src={item?.image}
+                      alt={item?.title}
+                      className="w-full"
+                    />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -179,8 +179,8 @@ const SingleNews = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 pt-6 border-t border-t-warning-content">
           {categoryNews?.slice(0, 4).map((item) => (
             <div className="div">
-              <img src={item.image} alt={item.title} />
-              <h1>{item.title}</h1>
+              <img src={item.image} alt={item.title} className="h-44 w-full" />
+              <h1 className="news-sub-title-three-col pt-2">{item.title}</h1>
             </div>
           ))}
         </div>

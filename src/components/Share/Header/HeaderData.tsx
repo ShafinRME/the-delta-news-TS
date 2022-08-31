@@ -60,6 +60,14 @@ const headerData = {
       text: "Tech",
       path: "/tech",
     },
+    {
+      text: "Videos",
+      path: "/videos",
+    },
+    {
+      text: "Weather",
+      path: "/weather",
+    },
   ],
   usersItem: [
     {

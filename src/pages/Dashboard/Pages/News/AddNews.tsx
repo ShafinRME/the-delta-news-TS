@@ -76,7 +76,7 @@ const AddNews = () => {
             image: image,
           };
           // this fetch for save from data in mongodb
-          fetch(`https://team-delta001.herokuapp.com/api/news`, {
+          fetch(`https://the-delta-times-server.vercel.app/api/news`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

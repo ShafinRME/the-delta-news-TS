@@ -43,8 +43,8 @@ const dashboardData = {
     {
       id: 5,
       icon: <FaCalendarCheck />,
-      text: "Booking",
-      path: "booking",
+      text: "Calendar",
+      path: "calendar",
     },
   ],
   management: [

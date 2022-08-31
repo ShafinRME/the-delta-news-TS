@@ -12,14 +12,16 @@ import AllBanglaDeshNews from "./pages/BanglaDesh/Pages/AllBanglaDeshNews/AllBan
 import Crime from "./pages/BanglaDesh/Pages/Crime/Crime";
 import Politics from "./pages/BanglaDesh/Pages/Politics/Politics";
 import Business from "./pages/Business/Business";
-import AllBusinessNews from "./pages/Business/Pages/AllBusinessNews/AllBusinessNews";
 import Global from "./pages/Business/Pages/Global/Global";
 import Local from "./pages/Business/Pages/Local/Local";
 import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
+import Currency from "./pages/Currency/Currency";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
+import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
+import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
@@ -48,7 +50,6 @@ import Asia from "./pages/International/Pages/Asia/Asia";
 import Europe from "./pages/International/Pages/Europe/Europe";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
-import LiveTv from "./pages/LiveTV/LiveTv";
 import Photo from "./pages/Photo/Photo";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
@@ -59,8 +60,14 @@ import Sports from "./pages/Sports/Sports";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
 import SocialMedia from "./pages/Tech/Pages/SocialMedia/SocialMedia";
-
 import Tech from "./pages/Tech/Tech";
+
+import AllBusinessNews from "./pages/Business/Pages/AllBusinessNews/AllBusinessNews";
+import LiveTv from "./pages/LiveTV/LiveTvs";
+import AllSportsNews from "./pages/Sports/Pages/AllSportsNews/AllSportsNews";
+import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
+import Video from "./pages/Videos/Video";
+import Videos from "./pages/Videos/Videos";
 
 function App() {
   return (
@@ -72,8 +79,8 @@ function App() {
             {/* International */}
             <Route path="/international" element={<International />}>
               <Route index element={<AllInternationalNews />}></Route>
-              <Route path="asia" element={<Asia />}></Route>
               <Route path="america" element={<America />}></Route>
+              <Route path="asia" element={<Asia />}></Route>
               <Route path="europe" element={<Europe />}></Route>
             </Route>
             {/* Bangladesh */}
@@ -108,14 +115,14 @@ function App() {
             <Route path="/photo" element={<Photo />}></Route>
             {/* Sports */}
             <Route path="/sports" element={<Sports />}>
-              <Route index element={<Cricket />}></Route>
+              <Route index element={<AllSportsNews />}></Route>
               <Route path="cricket" element={<Cricket />}></Route>
               <Route path="football" element={<Football />}></Route>
               <Route path="localsports" element={<LocalSports />}></Route>
             </Route>
             {/* Tech */}
             <Route path="/tech" element={<Tech />}>
-              <Route index element={<GadgetsAndApps />}></Route>
+              <Route index element={<AllTechNews />}></Route>
               <Route path="gadgetandapps" element={<GadgetsAndApps />}></Route>
               <Route path="it" element={<IT />}></Route>
               <Route path="socialmedia" element={<SocialMedia />}></Route>
@@ -125,11 +132,15 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />}></Route>
+            <Route path="/livenews" element={<LiveNews />} />
             <Route path="/livenews/:path" element={<OneNews />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/videos/:path" element={<Video />} />
+            <Route path="/currency" element={<Currency />} />
             <Route path="/singleNews/:slug" element={<SingleNews />} />
             <Route path="/News/:slug" element={<News />} />
             <Route path="/advertisement" element={<Advertisement />} />
+            <Route path="/international/:slug" element={<SingleNews />} />
             <Route path="/livetv" element={<LiveTv />} />
           </Route>
           {/* dashboard start */}
@@ -149,6 +160,8 @@ function App() {
             <Route path="addNews" element={<AddNews />} />
             <Route path="moderatorNewsList" element={<AllModeratorNews />} />
             <Route path="adminNewsList" element={<AllAdminNews />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="calendar" element={<BigCalendar />} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}

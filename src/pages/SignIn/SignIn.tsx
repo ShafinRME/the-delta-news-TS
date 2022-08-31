@@ -72,9 +72,8 @@ const SignIn = () => {
             </div>
             <form className=" items-center" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control w-full">
-                {/* <label className="label">
-                    <span className="label-text font-bold">Your email</span>
-                  </label> */}
+               
+               
                 <input
                   {...register("email", {
                     required: {

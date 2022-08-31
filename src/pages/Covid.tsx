@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import CountryList from '../components/CovidTrack/CountryList';
-import GlobalInfo from '../components/CovidTrack/GlobalInfo';
-import type {ResponseData} from "../components/CovidTrack/typeOfCovid"
-
+import React, { useEffect, useState } from "react";
+import CountryList from "../components/CovidTrack/CountryList";
+import GlobalInfo from "../components/CovidTrack/GlobalInfo";
+import type { ResponseData } from "../components/CovidTrack/typeOfCovid";
 
 const Covid = () => {
-    const [data, setData] = useState<ResponseData | undefined>(undefined);
+  const [data, setData] = useState<ResponseData | undefined>(undefined);
 
-    const fetchData = async () => {
-        const result = await fetch("https://api.covid19api.com/summary");
-        const data: ResponseData = await result.json();
+  const fetchData = async () => {
+    const result = await fetch("https://api.covid19api.com/summary");
+    const data: ResponseData = await result.json();
 
-        setData(data);
-        console.log(data);
-    };
+    setData(data);
+    console.log(data);
+  };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    return (
-<div>
-
+  return (
+    <div>
       {data ? (
         <>
           <GlobalInfo
@@ -32,9 +30,7 @@ const Covid = () => {
           />
           <hr />
 
-          <CountryList
-            countries={data.Countries}
-          />
+          <CountryList countries={data.Countries} />
         </>
       ) : (
         "Loading..."
