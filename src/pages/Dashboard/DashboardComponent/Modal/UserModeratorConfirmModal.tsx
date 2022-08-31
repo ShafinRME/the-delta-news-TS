@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { toast } from "react-toastify";
 
-interface DeleteUsersProps {
+interface ModeratorUsersProps {
   user: {
     email: string;
     _id: string;
@@ -12,36 +12,39 @@ interface DeleteUsersProps {
   setUser: any;
 }
 
-const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
+const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
   user,
   refetch,
   setUser,
 }) => {
-  const { name, _id } = user;
-  const handleDelete = () => {
-    fetch(`https://the-delta-times-server.vercel.app/api/users/${_id}`, {
-      method: "DELETE",
+  const { name, email } = user;
+  const mokeModerator = () => {
+    const url = `https://the-delta-times-server.vercel.app/api/users/moderator/${email}`;
+    fetch(url, {
+      method: "PUT",
       headers: {
-        "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
-
+      .then((res) => {
+        if (res.status === 403) {
+          toast.error(`Failed to make an Admin`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        if (data.deletedCount) {
-          toast.success(`User: ${name} is deleted`);
-          setUser(null);
+        console.log(data)
+        if (data.modifiedCount > 0) {
           refetch();
+          toast.success(`successfully make an Admin`);
         }
       });
   };
-
   return (
     <>
       <input
         type="checkbox"
-        id="user-delete-confirm-modal"
+        id="user-moderator-confirm-modal"
         className="modal-toggle"
       />
       <div className="modal sm:modal-middle">
@@ -63,21 +66,23 @@ const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
           </svg>
 
           <h1 className="text-base font-description text-center text-semibold text-primary-content">
-            Are you want to delete{" "}
-            <span className="font-bold text-fuchsia-500 ">{user.name}</span>?
+            Are you want to make Moderator{" "}
+            <span className="font-bold text-fuchsia-500 ">{name}</span>?
           </h1>
+
           {/* cancel btn */}
           <div className="modal-action  justify-center px-4">
             <label
-              htmlFor="user-delete-confirm-modal"
+              htmlFor="user-moderator-confirm-modal"
               className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 "
+              onClick={() => setUser(null)}
             >
               No, Cancel
             </label>
             <button
               type="submit"
               className=" bg-primary-content text-white hover:opacity-90 transition-opacity duration-500 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-              onClick={() => handleDelete()}
+              onClick={() => mokeModerator()}
             >
               Yes, I&lsquo;m sure
             </button>
@@ -88,4 +93,4 @@ const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
   );
 };
 
-export default UserDeleteConfirmModal;
+export default UserModeratorConfirmModal;

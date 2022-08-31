@@ -12,6 +12,7 @@ import AllBanglaDeshNews from "./pages/BanglaDesh/Pages/AllBanglaDeshNews/AllBan
 import Crime from "./pages/BanglaDesh/Pages/Crime/Crime";
 import Politics from "./pages/BanglaDesh/Pages/Politics/Politics";
 import Business from "./pages/Business/Business";
+import AllBusinessNews from "./pages/Business/Pages/AllBusinessNews/AllBusinessNews";
 import Global from "./pages/Business/Pages/Global/Global";
 import Local from "./pages/Business/Pages/Local/Local";
 import Contact from "./pages/Contact/contact";
@@ -53,19 +54,17 @@ import OneNews from "./pages/LiveNews/OneNews";
 import Photo from "./pages/Photo/Photo";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
+import AllSportsNews from "./pages/Sports/Pages/AllSportsNews/AllSportsNews";
 import Cricket from "./pages/Sports/Pages/Cricket/Cricket";
 import Football from "./pages/Sports/Pages/Football/Football";
 import LocalSports from "./pages/Sports/Pages/LocalSports/LocalSports";
 import Sports from "./pages/Sports/Sports";
+import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
 import SocialMedia from "./pages/Tech/Pages/SocialMedia/SocialMedia";
 import Tech from "./pages/Tech/Tech";
-
-import AllBusinessNews from "./pages/Business/Pages/AllBusinessNews/AllBusinessNews";
-import LiveTv from "./pages/LiveTV/LiveTvs";
-import AllSportsNews from "./pages/Sports/Pages/AllSportsNews/AllSportsNews";
-import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
+import LiveTv from "./pages/Tv/LiveTvs";
 import Video from "./pages/Videos/Video";
 import Videos from "./pages/Videos/Videos";
 

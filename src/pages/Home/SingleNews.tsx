@@ -2,7 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
-    FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
 } from "react-share-rc-18";
 import SingleBigAdd from "../../Assets/images/singleAdd/singleBig.jpg";
 import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
@@ -83,13 +90,13 @@ const SingleNews = () => {
               </div>
             </div>
 
-            <div className="max-w-2xl pt-6 ">
+            <div className="max-w-2xl pt-6 pb-10 ">
               <img src={data?.image} alt={data?.title} className="w-full" />
               <p className="news-live-details-4 pt-8 ">{data?.description}</p>
             </div>
 
             {/* share button */}
-            <div className="pt-8 flex space-x-2">
+            <div className=" flex space-x-2 border-t border-b border-warning-content py-4">
               <FacebookShareButton
                 url={baseUrl}
                 quote={data?.title}
@@ -132,13 +139,13 @@ const SingleNews = () => {
                 />
               </a>
             </div>
-
+            {/* right side card */}
             {categoryNews?.slice(0, 4).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
               >
-                <Link to={`${item.category}/${item.slug}`} >
+                <Link to={`/${item.slug}`}>
                   <div>
                     <h1 className="news-sub-title-three-col pb-2">
                       {item?.title}
