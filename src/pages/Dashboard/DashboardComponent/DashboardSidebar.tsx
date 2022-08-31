@@ -19,8 +19,9 @@ interface dashboardSidebarProps {
 //   src?: string | undefined;
 // };
 const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
-
+  
   const [user ] = useAuthState(auth)
+  console.log(user);
 
   return (
     <>

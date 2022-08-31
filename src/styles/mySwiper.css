@@ -1,0 +1,17 @@
+.swiper-button-prev,
+.swiper-button-next {
+  width: 15px !important;
+  height: 15px !important;
+}
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "\27F6" !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "\27F5" !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+}

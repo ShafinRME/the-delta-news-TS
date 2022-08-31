@@ -41,7 +41,6 @@ const AddNews = () => {
 
     const slug = newSlug;
     const category = data.category;
-    console.log("first dat", category);
     const date = fullDate;
     const reference = data.reference;
     const description = data.description;

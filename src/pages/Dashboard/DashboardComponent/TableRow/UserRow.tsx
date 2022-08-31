@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 
-
-
 type UserRowProps = {
   user: {
     email?: string;
@@ -24,7 +22,16 @@ const UserRow: FC<UserRowProps> = ({ user, index, setUser }) => {
           <span className="text-base">{email}</span>
         </td>
         <td>{role}</td>
-        <td>Make Admin</td>
+        <td className="text-red-600 font-medium text-sm  hover:underline capitalize ">
+          <label
+            onClick={() => setUser(user)}
+            htmlFor="user-moderator-confirm-modal"
+            className=" btn btn-xs btn-link"
+          >
+            Moderator
+          </label>
+        </td>
+        <td>Admin</td>
         <td className="text-red-600 font-medium text-sm  hover:underline capitalize ">
           <label
             onClick={() => setUser(user)}
