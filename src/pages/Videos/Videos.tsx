@@ -7,6 +7,12 @@ import small2 from "../../Assets/images/videoAdv/small2.gif";
 import Comments from "../../components/Comments/Comments";
 
 const Videos = () => {
+  const handleClick = ()=>{
+    console.log("clicked")
+  }
+  const handleOnChange = (e: any)=>{
+    console.log("event chancges")
+  }
   return (
     <>
       <section className="border-b border-warning-content">
@@ -129,7 +135,7 @@ const Videos = () => {
       <section>
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 pt-10">
           <div className="xl:col-span-9">
-            {VideosData.slice(13,20).map((singleNews) => (
+            {VideosData.slice(0,12).map((singleNews) => (
               <div className="max-w-lg xl:ml-auto border-b border-warning-content last:border-0 pb-4 last:pb-0 pt-4 first:pt-0">
                 <Link
                   to={`/videos/${singleNews.path}`}
@@ -164,7 +170,11 @@ const Videos = () => {
         </div>
       </section>
       <section>
-        <Comments handleClick={(e) => console.log("clicked", e)}></Comments>
+        <Comments handleClick={handleClick}
+        handleOnChange={handleOnChange}
+        
+        value=''
+        ></Comments>
       </section>
     </>
   );

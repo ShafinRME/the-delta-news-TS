@@ -31,7 +31,7 @@ import LiveTv from "./pages/LiveTV/LiveTv";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUP/SignUp";
 import Sports from "./pages/Sports/Sports";
-import International from './pages/International/International'
+import International from "./pages/International/International";
 import Tech from "./pages/Tech/Tech";
 import Video from "./pages/Videos/Video";
 import Videos from "./pages/Videos/Videos";
@@ -48,9 +48,24 @@ function App() {
             <Route path="/weather" element={<Weather />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />} />
+            <Route
+              path="/livenews"
+              element={
+                <RequireAuth>
+                  <LiveNews />
+                </RequireAuth>
+              }
+            />
+
             <Route path="/livenews/:path" element={<OneNews />} />
-            <Route path="/videos" element={<Videos />} />
+            <Route
+              path="/videos"
+              element={
+                <RequireAuth>
+                  <Videos />
+                </RequireAuth>
+              }
+            />
             <Route path="/videos/:path" element={<Video />} />
             <Route path="/currency" element={<Currency />} />
             <Route path="/sports" element={<Sports />} />
