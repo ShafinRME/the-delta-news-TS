@@ -60,8 +60,6 @@ import Football from "./pages/Sports/Pages/Football/Football";
 import LocalSports from "./pages/Sports/Pages/LocalSports/LocalSports";
 import Sports from "./pages/Sports/Sports";
 
-import International from "./pages/International/International";
-
 import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
