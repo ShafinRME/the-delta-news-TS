@@ -37,9 +37,12 @@ type NewsProps = {
   _id: string,
   description: string,
   image: string,
+  category:string,
+  subCategory:string,
   slug: string,
   category:string,
   date:string,
+  reference?:string;
   
 };
 type SectionProps = {
@@ -107,4 +110,6 @@ export {
   ModeratorRowProps,
   SectionNewsProps,
   SectionProps,
+
 };
+

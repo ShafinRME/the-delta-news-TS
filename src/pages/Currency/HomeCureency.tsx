@@ -9,7 +9,6 @@ const HomeCurrency = () => {
       .then((res) => res.json())
       .then((data) => {
         setCurrency(data);
-        console.log(data);
       });
   }, []);
 

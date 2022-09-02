@@ -20,10 +20,37 @@ const headerData = {
       text: "Home",
       path: "/",
     },
-
     {
       text: "International",
       path: "/international",
+    },
+    {
+      text: "Bangladesh",
+      path: "/bangladesh",
+    },
+    {
+      text: "Business",
+      path: "/business",
+    },
+    {
+      text: "Contact",
+      path: "/contact",
+    },
+    {
+      text: "Entertainment",
+      path: "/entertainment",
+    },
+    {
+      text: "Environment",
+      path: "/environment",
+    },
+    {
+      text: "Live News",
+      path: "/liveNews",
+    },
+    {
+      text: "Photo",
+      path: "/photo",
     },
     {
       text: "Sports",
@@ -34,31 +61,9 @@ const headerData = {
       path: "/tech",
     },
     {
-      text: "Health",
-      path: "/health",
-    },
-    {
-      text: "Books",
-      path: "/books",
-    },
-    {
-      text: "Business",
-      path: "/business",
-    },
-    {
-      text: "Contact",
-      path: "/contact",
-    },
-
-    {
-      text: "Live News",
-      path: "/liveNews",
-    },
-    {
       text: "Videos",
       path: "/videos",
     },
-
     {
       text: "Weather",
       path: "/weather",

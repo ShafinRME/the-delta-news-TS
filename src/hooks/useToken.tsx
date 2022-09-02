@@ -8,11 +8,11 @@ const useToken = (user: any) => {
     const currentUser = {
       email: email,
       name: name,
-      role: 'general',
+      role: "general",
     };
     console.log(currentUser);
     if (email) {
-      fetch(`http://localhost:5000/api/users/${email}`, {
+      fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -21,11 +21,11 @@ const useToken = (user: any) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // const accessToken = data.token;
-          // localStorage.setItem("accessToken", accessToken);
-          // setToken(accessToken);
+          const accessToken = data.token;
+          localStorage.setItem("accessToken", accessToken);
+          setToken(accessToken);
           setToken(data);
-          console.log(data);
+          console.log("user", data);
         });
     }
   }, [user]);

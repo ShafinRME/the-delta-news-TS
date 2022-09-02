@@ -1,35 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share-rc-18";
+import SingleBigAdd from "../../Assets/images/singleAdd/singleBig.jpg";
+import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
+import SingleSmallAdd from "../../Assets/images/singleAdd/singleSmall.gif";
 import Loadings from "../../components/Loading/Loadings";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
 import { Data } from "../../utility/Typs";
-import SingleBigAdd from "../../Assets/images/singleAdd/singleBig.jpg";
-import SingleSmallAdd from "../../Assets/images/singleAdd/singleSmall.gif";
-import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-} from "react-share-rc-18";
 import { url as urls } from "../../utility/Urls";
 
 const SingleNews = () => {
   const { slug } = useParams();
 
   const [categoryNews, setCategoryNews] = useState<undefined | Data[]>([]);
-  const url = `https://team-delta001.herokuapp.com/api/news/${slug}`;
+  const url = `https://the-delta-times-server.vercel.app/api/news/${slug}`;
   const { isLoading, data } = useQuery<Data, Error>(["allNews"], () =>
     fetch(url).then((res) => res.json())
   );
 
   const category = data?.category;
-  const baseUrl = `https://delta-times.netlify.app/singleNews/${slug}`;
+  const baseUrl = `https://the-delta-times-server.vercel.app/singleNews/${slug}`;
 
   useEffect(() => {
     const baseUrl = `${urls}/${category}`;
@@ -90,13 +90,13 @@ const SingleNews = () => {
               </div>
             </div>
 
-            <div className="max-w-2xl pt-6 ">
+            <div className="max-w-2xl pt-6 pb-10 ">
               <img src={data?.image} alt={data?.title} className="w-full" />
               <p className="news-live-details-4 pt-8 ">{data?.description}</p>
             </div>
 
             {/* share button */}
-            <div className="pt-8 flex space-x-2">
+            <div className=" flex space-x-2 border-t border-b border-warning-content py-4">
               <FacebookShareButton
                 url={baseUrl}
                 quote={data?.title}
@@ -139,13 +139,13 @@ const SingleNews = () => {
                 />
               </a>
             </div>
-
+            {/* right side card */}
             {categoryNews?.slice(0, 4).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
               >
-                <Link to={`${item.category}/${item.slug}`} >
+                <Link to={`/${item.slug}`}>
                   <div>
                     <h1 className="news-sub-title-three-col pb-2">
                       {item?.title}

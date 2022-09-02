@@ -2,19 +2,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 // import "swiper/css/effect-fade";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
-import {
-  Navigation,
-  Mousewheel,
-  Keyboard,
-} from "swiper";
+import "../../styles/mySwiper.css"
 import { useEffect, useState } from "react";
-import { NewsProps } from "../../utility/Typs";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Keyboard, Mousewheel, Navigation } from "swiper";
 import SmallLoading from "../../components/Loading/SmallLoading";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { NewsProps } from "../../utility/Typs";
 
 type Inputs = {
   example: string;
@@ -26,18 +22,14 @@ type Inputs = {
 const Voting = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch("https://team-delta001.herokuapp.com/api/news")
+    fetch("https://the-delta-times-server.vercel.app/api/news")
       .then((res) => res.json())
       .then((data) => {
         setNews(data);
       });
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>({mode:"onChange"});
+  const { handleSubmit } = useForm<Inputs>({ mode: "onChange" });
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (
     <>
@@ -55,40 +47,47 @@ const Voting = () => {
             mousewheel={true}
             keyboard={true}
             modules={[Navigation, Mousewheel, Keyboard]}
-            className="bg-base-100"
+            className="bg-base-100 mySwiper"
+            
           >
             {news.slice(0, 4).map((item) => (
               <SwiperSlide key={item.id} className="mb-11 bg-base-100 z-10">
-                <img src={item.image} alt={item.title} className="w-full" />
-                <h1 className="news-details md:px-4">
+                <img src={item.image} alt={item.title} className="w-full md:h-56" />
+                <h1 className="news-details md:px-4 pt-4">
                   {item.description.slice(0, 200)}
                 </h1>
-                <div className="px-4 md:px-8 pt-10">
-                  {/* <form>
+                <div className="px-4 md:px-4 pt-10">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="max-w-[8rem] mx-auto"
+                  >
+                    <div className="form-control   ">
+                      <label className="label cursor-pointer">
+                        <span className="news-live-details-4">Yes</span>
+                        <input
+                          type="radio"
+                          name="radio-6"
+                          className="radio checked:bg-blue-500"
+                          checked
+                        />
+                      </label>
+                    </div>
+                    <div className="form-control  ">
+                      <label className="label cursor-pointer">
+                        <span className="news-live-details-4">No</span>
+                        <input
+                          type="radio"
+                          name="radio-6"
+                          className="radio checked:bg-red-500"
+                          checked
+                        />
+                      </label>
+                    </div>
                     <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm rounded-full"
+                      type="submit"
+                      value="Vote"
+                      className="px-4 py-0.5 bg-primary-content text-white mx-auto mt-4"
                     />
-                    <br />
-                    <input
-                      type="checkbox"
-                      className="checkbox checkbox-sm rounded-full"
-                    />
-                    <br />
-                    <input type="submit" value="Vote" />
-                  </form> */}
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* register your input into the hook by invoking the "register" function */}
-                    <input type="checkbox" value='Yes' {...register("yesVote")} />
-
-                    {/* include validation with required or other standard HTML validation rules */}
-                    <input type="checkbox" value='no' {...register("noVote")} />
-                    {/* errors will return when field validation fails  */}
-                    {errors.exampleRequired && (
-                      <span>This field is required</span>
-                    )}
-
-                    <input type="submit" />
                   </form>
                 </div>
               </SwiperSlide>

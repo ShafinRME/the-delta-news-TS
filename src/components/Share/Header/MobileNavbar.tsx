@@ -60,7 +60,6 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
                   <div className="relative">
                     <input
                       type="search"
-                      id="mobile-search"
                       className="block py-2.5 w-60 pl-4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-secondary  focus:outline-none  dark:placeholder-gray-400 "
                       placeholder="Search"
                       required
