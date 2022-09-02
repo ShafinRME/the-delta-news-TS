@@ -59,10 +59,12 @@ import Cricket from "./pages/Sports/Pages/Cricket/Cricket";
 import Football from "./pages/Sports/Pages/Football/Football";
 import LocalSports from "./pages/Sports/Pages/LocalSports/LocalSports";
 import Sports from "./pages/Sports/Sports";
+
 import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
 import SocialMedia from "./pages/Tech/Pages/SocialMedia/SocialMedia";
+
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/Tv/LiveTvs";
 import Video from "./pages/Videos/Video";
@@ -131,9 +133,24 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />} />
+            <Route
+              path="/livenews"
+              element={
+                <RequireAuth>
+                  <LiveNews />
+                </RequireAuth>
+              }
+            />
+
             <Route path="/livenews/:path" element={<OneNews />} />
-            <Route path="/videos" element={<Videos />} />
+            <Route
+              path="/videos"
+              element={
+                <RequireAuth>
+                  <Videos />
+                </RequireAuth>
+              }
+            />
             <Route path="/videos/:path" element={<Video />} />
             <Route path="/currency" element={<Currency />} />
             <Route path="/singleNews/:slug" element={<SingleNews />} />

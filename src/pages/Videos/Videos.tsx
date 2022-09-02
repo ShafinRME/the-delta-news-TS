@@ -4,8 +4,15 @@ import videoSmall from "../../Assets/images/videoAdv/videoSmall.gif";
 import video1 from "../../Assets/images/videoAdv/video.gif";
 import video2 from "../../Assets/images/videoAdv/video2.jpg";
 import small2 from "../../Assets/images/videoAdv/small2.gif";
+import Comments from "../../components/Comments/Comments";
 
 const Videos = () => {
+  const handleClick = ()=>{
+    console.log("clicked")
+  }
+  const handleOnChange = (e: any)=>{
+    console.log("event chancges")
+  }
   return (
     <>
       <section className="border-b border-warning-content">
@@ -65,7 +72,7 @@ const Videos = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 pt-4">
-              {VideosData.slice(0, 3).map((singleNews) => (
+              {VideosData.slice(4,7).map((singleNews) => (
                 <div className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0">
                   <Link
                     to={`/videos/${singleNews.path}`}
@@ -96,7 +103,7 @@ const Videos = () => {
                 <img src={videoSmall} alt="video adds" className="w-full" />
               </a>
             </div>
-            {VideosData.slice(0, 5).map((singleNews) => (
+            {VideosData.slice(8,12).map((singleNews) => (
               <div className="border-b border-warning-content last:border-0 pb-4 last:pb-0 pt-4 first:pt-0">
                 <Link
                   to={`/videos/${singleNews.path}`}
@@ -128,7 +135,7 @@ const Videos = () => {
       <section>
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 pt-10">
           <div className="xl:col-span-9">
-            {VideosData.slice(0, 3).map((singleNews) => (
+            {VideosData.slice(0,12).map((singleNews) => (
               <div className="max-w-lg xl:ml-auto border-b border-warning-content last:border-0 pb-4 last:pb-0 pt-4 first:pt-0">
                 <Link
                   to={`/videos/${singleNews.path}`}
@@ -161,6 +168,13 @@ const Videos = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Comments handleClick={handleClick}
+        handleOnChange={handleOnChange}
+        
+        value=''
+        ></Comments>
       </section>
     </>
   );
