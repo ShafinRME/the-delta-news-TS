@@ -21,7 +21,7 @@ const Home = () => {
     fetch("https://the-delta-times-server.vercel.app/api/news")
       .then((res) => res.json())
       .then((data) => {
-        setNews(data.reverse());
+        setNews(data);
       });
   }, []);
   console.log(news);
