@@ -19,7 +19,7 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
 }) => {
   const { name, email } = user;
   const makeAdmin = () => {
-    const url = `http://localhost:5000/api/users/admin/${email}`;
+    const url = `https://the-delta-times-server.vercel.app/api/users/admin/${email}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -35,7 +35,7 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          setUser(null)
+          setUser(null);
           refetch();
           toast.success(`successfully make an Admin`);
         }

@@ -19,7 +19,7 @@ const UserGeneralConfirmModal: FC<ModeratorUsersProps> = ({
 }) => {
   const { name, email } = user;
   const makeAdmin = () => {
-    const url = `http://localhost:5000/api/users/general/${email}`;
+    const url = `https://the-delta-times-server.vercel.app/api/users/general/${email}`;
     fetch(url, {
       method: "PATCH",
       headers: {
