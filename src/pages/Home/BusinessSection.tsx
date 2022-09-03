@@ -15,27 +15,28 @@ const BusinessSection:FC<SectionNewsProps> = ({news,linkText,linkUrl}) => {
 
         <div className="grid grid-cols-1 xl:grid-cols-3 pb-4 gap-4 border-b xl:border-warning-content ">
           {/* left side */}
-          <div>
+          <div className="grid md:grid-cols-2 xl:grid-cols-1 gap-4 pb-4 last:pb-0 pt-4 first:pt-0 ">
             {news.slice(0, 4).map((item) => (
-              <div
+              <Link
                 key={item.id}
-                className="grid grid-cols-2 gap-4 pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"
+                className="grid grid-cols-2  gap-4  last:pb-0 first:pt-0 xl:border-b border-warning-content last:border-0"
+                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
               >
-                <h1 className="news-live-title pb-4">
+                <h1 className="news-live-title lg:pb-4">
                   {`${item.title.slice(0, 44)}..`}
                 </h1>
 
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="xl:h-28 w-full"
+                  className="h-32 md:h-24 lg:h-32 xl:h-28 w-full"
                 />
-              </div>
+              </Link>
             ))}
           </div>
           {/* middle with currency */}
-          <div className="xl:border-r xl:border-l xl:px-4 border-warning-content">
-            {news.slice(0, 1).map((item) => (
+          <div className="xl:border-r xl:border-l xl:px-4 border-warning-content xl:max-w-full xl:mx-0 md:max-w-2xl md:mx-auto">
+            {news.slice(4, 5).map((item) => (
               <div
                 key={item.id}
                 className="pb-4 border-b border-warning-content"
@@ -57,20 +58,20 @@ const BusinessSection:FC<SectionNewsProps> = ({news,linkText,linkUrl}) => {
             <HomeCurrency />
           </div>
           {/* right side */}
-          <div>
-            {news.slice(0, 4).map((item) => (
+          <div className="grid md:grid-cols-2 xl:grid-cols-1 gap-4 pb-4 last:pb-0 pt-4 first:pt-0 ">
+            {news.slice(5, 9).map((item) => (
               <div
                 key={item.id}
-                className="grid grid-cols-2 gap-4 pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"
+                className="grid grid-cols-2 gap-4 pb-4 last:pb-0 xl:pt-4 first:pt-0 xl:border-b border-warning-content last:border-0"
               >
-                <h1 className="news-live-title pb-4">
+                <h1 className="news-live-title xl:pb-4">
                   {`${item.title.slice(0, 44)}..`}
                 </h1>
 
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="xl:h-28 w-full"
+                  className="h-32 md:h-24 lg:h-32 xl:h-28 w-full"
                 />
               </div>
             ))}

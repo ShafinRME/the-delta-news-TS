@@ -14,9 +14,15 @@ import HealthSection from "./HealthSection";
 import InternationalSection from "./InternationalSection";
 import SecondSection from "./SecondSection";
 import Voting from "./Voting";
+import { url } from "../../utility/Urls";
 
 const Home = () => {
   const [news, setNews] = useState<NewsProps[]>([]);
+  const [bdNews, setBdNews] = useState<NewsProps[]>([]);
+  const [intNews, setIntNews] = useState<NewsProps[]>([]);
+  const [hltNews, setHltNews] = useState<NewsProps[]>([]);
+  const [bussNews, setBussNews] = useState<NewsProps[]>([]);
+  // all news
   useEffect(() => {
     fetch("https://the-delta-times-server.vercel.app/api/news")
       .then((res) => res.json())
@@ -24,11 +30,35 @@ const Home = () => {
         setNews(data);
       });
   }, []);
+  // bangladesh news
+  useEffect(() => {
+    fetch(`${url}/Bangladesh`)
+      .then((res) => res.json())
+      .then((data) => setBdNews(data));
+  }, []);
+  // international news
+  useEffect(() => {
+    fetch(`${url}/International`)
+      .then((res) => res.json())
+      .then((data) => setIntNews(data));
+  }, []);
+  // health  news
+  useEffect(() => {
+    fetch(`${url}/Environment`)
+      .then((res) => res.json())
+      .then((data) => setHltNews(data));
+  }, []);
+  // business news
+  useEffect(() => {
+    fetch(`${url}/Business`)
+      .then((res) => res.json())
+      .then((data) => setBussNews(data));
+  }, []);
   console.log(news);
 
   return (
     <>
-    <PageTitle title='Home' description=" True news is our vision " />
+      <PageTitle title="Home" description=" True news is our vision " />
       {/* first row  layout start */}
       {news.length <= 0 ? (
         <Loadings />
@@ -52,7 +82,7 @@ const Home = () => {
           </section>
           {/* First news section */}
           <FirstSection news={news} />
-        
+
           {/* Second  Advertisement banner section */}
           <section className=" border-b border-b-warning-content">
             <div className="py-8 max-w-5xl mx-auto">
@@ -80,13 +110,21 @@ const Home = () => {
             </div>
           </section>
           {/* Bangladesh section */}
-          <BangladeshSection news={news} linkText="Health" linkUrl="health" />
+          <BangladeshSection
+            news={bdNews}
+            linkText="Bangladesh"
+            linkUrl="bangladesh"
+          />
           {/* international section */}
           <section className="pt-8">
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 border-warning-content border-b pb-4">
-              <InternationalSection news={news} linkText='International' linkUrl="international" />
+              <InternationalSection
+                news={intNews}
+                linkText="International"
+                linkUrl="international"
+              />
               {/* voting system */}
-              <div className="xl:col-span-4 ">
+              <div className="xl:col-span-4 md:max-w-xl md:mx-auto xl:mx-0 xl:w-full ">
                 <h1 className="text-3xl pb-8 font-semibold  ">
                   <span className="border-b-2 border-warning-content pb-1 text-primary hover:text-error-content transition-colors duration-500">
                     <Link to={`/international`}>Voting</Link>
@@ -99,15 +137,23 @@ const Home = () => {
             </div>
           </section>
           {/* health section */}
-          <HealthSection news={news} linkText="Health" linkUrl="health" />
+          <HealthSection news={hltNews} linkText="Environment" linkUrl="environment" />
           {/* business*/}
-          <BusinessSection news={news} linkText="Business" linkUrl="business" />
+          <BusinessSection
+            news={bussNews}
+            linkText="Business"
+            linkUrl="business"
+          />
           {/* extra Section */}
           <section>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 pt-4 pb-14">
               {news.slice(0, 4).map((item) => (
                 <div key={item.id} className="div">
-                  <img src={item.image} alt={item.title} className="xl:h-44" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-44  xl:h-44 w-full"
+                  />
                   <h1 className="news-sub-title pt-2 ">
                     {`${item.title.slice(0, 44)}..`}
                   </h1>

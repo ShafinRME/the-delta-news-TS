@@ -14,11 +14,13 @@ const HomeCurrency = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto xl:max-w-full xl:mx-0 w-full md:max-w-2xl md:mx-0">
+        <div className="w-full max-w-[19rem] mx-auto ">
         <h1 className="news-live-details-3 pt-2">
           Currency Base on 1 USD Dollar equals
         </h1>
         <p className="news-live-details-3 pt-1">Date:{currency?.date}</p>
+        </div>
         <table className="table table-compact w-full max-w-[5rem] mx-auto ">
           <tbody className="text-xs font-semibold font-description text-neutral">
             <tr>

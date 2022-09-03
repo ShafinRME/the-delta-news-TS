@@ -102,7 +102,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
               className="cursor-pointer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-4 pb-3.5 xl:border-b-warning-content xl:border-b "
             >
               <Link
-                key={item.id}
+               
                 to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
               >
                 <img
@@ -112,14 +112,14 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 />
               </Link>
               <Link
-                key={item.id}
+               
                 to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
               >
-                <h1 className=" news-sub-title pt-3 ">
+                <h1 className=" news-sub-title pt-4 ">
                   {`${item.title.slice(0, 50)}...`}
                 </h1>
                 <p className=" news-details">
-                  {`${item.description.slice(0, 220)}...`}
+                  {`${item.description.slice(0, 180)}...`}
                 </p>
               </Link>
             </div>
@@ -150,7 +150,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className=" w-full xl:h-24"
+                    className=" w-full md:h-44 lg:h-56 xl:h-24"
                   />
                   <h2 className="feature-news-title ">{`${item.title.slice(
                     0,
