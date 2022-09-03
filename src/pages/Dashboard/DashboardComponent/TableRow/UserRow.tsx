@@ -21,22 +21,69 @@ const UserRow: FC<UserRowProps> = ({ user, index, setUser }) => {
         <td>
           <span className="text-base">{email}</span>
         </td>
-        <td>{role}</td>
-        <td className="text-red-600 font-medium text-sm  hover:underline capitalize ">
-          <label
-            onClick={() => setUser(user)}
-            htmlFor="user-moderator-confirm-modal"
-            className=" btn btn-xs btn-link"
-          >
-            Moderator
-          </label>
+        <td>
+          {role === "admin" && <span className="text-primary ">{role}</span>}
+          {role === "moderator" && (
+            <span className="text-green-600">{role}</span>
+          )}
+          {role === "general" && <span className="text-neutral">{role}</span>}
         </td>
-        <td>Admin</td>
-        <td className="text-red-600 font-medium text-sm  hover:underline capitalize ">
+        {role === "moderator" ? (
+          <>
+            <td className="font-medium text-sm  hover:underline capitalize ">
+              <label
+                onClick={() => setUser(user)}
+                htmlFor="user-general-confirm-modal"
+                className=" text-red-500 btn btn-xs btn-link"
+              >
+                Remove
+              </label>
+            </td>
+          </>
+        ) : (
+          <>
+            <td className="font-medium text-sm  hover:underline capitalize ">
+              <label
+                onClick={() => setUser(user)}
+                htmlFor="user-moderator-confirm-modal"
+                className=" text-green-600  btn btn-xs btn-link"
+              >
+                Moderator
+              </label>
+            </td>
+          </>
+        )}
+
+        {role === "admin" ? (
+          <>
+            <td className="font-medium text-sm  hover:underline capitalize ">
+              <label
+                onClick={() => setUser(user)}
+                htmlFor="user-general-confirm-modal"
+                className=" text-red-500 btn btn-xs btn-link"
+              >
+                Remove
+              </label>
+            </td>
+          </>
+        ) : (
+          <>
+            <td className=" font-medium text-sm  hover:underline capitalize ">
+              <label
+                onClick={() => setUser(user)}
+                htmlFor="user-admin-confirm-modal"
+                className=" text-primary btn btn-xs btn-link"
+              >
+                Admin
+              </label>
+            </td>
+          </>
+        )}
+        <td className=" font-medium text-sm  hover:underline capitalize ">
           <label
             onClick={() => setUser(user)}
             htmlFor="user-delete-confirm-modal"
-            className=" btn btn-xs btn-link"
+            className=" text-red-600 btn btn-xs btn-link"
           >
             Delete
           </label>

@@ -3,8 +3,9 @@ import { useState } from "react";
 import Loadings from "../../../../components/Loading/Loadings";
 import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
 import UserModeratorConfirmModal from "../../DashboardComponent/Modal/UserModeratorConfirmModal";
-// import UserDeleteConfirmModal from "../../DashboardComponent/Modal/UserDeleteConfirmModal";
+import UserAdminConfirmModal from '../../DashboardComponent/Modal/UserAdminConfirmModal' 
 import UserRow from "../../DashboardComponent/TableRow/UserRow";
+import UserGeneralConfirmModal from "../../DashboardComponent/Modal/UserGeneralConfirmModal";
 
 interface UserData {
   _id?: string;
@@ -32,17 +33,20 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loadings />;
   }
+  //  if({data?.length <= 0 && user !== null}){
+  //   return <Loadings />;
+  //  }
   if (isError) {
     return <h1>{error.message}</h1>;
   }
   return (
     <>
-      {data?.length <= 0 ? (
+      {data?.length <= 0 && user !== null ? (
         <Loadings />
       ) : (
         <>
           <section className="p-5 text-lg lg:max-w-6xl mx-auto font-semibold text-left text-accent">
-            <h1>All Users {data?.length}</h1>
+            <h1>Total Users {data?.length}</h1>
           </section>
           <section className="lg:max-w-6xl mx-auto overflow-x-auto">
             <table className="table rounded-0 w-full">
@@ -80,6 +84,20 @@ const AllUsers = () => {
             )}
             {user && (
               <UserModeratorConfirmModal
+                setUser={setUser}
+                refetch={refetch}
+                user={user}
+              />
+            )}
+            {user && (
+              <UserAdminConfirmModal
+                setUser={setUser}
+                refetch={refetch}
+                user={user}
+              />
+            )}
+            {user && (
+              <UserGeneralConfirmModal
                 setUser={setUser}
                 refetch={refetch}
                 user={user}
