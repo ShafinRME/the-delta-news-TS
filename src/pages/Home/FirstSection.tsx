@@ -13,7 +13,10 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
             {/* title and details news live news */}
             <div className="xl:col-span-3">
               {news?.slice(0, 3).map((item) => (
-                <Link key={item.id} to={`singleNews/${item.slug}`}>
+                <Link
+                  key={item.id}
+                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                >
                   <div className=" pb-4 ">
                     <h1 className=" news-live-title">{`${item.title.slice(
                       0,
@@ -30,7 +33,9 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
             <div className="xl:col-span-6">
               {news.slice(4, 5).map((item) => (
                 <div key={item.id} className="pb-2">
-                  <Link to={`singleNews/${item.slug}`}>
+                  <Link
+                    to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
@@ -48,7 +53,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 key={item.id}
                 className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
+                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                   <h1 className="news-sub-title-three-col">
                     {`${item.title.slice(0, 60)}...`}
                   </h1>
@@ -67,7 +72,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
                 <Link
-                  to={`singleNews/${item.slug}`}
+                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
                   className="grid grid-cols-2 gap-2"
                 >
                   <div className="div">
@@ -96,7 +101,10 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
               key={item.id}
               className="cursor-pointer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-4 pb-4 xl:border-b-warning-content xl:border-b "
             >
-              <Link key={item.id} to={`singleNews/${item.slug}`}>
+              <Link
+                key={item.id}
+                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+              >
                 <img
                   src={item.image}
                   alt={item.title}
@@ -133,7 +141,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 key={item.id}
                 className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
+                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                   <img
                     src={item.image}
                     alt={item.title}
@@ -144,33 +152,6 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
               </div>
             ))}
           </div>
-          {/* <div className="grid grid-cols-1 pt-4 gap-4 xl:gap-0 ">
-                {news?.slice(14, 15).map((item) => (
-                  <div
-                    key={item.id}
-                    className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
-                  >
-                    <Link
-                      to={`singleNews/${item.slug}`}
-                      className="grid grid-cols-2 gap-2"
-                    >
-                      <div className="div">
-                        <h1 className="news-sub-title-three-col">
-                          {item.title.slice(0, 60)}
-                        </h1>
-                        <p className="news-details pt-4">
-                          {`${item.description.slice(0, 30)}...`}
-                        </p>
-                      </div>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className=" xl:h-28 w-full"
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </div> */}
         </div>
       </section>
     </>
