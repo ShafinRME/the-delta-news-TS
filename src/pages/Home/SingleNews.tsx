@@ -36,10 +36,14 @@ const SingleNews = () => {
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {
-        setCategoryNews(data);
+       const newData= [...data].sort(() => 0.5 - Math.random());
+        
+        console.log(newData);
+        setCategoryNews((newData?.slice(0,15)));
       });
   }, [category]);
 
+  
   if (isLoading) {
     return <Loadings />;
   }
@@ -140,25 +144,25 @@ const SingleNews = () => {
               </a>
             </div>
             {/* right side card */}
-            {categoryNews?.slice(0, 4).map((item) => (
+            {categoryNews?.slice(1, 5).map((item) => (
               <div
                 key={item.id}
                 className=" pb-4 last:pb-0 pt-2 first:pt-0  border-b border-warning-content last:border-none  "
               >
-                <Link to={`/${item.slug}`}>
+                <Link to={`${item.category?.toLocaleLowerCase()}/${item.slug}`}>
                   <div>
                     <h1 className="news-sub-title-three-col pb-2">
-                      {item?.title}
+                      {`${item?.title.slice(0,35)}...`}
                     </h1>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <p className="news-live-details ">
-                      {item?.description?.slice(0, 100)}
+                      {item?.description?.slice(0, 130)}
                     </p>
                     <img
                       src={item?.image}
                       alt={item?.title}
-                      className="w-full"
+                      className="w-full h-36"
                     />
                   </div>
                 </Link>
@@ -177,15 +181,15 @@ const SingleNews = () => {
               <img
                 src={SingleBigAdd2}
                 alt="single big"
-                className=" h-full md:h-44 w-full "
+                className=" h-full md:h-52 w-full "
               />
             </a>
           </div>
         </div>
         {/* last 4 card */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 pt-6 border-t border-t-warning-content">
-          {categoryNews?.slice(0, 4).map((item) => (
-            <div className="div">
+          {categoryNews?.slice(5, 9).map((item) => (
+            <div key={item.id} className="div">
               <img src={item.image} alt={item.title} className="h-44 w-full" />
               <h1 className="news-sub-title-three-col pt-2">{item.title}</h1>
             </div>
