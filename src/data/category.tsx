@@ -2,31 +2,31 @@ const categoryData = {
   category: [
     {
       id: 1,
-      title: "Bangladesh",
-    },
-    {
-      id: 2,
       title: "International",
     },
     {
+      id: 2,
+      title: "Bangladesh",
+    },
+    {
       id: 3,
-      title: "Sports",
+      title: "Business",
     },
     {
       id: 4,
-      title: "Tech",
+      title: "Entertainment",
     },
     {
       id: 5,
-      title: "Health",
+      title: "Environment",
     },
     {
       id: 6,
-      title: "Books",
+      title: "Sports",
     },
     {
       id: 7,
-      title: "Business",
+      title: "Tech",
     },
   ],
   subCategory: [
@@ -86,6 +86,26 @@ const categoryData = {
     {
       id: 14,
       title: "It",
+    },
+    {
+      id: 15,
+      title: "Movies",
+    },
+    {
+      id: 16,
+      title: "Music",
+    },
+    {
+      id: 17,
+      title: "Television",
+    },
+    {
+      id: 18,
+      title: "Climate",
+    },
+    {
+      id: 19,
+      title: "Pollution",
     },
   ],
 };

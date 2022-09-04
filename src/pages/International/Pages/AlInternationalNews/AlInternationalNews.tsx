@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CategoryAdds from "../../../../Assets/images/singleAdd/categoryAdds.gif";
 import CategoryAdds2 from "../../../../Assets/images/singleAdd/categoryadds2.png";
 import CategorySmallAdds2 from "../../../../Assets/images/singleAdd/categorySmall.gif";
 import CategorySmallAdds3 from "../../../../Assets/images/singleAdd/categorySmallAdds2.gif";
@@ -13,10 +14,11 @@ const AllInternationalNews = () => {
       .then((res) => res.json())
       .then((data) => setInternationalNews(data));
   }, []);
+
   return (
     <>
       {/* nested navbar section*/}
-      <section className="">
+      <section className="mb-8">
         <h1 className="mb-2 text-4xl font-bold text-error-content hover:text-primary transition-colors duration-500">
           <Link to="/international">
             <span className="border-b">International</span>
@@ -38,6 +40,24 @@ const AllInternationalNews = () => {
         <Loading />
       ) : (
         <>
+          <hr className="mt-5" />
+          {/* news advertisement */}
+          <section className="pt-4 pb-6 border-b border-warning-content">
+            <div className="max-w-4xl mx-auto">
+              <a
+                href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={CategoryAdds}
+                  alt="single big"
+                  className=" h-full md:h-24 w-full "
+                />
+              </a>
+            </div>
+          </section>
+          <hr className="mb-5" />
           {/* start content section design */}
           <section>
             <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-12 gap-4 border-b border-warning-content pb-4">

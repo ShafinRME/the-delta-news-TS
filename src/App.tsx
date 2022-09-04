@@ -13,8 +13,8 @@ import Crime from "./pages/BanglaDesh/Pages/Crime/Crime";
 import Politics from "./pages/BanglaDesh/Pages/Politics/Politics";
 import Business from "./pages/Business/Business";
 import AllBusinessNews from "./pages/Business/Pages/AllBusinessNews/AllBusinessNews";
-import Global from "./pages/Business/Pages/Global/Global";
-import Local from "./pages/Business/Pages/Local/Local";
+import GlobalBusiness from "./pages/Business/Pages/GlobalBusiness/GlobalBusiness";
+import LocalBusiness from "./pages/Business/Pages/LocalBusiness/LocalBusiness";
 import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
 import Currency from "./pages/Currency/Currency";
@@ -45,7 +45,7 @@ import Home from "./pages/Home/Home";
 import News from "./pages/Home/News";
 import SingleNews from "./pages/Home/SingleNews";
 import International from "./pages/International/International";
-import AllInternationalNews from "./pages/International/Pages/AllInternationalNews/AllInternationalNews";
+import AllInternationalNews from "./pages/International/Pages/AlInternationalNews/AlInternationalNews";
 import America from "./pages/International/Pages/America/America";
 import Asia from "./pages/International/Pages/Asia/Asia";
 import Europe from "./pages/International/Pages/Europe/Europe";
@@ -62,6 +62,7 @@ import Sports from "./pages/Sports/Sports";
 import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
+import SingleITNews from "./pages/Tech/Pages/IT/SingleITNews/SingleITNews";
 import SocialMedia from "./pages/Tech/Pages/SocialMedia/SocialMedia";
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/Tv/LiveTvs";
@@ -77,54 +78,73 @@ function App() {
             <Route index element={<Home />} />
             {/* International */}
             <Route path="/international" element={<International />}>
-              <Route index element={<AllInternationalNews />}></Route>
-              <Route path="america" element={<America />}></Route>
-              <Route path="asia" element={<Asia />}></Route>
-              <Route path="europe" element={<Europe />}></Route>
+              <Route index element={<AllInternationalNews />} />
+              <Route path="america" element={<America />} />
+              <Route path="america/:slug" element={<SingleNews />} />
+              <Route path="asia" element={<Asia />} />
+              <Route path="asia/:slug" element={<SingleNews />} />
+              <Route path="europe" element={<Europe />} />
+              <Route path="europe/:slug" element={<SingleNews />} />
             </Route>
             {/* Bangladesh */}
             <Route path="/bangladesh" element={<BanglaDesh />}>
-              <Route index element={<AllBanglaDeshNews />}></Route>
-              <Route path="accident" element={<Accident />}></Route>
-              <Route path="crime" element={<Crime />}></Route>
-              <Route path="politics" element={<Politics />}></Route>
+              <Route index element={<AllBanglaDeshNews />} />
+              <Route path="accident" element={<Accident />} />
+              <Route path="accident/:slug" element={<SingleNews />} />
+              <Route path="crime" element={<Crime />} />
+              <Route path="crime/:slug" element={<SingleNews />} />
+              <Route path="politics" element={<Politics />} />
+              <Route path="politics/:slug" element={<SingleNews />} />
             </Route>
             {/* Business */}
             <Route path="/business" element={<Business />}>
-              <Route index element={<AllBusinessNews />}></Route>
-              <Route path="global" element={<Global />}></Route>
-              <Route path="local" element={<Local />}></Route>
+              <Route index element={<AllBusinessNews />} />
+              <Route path="globalbusiness" element={<GlobalBusiness />} />
+              <Route path="globalbusiness/:slug" element={<SingleNews />} />
+              <Route path="localbusiness" element={<LocalBusiness />} />
+              <Route path="localbusiness/:slug" element={<SingleNews />} />
             </Route>
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
             {/* Entertainment */}
             <Route path="/entertainment" element={<Entertainment />}>
-              <Route index element={<AllEntertainmentNews />}></Route>
-              <Route path="movies" element={<Movies />}></Route>
-              <Route path="music" element={<Music />}></Route>
-              <Route path="television" element={<Television />}></Route>
+              <Route index element={<AllEntertainmentNews />} />
+              <Route path="movies" element={<Movies />} />
+              <Route path="movies/:slug" element={<SingleNews />} />
+              <Route path="music" element={<Music />} />
+              <Route path="music/:slug" element={<SingleNews />} />
+              <Route path="television" element={<Television />} />
+              <Route path="television/:slug" element={<SingleNews />} />
             </Route>
             {/* Environment */}
             <Route path="/environment" element={<Environment />}>
-              <Route index element={<AllEnvironmentNews />}></Route>
-              <Route path="climate" element={<Climate />}></Route>
-              <Route path="pollution" element={<Pollution />}></Route>
+              <Route index element={<AllEnvironmentNews />} />
+              <Route path="climate" element={<Climate />} />
+              <Route path="climate/:slug" element={<SingleNews />} />
+              <Route path="pollution" element={<Pollution />} />
+              <Route path="pollution/:slug" element={<SingleNews />} />
             </Route>
             {/* Photo */}
             <Route path="/photo" element={<Photo />}></Route>
             {/* Sports */}
             <Route path="/sports" element={<Sports />}>
-              <Route index element={<AllSportsNews />}></Route>
-              <Route path="cricket" element={<Cricket />}></Route>
-              <Route path="football" element={<Football />}></Route>
-              <Route path="localsports" element={<LocalSports />}></Route>
+              <Route index element={<AllSportsNews />} />
+              <Route path="cricket" element={<Cricket />} />
+              <Route path="cricket/:slug" element={<SingleNews />} />
+              <Route path="football" element={<Football />} />
+              <Route path="football/:slug" element={<SingleNews />} />
+              <Route path="localsports" element={<LocalSports />} />
+              <Route path="localsports/:slug" element={<SingleNews />} />
             </Route>
             {/* Tech */}
             <Route path="/tech" element={<Tech />}>
-              <Route index element={<AllTechNews />}></Route>
-              <Route path="gadgetandapps" element={<GadgetsAndApps />}></Route>
-              <Route path="it" element={<IT />}></Route>
-              <Route path="socialmedia" element={<SocialMedia />}></Route>
+              <Route index element={<AllTechNews />} />
+              <Route path="gadgetandapps" element={<GadgetsAndApps />} />
+              <Route path="gadgetandapps/:slug" element={<SingleNews />} />
+              <Route path="it" element={<IT />} />
+              <Route path="it/:slug" element={<SingleITNews />} />
+              <Route path="socialmedia" element={<SocialMedia />} />
+              <Route path="socialmedia/:slug" element={<SingleNews />} />
             </Route>
 
             <Route path="signup" element={<SignUp />} />
