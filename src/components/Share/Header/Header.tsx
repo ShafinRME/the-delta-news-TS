@@ -346,7 +346,7 @@ const Header = () => {
       <div
         className={
           isScrolled
-            ? "navbar-center  xl:px-12 md:px-8 sm:px-4 fixed inset-x-0 bg-base-100 top-0 backdrop-blur-4xl z-50 w-full hidden sm:block mb-2   max-w-7xl mx-auto "
+            ? "navbar-center  xl:px-12 md:px-8 sm:px-4 fixed inset-x-0 bg-base-100 top-0 backdrop-blur-4xl z-50 w-full hidden xl:block mb-2   max-w-7xl mx-auto "
             : "hidden"
         }
       >
@@ -374,7 +374,7 @@ const Header = () => {
       <div
         className={
           isScrolled
-            ? "navbar-center flex justify-between items-center min-h-12  px-4 xl:px-12 md:px-8 sm:px-4 fixed inset-x-0 bg-base-100 top-0 backdrop-blur-4xl z-50 w-full sm:hidden mb-2   max-w-7xl mx-auto "
+            ? "navbar-center flex justify-between items-center min-h-12  px-4 xl:px-12 md:px-8 sm:px-4 fixed inset-x-0 bg-base-100 top-0 backdrop-blur-4xl z-50 w-full xl:hidden mb-2   max-w-7xl mx-auto "
             : "hidden"
         }
       >

@@ -48,6 +48,7 @@ import International from "./pages/International/International";
 import AllInternationalNews from "./pages/International/Pages/AlInternationalNews/AlInternationalNews";
 import America from "./pages/International/Pages/America/America";
 import Asia from "./pages/International/Pages/Asia/Asia";
+import SingleAsiaNews from "./pages/International/Pages/Asia/SingleAsiaNews/SingleAsiaNews";
 import Europe from "./pages/International/Pages/Europe/Europe";
 import LiveNews from "./pages/LiveNews/LiveNews";
 import OneNews from "./pages/LiveNews/OneNews";
@@ -59,11 +60,13 @@ import Cricket from "./pages/Sports/Pages/Cricket/Cricket";
 import Football from "./pages/Sports/Pages/Football/Football";
 import LocalSports from "./pages/Sports/Pages/LocalSports/LocalSports";
 import Sports from "./pages/Sports/Sports";
+
 import AllTechNews from "./pages/Tech/Pages/AllTechNews/AllTechNews";
 import GadgetsAndApps from "./pages/Tech/Pages/GadgetsAndApps/GadgetsAndApps";
 import IT from "./pages/Tech/Pages/IT/IT";
 import SingleITNews from "./pages/Tech/Pages/IT/SingleITNews/SingleITNews";
 import SocialMedia from "./pages/Tech/Pages/SocialMedia/SocialMedia";
+
 import Tech from "./pages/Tech/Tech";
 import LiveTv from "./pages/Tv/LiveTvs";
 import Video from "./pages/Videos/Video";
@@ -82,7 +85,7 @@ function App() {
               <Route path="america" element={<America />} />
               <Route path="america/:slug" element={<SingleNews />} />
               <Route path="asia" element={<Asia />} />
-              <Route path="asia/:slug" element={<SingleNews />} />
+              <Route path="asia/:slug" element={<SingleAsiaNews />} />
               <Route path="europe" element={<Europe />} />
               <Route path="europe/:slug" element={<SingleNews />} />
             </Route>
@@ -125,7 +128,7 @@ function App() {
               <Route path="pollution/:slug" element={<SingleNews />} />
             </Route>
             {/* Photo */}
-            <Route path="/photo" element={<Photo />}></Route>
+            <Route path="/photo" element={<Photo />} />
             {/* Sports */}
             <Route path="/sports" element={<Sports />}>
               <Route index element={<AllSportsNews />} />
@@ -151,9 +154,24 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
             <Route path="/covid" element={<Covid />} />
-            <Route path="/livenews" element={<LiveNews />} />
+            <Route
+              path="/livenews"
+              element={
+                <RequireAuth>
+                  <LiveNews />
+                </RequireAuth>
+              }
+            />
+
             <Route path="/livenews/:path" element={<OneNews />} />
-            <Route path="/videos" element={<Videos />} />
+            <Route
+              path="/videos"
+              element={
+                <RequireAuth>
+                  <Videos />
+                </RequireAuth>
+              }
+            />
             <Route path="/videos/:path" element={<Video />} />
             <Route path="/currency" element={<Currency />} />
             <Route path="/singleNews/:slug" element={<SingleNews />} />

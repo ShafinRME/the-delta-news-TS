@@ -12,14 +12,14 @@ interface ModeratorUsersProps {
   setUser: any;
 }
 
-const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
+const UserGeneralConfirmModal: FC<ModeratorUsersProps> = ({
   user,
   refetch,
   setUser,
 }) => {
   const { name, email } = user;
-  const makeModerator = () => {
-    const url = `https://the-delta-times-server.vercel.app/api/users/moderator/${email}`;
+  const makeAdmin = () => {
+    const url = `https://the-delta-times-server.vercel.app/api/users/general/${email}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -37,7 +37,7 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
         if (data.modifiedCount > 0) {
           setUser(null);
           refetch();
-          toast.success(`successfully make an Admin`);
+          toast.success(`successfully make an General`);
         }
       });
   };
@@ -45,7 +45,7 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
     <>
       <input
         type="checkbox"
-        id="user-moderator-confirm-modal"
+        id="user-general-confirm-modal"
         className="modal-toggle"
       />
       <div className="modal sm:modal-middle">
@@ -67,14 +67,14 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
           </svg>
 
           <h1 className="text-base font-description text-center text-semibold text-primary-content">
-            Are you want to make Moderator{" "}
+            Are you want to make General
             <span className="font-bold text-fuchsia-500 ">{name}</span>?
           </h1>
 
           {/* cancel btn */}
           <div className="modal-action  justify-center px-4">
             <label
-              htmlFor="user-moderator-confirm-modal"
+              htmlFor="user-general-confirm-modal"
               className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 "
               onClick={() => setUser(null)}
             >
@@ -83,7 +83,7 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
             <button
               type="submit"
               className=" bg-primary-content text-white hover:opacity-90 transition-opacity duration-500 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-              onClick={() => makeModerator()}
+              onClick={() => makeAdmin()}
             >
               Yes, I&lsquo;m sure
             </button>
@@ -94,4 +94,4 @@ const UserModeratorConfirmModal: FC<ModeratorUsersProps> = ({
   );
 };
 
-export default UserModeratorConfirmModal;
+export default UserGeneralConfirmModal;

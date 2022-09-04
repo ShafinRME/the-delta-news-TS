@@ -13,14 +13,14 @@ const InternationalSection: FC<SectionNewsProps> = ({news,linkText,linkUrl}) => 
         </h1>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
           {/* left section */}
-          <div className="xl:col-span-1 xl:pr-4 xl:border-r border-warning-content">
-            {news.slice(17, 21).map((item) => (
+          <div className="xl:col-span-1 grid md:grid-cols-2 md:gap-4 xl:gap-0 xl:grid-cols-1 xl:pr-4 xl:border-r border-warning-content">
+            {news.slice(0, 4).map((item) => (
               <div
                 key={item.id}
-                className="md:border-b border-warning-content md:last:border-none pt-4 first:pt-0 "
+                className="xl:border-b border-warning-content md:last:border-none xl:pt-4 first:pt-0 "
               >
                 <Link
-                  to={`singleNews/${item.slug}`}
+                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
                   className="grid md:grid-cols-2 gap-4"
                 >
                   <div className="div">
@@ -36,7 +36,7 @@ const InternationalSection: FC<SectionNewsProps> = ({news,linkText,linkUrl}) => 
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-32"
+                      className="w-full h-40 md:h-32"
                     />
                   </div>
                 </Link>
@@ -45,13 +45,17 @@ const InternationalSection: FC<SectionNewsProps> = ({news,linkText,linkUrl}) => 
           </div>
           {/* middle  section */}
           <div className="xl:border-r border-warning-content xl:pr-4 xl:col-span-1">
-            {news.slice(13, 14).map((item) => (
+            {news.slice(4, 5).map((item) => (
               <div
                 key={item.id}
-                className="border-b border-warning-content pb-4"
+                className="border-b border-warning-content pb-4 md:max-w-xl md:mx-auto xl:mx-0 xl:w-full"
               >
-                <Link to={`singleNews/${item.slug}`}>
-                  <img src={item.image} alt={item.title} className=" w-full" />
+                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className=" w-full xl:h-56"
+                  />
                   <h1 className="news-sub-title pt-2 ">
                     {item.title.slice(0, 100)}
                   </h1>
@@ -61,10 +65,13 @@ const InternationalSection: FC<SectionNewsProps> = ({news,linkText,linkUrl}) => 
                 </Link>
               </div>
             ))}
+            {/* right section */}
             <div className="grid grid-cols-1 md:grid-cols-2 pt-6 gap-4 xl:gap-4 ">
-              {news.slice(18, 20).map((item) => (
+              {news.slice(5, 7).map((item) => (
                 <div key={item.id} className="">
-                  <Link to={`singleNews/${item.slug}`}>
+                  <Link
+                    to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
@@ -73,12 +80,14 @@ const InternationalSection: FC<SectionNewsProps> = ({news,linkText,linkUrl}) => 
                     <h2 className="feature-news-title ">
                       {item.title.slice(0, 60)}
                     </h2>
+                    <p className="news-live-details pt-2 ">
+                      {`${item.description.slice(0, 60)}..`}
+                    </p>
                   </Link>
                 </div>
               ))}
             </div>
           </div>
-          {/* right section */}
         </div>
       </div>
     </>

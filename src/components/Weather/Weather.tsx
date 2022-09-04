@@ -102,7 +102,7 @@ const Weather = () => {
         {/* Bottom */}
 
         {weather ? (
-          <div className=" relative p-8 rounded-md">
+          <div className="bg-white relative p-8 rounded-md">
             <p className="text-2xl text-center pb-6">
               Weather in {weather?.name}
             </p>

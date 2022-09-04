@@ -9,18 +9,21 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
       <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-9 gap-4 pt-3 xl:border-b xl:border-b-warning-content  pb-4">
         {/* first row  layout left */}
         <div className="xl:col-span-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-9 gap-4 xl:border-b xl:border-b-warning-content pb-[.3rem]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-8 xl:grid-cols-9  xl:gap-4 xl:border-b xl:border-b-warning-content pb-[.3rem]">
             {/* title and details news live news */}
             <div className="xl:col-span-3">
               {news?.slice(0, 3).map((item) => (
-                <Link key={item.id} to={`singleNews/${item.slug}`}>
+                <Link
+                  key={item.id}
+                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                >
                   <div className=" pb-4 ">
                     <h1 className=" news-live-title">{`${item.title.slice(
                       0,
                       50
                     )}.. `}</h1>
                     <p className="pt-2 news-live-details ">
-                      {`${item.description.slice(0, 90)}..`}
+                      {`${item.description.slice(0, 60)}..`}
                     </p>
                   </div>
                 </Link>
@@ -30,11 +33,13 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
             <div className="xl:col-span-6">
               {news.slice(4, 5).map((item) => (
                 <div key={item.id} className="pb-2">
-                  <Link to={`singleNews/${item.slug}`}>
+                  <Link
+                    to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="md:h-[26rem]"
+                      className="w-full md:h-[20rem] md:min-h-[20rem] lg:h-[14rem] lg:w-[80%] lg:min-h-[14rem] xl:h-[24rem] xl:min-h-[24rem] xl:w-full"
                     />
                   </Link>
                 </div>
@@ -42,15 +47,15 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
             </div>
           </div>
           {/* middle three card title and details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 border-b border-b-warning-content pb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 pt-4 gap-4 xl:gap-0 border-b border-b-warning-content pb-4">
             {news?.slice(6, 9).map((item) => (
               <div
                 key={item.id}
                 className="xl:border-r xl:border-r-warning-content xl:last:border-none xl:pr-4 xl:last:pr-0 xl:pl-4 xl:first:pl-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
+                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                   <h1 className="news-sub-title-three-col">
-                    {`${item.title.slice(0, 60)}...`}
+                    {`${item.title.slice(0, 40)}...`}
                   </h1>
                   <p className="news-details pt-4">
                     {`${item.description.slice(0, 70)}...`}
@@ -67,8 +72,8 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
                 <Link
-                  to={`singleNews/${item.slug}`}
-                  className="grid grid-cols-2 gap-2"
+                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  className="grid md:grid-flow-row-dense grid-cols-1 lg:grid-cols-2 gap-2"
                 >
                   <div className="div">
                     <h1 className="news-sub-title-three-col">
@@ -81,7 +86,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className=" xl:h-28 w-full"
+                    className="md:h-44 lg:h-36 xl:h-28 w-full"
                   />
                 </Link>
               </div>
@@ -91,22 +96,30 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
         {/* first row  layout right*/}
         <div className="xl:col-span-3 xl:border-l xl:border-l-warning-content xl:pl-4 ">
           {/* advertisement start */}
-          {news.slice(11, 12).map((item) => (
+          {news.slice(24, 25).map((item) => (
             <div
               key={item.id}
-              className="cursor-pointer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-4 pb-4 xl:border-b-warning-content xl:border-b "
+              className="cursor-pointer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-4 pb-3.5 xl:border-b-warning-content xl:border-b "
             >
-              <Link key={item.id} to={`singleNews/${item.slug}`}>
+              <Link
+               
+                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+              >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full pb-0"
+                  className="w-full pb-0 xl:h-52 min-h-[13rem] "
                 />
-                <h1 className=" news-sub-title pt-[9px] ">
-                  {item.title.slice(0, 60)}
+              </Link>
+              <Link
+               
+                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+              >
+                <h1 className=" news-sub-title pt-4 ">
+                  {`${item.title.slice(0, 50)}...`}
                 </h1>
                 <p className=" news-details">
-                  {`${item.description.slice(0, 60)}...`}
+                  {`${item.description.slice(0, 180)}...`}
                 </p>
               </Link>
             </div>
@@ -133,44 +146,20 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
                 key={item.id}
                 className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
               >
-                <Link to={`singleNews/${item.slug}`}>
+                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                   <img
                     src={item.image}
                     alt={item.title}
-                    className=" w-full xl:h-24"
+                    className=" w-full md:h-44 lg:h-56 xl:h-24"
                   />
-                  <h2 className="feature-news-title ">{item.title}</h2>
+                  <h2 className="feature-news-title ">{`${item.title.slice(
+                    0,
+                    40
+                  )}...`}</h2>
                 </Link>
               </div>
             ))}
           </div>
-          {/* <div className="grid grid-cols-1 pt-4 gap-4 xl:gap-0 ">
-                {news?.slice(14, 15).map((item) => (
-                  <div
-                    key={item.id}
-                    className="xl:border-r xl:last:border-none xl:border-r-warning-content xl:pr-4 xl:pl-4 xl:first:pl-0 xl:last:pr-0"
-                  >
-                    <Link
-                      to={`singleNews/${item.slug}`}
-                      className="grid grid-cols-2 gap-2"
-                    >
-                      <div className="div">
-                        <h1 className="news-sub-title-three-col">
-                          {item.title.slice(0, 60)}
-                        </h1>
-                        <p className="news-details pt-4">
-                          {`${item.description.slice(0, 30)}...`}
-                        </p>
-                      </div>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className=" xl:h-28 w-full"
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </div> */}
         </div>
       </section>
     </>
