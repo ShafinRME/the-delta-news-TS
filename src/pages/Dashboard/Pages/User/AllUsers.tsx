@@ -33,14 +33,12 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loadings />;
   }
-  //  if({data?.length <= 0 && user !== null}){
-  //   return <Loadings />;
-  //  }
   if (isError) {
-    return <h1>{error.message}</h1>;
+    return <h1>  {error.message}</h1>;
   }
   return (
     <>
+
       {data?.length <= 0 && user !== null ? (
         <Loadings />
       ) : (

@@ -22,6 +22,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
+import Banking from "./pages/Dashboard/Pages/Banking/Banking";
 import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
@@ -187,6 +188,7 @@ function App() {
             <Route path="analytics" element={<Analytics />} />
             <Route path="calendar" element={<BigCalendar />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="banking" element={<Banking/>} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}

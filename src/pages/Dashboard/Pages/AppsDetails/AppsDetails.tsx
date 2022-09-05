@@ -1,41 +1,41 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 // import { useState } from "react";
-import Loadings from "../../../../components/Loading/Loadings";
+// import Loadings from "../../../../components/Loading/Loadings";
 import welcome from "../../../../Assets/images/dashboard/welcome.png"
 
 import "../Moderator/Moderator.css";
 import TotalCard from "../../DashboardComponent/Card/TotalCard";
 
 const AppsDetails = () => {
-  interface UserData {
-    _id?: string;
-    email?: string;
-    name?: string;
-    role?: string;
-    Index?: number;
-  }
+  // interface UserData {
+  //   _id?: string;
+  //   email?: string;
+  //   name?: string;
+  //   role?: string;
+  //   Index?: number;
+  // }
   // const [user, setUser] = useState<any>(null);
-  const url = `https://the-delta-times-server.vercel.app/api/users`;
-  const { isLoading, isError, error,  data } = useQuery<
-    UserData[],
-    Error
-  >(["allNews"], () =>
-    fetch(url, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
-  );
+  // const url = `https://the-delta-times-server.vercel.app/api/users`;
+  // const { isLoading, isError, error,  data } = useQuery<
+  //   UserData[],
+  //   Error
+  // >(["allNews"], () =>
+  //   fetch(url, {
+  //     method: "GET",
+  //     headers: {
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   }).then((res) => res.json())
+  // );
 
-  if (isLoading) {
-    return <Loadings />;
-  }
+  // if (isLoading) {
+  //   return <Loadings />;
+  // }
 
-  if (isError) {
-    return <h1>{error.message}</h1>;
-  }
+  // if (isError) {
+  //   return <h1>{error.message}</h1>;
+  // }
   return (
     <>
       <section className="max-w-5xl mx-auto pb-6">
