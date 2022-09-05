@@ -43,7 +43,7 @@ const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
             </span>
           </div>
           {/* user details */}
-          <div className="mt-4 mb-8 flex  bg-warning shadow-sm rounded-md py-2 px-4 w-56 ">
+          <div className="mt-4 mb-8 flex  bg-base-200 shadow-sm rounded-md py-2 px-4 w-56 ">
             {/* user image */}
             <div className="avatar">
               <div className="w-12 rounded-full ">
@@ -54,7 +54,7 @@ const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
                   width="100"
                   height="100"
                 /> */}
-                <p className=" btn bt-ghost btn-circle text-primary-content">
+                <p className=" btn bg-base-100 border-0 btn-circle text-primary-content">
                   {user?.displayName?.slice(0, 2)}
                 </p>
               </div>

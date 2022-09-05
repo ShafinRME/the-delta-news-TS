@@ -69,11 +69,6 @@ const BigCalendar = () => {
 
   return (
     <div className="bg-base-100">
-      <div className=" px-0 card bg-base-100 ">
-        <div className="card-body">
-          <h1 className="text-2xl text-center font-semibold">Calendar</h1>
-        </div>
-      </div>
       <div className="">
         <div className="lg:flex lg:justify-start mt-10 lg:mx-24">
           <div className="lg:mr-7 lg:mt-[3px]">

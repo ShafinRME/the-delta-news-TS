@@ -129,7 +129,7 @@ const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               {user ? (
-                <p className=" btn bt-ghost btn-circle text-primary-content">
+                <p className=" btn bg-base-200 border-0 btn-circle text-primary-content">
                   {user.displayName?.slice(0, 2)}
                 </p>
               ) : (

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import TotalCardChart from "../Chart/TotalCardChart";
+import TotalEcomChart from "../Chart/TotalEcomChart";
 
 interface CardProps {
   title: string;
@@ -7,23 +7,23 @@ interface CardProps {
   details: string;
 }
 
-const TotalCard: FC<CardProps> = ({ title, total, details }) => {
+const EcomCard: FC<CardProps> = ({ title, total, details }) => {
   return (
     <>
       <div className=" grid grid-cols-2 px-8 py-6 items-center bg-base-200 rounded-lg">
         <div className="">
           <h1 className="text-sm font-medium text-secondary">{title}</h1>
-          <h6 className="text-secondary text-xs font-bold pt-1">{details}</h6>
-          <p className="text-3xl text-neutral-content font-semibold ">
+          <h6 className="text-3xl text-neutral-content font-semibold ">
             {total}
-          </p>
+          </h6>
+          <p className="text-secondary text-xs font-bold pt-1">{details}</p>
         </div>
         <div className="flex justify-end items-center">
-          <TotalCardChart />
+          <TotalEcomChart/>
         </div>
       </div>
     </>
   );
 };
 
-export default TotalCard;
+export default EcomCard;

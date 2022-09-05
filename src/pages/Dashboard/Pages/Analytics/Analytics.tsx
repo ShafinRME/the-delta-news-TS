@@ -7,11 +7,6 @@ import Analytics4 from "./AllAnalytics/4Analytics";
 const Analytics = () => {
   return (
     <div className="max-w-auto">
-      <div className=" px-0 card bg-base-100 ">
-        <div className="card-body">
-          <h1 className="text-2xl text-center font-bold">Website Analytics</h1>
-        </div>
-      </div>
       <div className="grid grid-cols-1 gap-y-20 my-12 ">
         <div className="grid gap-5 lg:grid-cols-12  ">
           <div className="lg:col-span-7">
