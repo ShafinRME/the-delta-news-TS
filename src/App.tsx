@@ -57,7 +57,7 @@ import SingleNews from "./pages/Home/SingleNews";
 import International from "./pages/International/International";
 import AllInternationalNews from "./pages/International/Pages/AlInternationalNews/AlInternationalNews";
 import America from "./pages/International/Pages/America/America";
-import SingleAmericaNews from "./pages/International/Pages/America/SingleAmericaNews/SingleAmericaNews";
+import SingleAmericaNews from "./pages/International/Pages/America/SingleAmerica/SingleAmericaNews";
 import Asia from "./pages/International/Pages/Asia/Asia";
 import SingleAsiaNews from "./pages/International/Pages/Asia/SingleAsiaNews/SingleAsiaNews";
 import Europe from "./pages/International/Pages/Europe/Europe";
