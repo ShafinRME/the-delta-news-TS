@@ -59,7 +59,6 @@ import AllInternationalNews from "./pages/International/Pages/AlInternationalNew
 import America from "./pages/International/Pages/America/America";
 import SingleAmericaNews from "./pages/International/Pages/America/SingleAmerica/SingleAmericaNews";
 import Asia from "./pages/International/Pages/Asia/Asia";
-import SingleAsiaNews from "./pages/International/Pages/Asia/SingleAsiaNews/SingleAsiaNews";
 import Europe from "./pages/International/Pages/Europe/Europe";
 import SingleEuropeNews from "./pages/International/Pages/Europe/SingleEuropeNews/SingleEuropeNews";
 import LiveNews from "./pages/LiveNews/LiveNews";
@@ -102,7 +101,7 @@ function App() {
               <Route path="america" element={<America />} />
               <Route path="america/:slug" element={<SingleAmericaNews />} />
               <Route path="asia" element={<Asia />} />
-              <Route path="asia/:slug" element={<SingleAsiaNews />} />
+              {/* <Route path="asia/:slug" element={<SingleAsiaNews />} /> */}
               <Route path="europe" element={<Europe />} />
               <Route path="europe/:slug" element={<SingleEuropeNews />} />
             </Route>
