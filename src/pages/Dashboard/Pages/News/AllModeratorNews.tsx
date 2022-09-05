@@ -27,7 +27,7 @@ const AllModeratorNews = () => {
   return (
     <>
       <section className="p-5 text-lg font-semibold text-left text-accent">
-        ALL Moderator news
+        Total News {data?.length}
         <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
           Browse a list of Flowbite products designed to help you work and play,
           stay organized, get answers, keep in touch, grow your business, and

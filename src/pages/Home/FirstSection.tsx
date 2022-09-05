@@ -31,7 +31,7 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
             </div>
             {/* title and details image live news*/}
             <div className="xl:col-span-6">
-              {news.slice(4, 5).map((item) => (
+              {news.slice(40, 41).map((item) => (
                 <div key={item.id} className="pb-2">
                   <Link
                     to={`${item.category.toLocaleLowerCase()}/${item.slug}`}

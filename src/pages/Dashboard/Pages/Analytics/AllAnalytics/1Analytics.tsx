@@ -53,7 +53,7 @@ const Analytics1 = () => {
   ];
 
   return (
-    <div className="card bg-base-100  border shadow-lg mx-auto">
+    <div className="card bg-base-200 shadow-sm mx-auto">
       <div className="card-body hover:bg-cyan-100 hover:text-blue-800 hover:scale-105 transition delay-600">
         <h1 className="text-lg font-bold">Website Visits</h1>
         <p className="text-gray">(+43%) than last year</p>

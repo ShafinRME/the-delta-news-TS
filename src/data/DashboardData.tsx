@@ -1,5 +1,4 @@
 import {
-  FaCalendarAlt,
   FaCalendarCheck,
   FaChartLine,
   FaEnvelopeOpenText,
@@ -39,12 +38,6 @@ const dashboardData = {
       icon: <FaLandmark />,
       text: "Banking",
       path: "banking",
-    },
-    {
-      id: 5,
-      icon: <FaCalendarCheck />,
-      text: "Calendar",
-      path: "calendar",
     },
   ],
   management: [
@@ -149,9 +142,9 @@ const dashboardData = {
 
     {
       id: 2,
-      icon: <FaCalendarAlt />,
-      text: "Calender",
-      path: "calender",
+      icon: <FaCalendarCheck />,
+      text: "Calendar",
+      path: "calendar",
     },
   ],
 };

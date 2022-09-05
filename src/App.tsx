@@ -22,12 +22,14 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Pages/Admin/Admin";
 import Analytics from "./pages/Dashboard/Pages/Analytics/Analytics";
 import AppsDetails from "./pages/Dashboard/Pages/AppsDetails/AppsDetails";
+import Banking from "./pages/Dashboard/Pages/Banking/Banking";
 import BigCalendar from "./pages/Dashboard/Pages/Calendar/Calendar";
 import Ecommerce from "./pages/Dashboard/Pages/Ecommerce/Ecommerce";
 import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
+import Profile from "./pages/Dashboard/Pages/Profile/Profile";
 import {
   default as AllUsers,
   default as User,
@@ -185,6 +187,8 @@ function App() {
             <Route path="adminNewsList" element={<AllAdminNews />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="calendar" element={<BigCalendar />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="banking" element={<Banking/>} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}

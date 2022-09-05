@@ -11,37 +11,37 @@ import {
 const Analytics3 = () => {
   const data = [
     {
-      subject: "Math",
+      subject: "Bangladesh",
       A: 120,
       B: 110,
       fullMark: 150,
     },
     {
-      subject: "Chinese",
+      subject: "Chain",
       A: 98,
       B: 130,
       fullMark: 150,
     },
     {
-      subject: "English",
+      subject: "Canada",
       A: 86,
       B: 130,
       fullMark: 150,
     },
     {
-      subject: "Geography",
+      subject: "Australia",
       A: 99,
       B: 100,
       fullMark: 150,
     },
     {
-      subject: "Physics",
+      subject: "India",
       A: 85,
       B: 90,
       fullMark: 150,
     },
     {
-      subject: "History",
+      subject: "England",
       A: 65,
       B: 85,
       fullMark: 150,
@@ -49,7 +49,7 @@ const Analytics3 = () => {
   ];
 
   return (
-    <div className="card bg-base-100 border shadow-lg">
+    <div className="card bg-base-200   shadow-sm">
       <div className="card-body hover:bg-cyan-100 hover:text-blue-800 hover:scale-105 transition delay-600">
         <h1 className="text-lg font-bold">Current Visits</h1>
         <div style={{}}>
