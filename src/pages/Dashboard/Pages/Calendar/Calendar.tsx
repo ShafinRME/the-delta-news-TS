@@ -69,19 +69,19 @@ const BigCalendar = () => {
 
   return (
     <div className="bg-base-100">
-      <div className=" px-0 card bg-base-100 border shadow-sm">
+      <div className=" px-0 card bg-base-100 ">
         <div className="card-body">
-          <h1 className="text-2xl text-center font-bold">Calendar</h1>
+          <h1 className="text-2xl text-center font-semibold">Calendar</h1>
         </div>
       </div>
       <div className="">
         <div className="lg:flex lg:justify-start mt-10 lg:mx-24">
           <div className="lg:mr-7 lg:mt-[3px]">
-            <h1 className="text-sm font-bold">Add New Event</h1>
+            <h1 className="text-sm font-semibold">Add New Event</h1>
             <input
               type="text"
               placeholder="Add Title"
-              className="input input-bordered input-primary  "
+              className="input input-primary  "
               // style={{ width: "20%", marginRight: "10px" }}
 
               value={newEvent.title}
@@ -92,7 +92,7 @@ const BigCalendar = () => {
           </div>
 
           <div>
-            <label className="text-sm font-bold">Add Start Date</label>
+            <label className="text-sm font-semibold">Add Start Date</label>
             <DatePicker
               placeholderText="Start Date"
               className=" select input-primary "
@@ -101,7 +101,7 @@ const BigCalendar = () => {
             />
           </div>
           <div className="">
-            <label className="text-sm font-bold">Add End Date</label>
+            <label className="text-sm font-semibold">Add End Date</label>
             <DatePicker
               placeholderText="End Date"
               className="select  input-primary "
@@ -118,7 +118,7 @@ const BigCalendar = () => {
         </div>
 
         <Calendar
-          className="lg:text-xl lg:border-4 rounded-md border-x-primary lg:font-bold"
+          className="lg:text-xl rounded-md  lg:font-bold"
           localizer={localizer}
           events={allEvents}
           startAccessor="start"

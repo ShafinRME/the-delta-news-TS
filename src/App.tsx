@@ -28,6 +28,7 @@ import Moderator from "./pages/Dashboard/Pages/Moderator/Moderator";
 import AddNews from "./pages/Dashboard/Pages/News/AddNews";
 import AllAdminNews from "./pages/Dashboard/Pages/News/AllAdminNews";
 import AllModeratorNews from "./pages/Dashboard/Pages/News/AllModeratorNews";
+import Profile from "./pages/Dashboard/Pages/Profile/Profile";
 import {
   default as AllUsers,
   default as User,
@@ -185,6 +186,7 @@ function App() {
             <Route path="adminNewsList" element={<AllAdminNews />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="calendar" element={<BigCalendar />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}

@@ -49,7 +49,7 @@ const Analytics3 = () => {
   ];
 
   return (
-    <div className="card bg-base-100 border shadow-lg">
+    <div className="card bg-base-100 border border-warning-content  shadow-sm">
       <div className="card-body hover:bg-cyan-100 hover:text-blue-800 hover:scale-105 transition delay-600">
         <h1 className="text-lg font-bold">Current Visits</h1>
         <div style={{}}>

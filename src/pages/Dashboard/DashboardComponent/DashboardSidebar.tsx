@@ -8,20 +8,12 @@ import { FC } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../config/firebaseConfig.init";
 
-
-
 interface dashboardSidebarProps {
   handleSidebar: () => void;
-  
 }
 
-// type Props = {
-//   src?: string | undefined;
-// };
 const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
-  
-  const [user ] = useAuthState(auth)
-  console.log(user);
+  const [user] = useAuthState(auth);
 
   return (
     <>
@@ -119,9 +111,6 @@ const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
               ))}
             </ul>
           </div>
-          {/* <div className="flex justify-center ">
-              <button className="btn ">Logout</button>
-            </div> */}
         </div>
       </aside>
     </>
