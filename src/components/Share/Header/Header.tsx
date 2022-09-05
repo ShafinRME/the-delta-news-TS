@@ -43,7 +43,7 @@ const Header = () => {
   useEffect(() => {
     themeChange(false);
     // false parameter is required for react project
-  });
+  },[]);
 
   // const windowHeight = 320;
   useEffect(() => {
