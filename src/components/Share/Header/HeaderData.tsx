@@ -48,10 +48,10 @@ const headerData = {
       text: "Live News",
       path: "/liveNews",
     },
-    {
-      text: "Photo",
-      path: "/photo",
-    },
+    // {
+    //   text: "Photo",
+    //   path: "/photo",
+    // },
     {
       text: "Sports",
       path: "/sports",

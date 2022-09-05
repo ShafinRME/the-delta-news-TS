@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Loadings from "../../../../components/Loading/Loadings";
+import Advertisement from "../../../../Assets/images/home/advertisement.png";
+import categoryAdds from "../../../../Assets/images/singleAdd/categoryAdds.gif";
+import singleBigAdd2 from "../../../../Assets/images/videoAdv/video.gif";
+import Loading from "../../../../components/Loading/Loading";
 import { NewsProps } from "../../../../utility/Typs";
 
 const Asia = () => {
-  const [asiaNews, setAsiaNews] = useState<NewsProps[]>([]);
-
+  const [asia, setAsiaNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    fetch("https://team-delta001.herokuapp.com/api/news/")
+    // fetch(`${url}/america`)
+    fetch(`https://the-delta-times-server.vercel.app/api/news/asia`)
       .then((res) => res.json())
       .then((data) => setAsiaNews(data));
   }, []);
 
   return (
     <>
-      {asiaNews.length <= 0 ? (
-        <Loadings />
+      {asia.length <= 0 ? (
+        <Loading />
       ) : (
         <>
-          <div className="">
+          {/* nested navbar section*/}
+          <div className="mb-8">
             <h1 className="mb-2 text-xl font-bold text-error-content hover:text-primary transition-colors duration-500">
               <Link to="/international">
                 <span className="border-b">International</span>
@@ -40,178 +44,237 @@ const Asia = () => {
             </ul>
           </div>
 
-          {/* second section */}
+          <hr className="m-5" />
+          {/* start first content section design */}
           <section>
-            {/* category title */}
-            <h1 className="text-3xl pt-8 pb-12 font-semibold  ">
-              {asiaNews?.slice(0, 1).map((item) => (
-                <span
-                  key={item.id}
-                  className="border-b-2 border-warning-content pb-1 text-primary hover:text-error-content transition-colors duration-500"
-                >
-                  {item.category}
-                </span>
-              ))}
-            </h1>
-            {/* main layout */}
-            <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-12 gap-4 border-b border-warning-content pb-4">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
               {/* first part */}
-              <div className="xl:col-span-9">
-                <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 pb-4 border-b border-warning-content">
-                  <div className="xl:col-span-8">
-                    {asiaNews?.slice(0, 1).map((item) => (
-                      <div key={item.id}>
-                        <Link to={`${item.slug}`}>
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full "
-                          />
+              <div className="xl:col-span-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2">
+                    {asia.slice(0, 4).map((news) => (
+                      <>
+                        <Link to={`/international/asia/${news.slug}`}>
+                          <div className="border m-2 p-2" key={news.slug}>
+                            <img className="w-full" src={news.image} alt="" />
+
+                            <div className="">
+                              <h1 className="news-sub-title-three-col m-2">
+                                {news.title}
+                              </h1>
+                              <h2 className="text-lg pb-2 font-description font-semibold">
+                                {news.reference}
+                              </h2>
+                              <p className="text-neutral text-sm">
+                                Publish:{news.date}
+                              </p>
+                            </div>
+                          </div>
                         </Link>
-                      </div>
+                      </>
                     ))}
                   </div>
-                  {/* middle parts */}
-                  <div className="xl:col-span-4 xl:border-l   border-warning-content xl:pl-4">
-                    {asiaNews?.slice(1, 2).map((item) => (
-                      <div key={item.id}>
-                        <Link to={`${item.slug}`}>
+                  {/* second part */}
+                  <div className="border">
+                    {asia.slice(8, 9).map((news) => (
+                      <Link to={`/international/asia/${news.slug}`}>
+                        <div className="p-2" key={news.slug}>
                           <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full "
+                            className="w-full h-[400px]"
+                            src={news.image}
+                            alt=""
                           />
-                          <h1 className="news-sub-title-three-col pt-2">
-                            {item.title}
-                          </h1>
-                          <p className="news-live-details ">{`${item.description.slice(
-                            0,
-                            120
-                          )} ...`}</p>
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {/* last three cards */}
-                <div className="grid grid-cols-1 xl:grid-cols-3 pt-4 gap-4 ">
-                  {asiaNews?.slice(3, 6).map((item) => (
-                    <div
-                      key={item.id}
-                      className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0 "
-                    >
-                      <Link to={`${item.slug}`}>
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="lg:h-36 w-full"
-                        />
-                        <h1 className="news-sub-title-three-col pt-2">
-                          {item.title}
-                        </h1>
-                        <p className="news-live-details ">{`${item.description.slice(
-                          0,
-                          120
-                        )} ...`}</p>
+                          <div className="">
+                            <h1 className="news-sub-title-three-col m-2">
+                              {news.title}
+                            </h1>
+                            <h2 className="text-lg pb-2 font-description font-semibold">
+                              {news.reference}
+                            </h2>
+                            <p className="text-neutral text-sm">
+                              Publish:{news.date}
+                            </p>
+                            <p title={news.description} className="">
+                              {news.description.slice(0, 150)}...
+                            </p>
+                          </div>
+                        </div>
                       </Link>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-              {/* right part */}
-              <div className="xl:col-span-3 xl:pl-4 xl:border-l xl:border-warning-content">
-                <div className=" pb-4 border-b border-warning-content">
-                  <a
-                    href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img
-                      src=""
-                      alt="single big"
-                      className=" h-full  w-full   "
-                    />
-                  </a>
-                </div>
-                {asiaNews?.slice(6, 10).map((item) => (
+              {/*third part*/}
+              <div className="xl:col-span-4">
+                {asia.slice(5, 8).map((news) => (
+                  <>
+                    <Link to={`/international/asia/${news.slug}`}>
+                      <div
+                        className="border m-2 grid grid-cols-2"
+                        key={news.slug}
+                      >
+                        <div className="p-2">
+                          <h1 className="news-sub-title-three-col">
+                            {news.title}
+                          </h1>
+                          <h2 className="text-lg pb-2 font-description font-semibold">
+                            {news.reference}
+                          </h2>
+                          <p className="text-neutral text-sm">
+                            Publish:{news.date}
+                          </p>
+                        </div>
+                        <img
+                          className="w-full"
+                          src={news.image}
+                          alt={news.title}
+                        />
+                      </div>
+                    </Link>
+                  </>
+                ))}
+                {/* advertisement */}
+                <a
+                  href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className=" md:h-20  w-full  mx-auto "
+                    src={singleBigAdd2}
+                    alt="single big"
+                  />
+                </a>
+              </div>
+            </div>
+          </section>
+          <hr className="mt-5" />
+          {/* advertisement */}
+          <a href="https://singerbd.com/" target="_blank" rel="noreferrer">
+            <img
+              src={Advertisement}
+              alt="singer add"
+              className="w-full md:h-52"
+            />
+          </a>
+          <hr className="mt-5" />
+          {/* end content section1 design */}
+
+          {/* start second section design */}
+          <section className="m-5">
+            {asia.slice(9, 13).map((news) => (
+              <>
+                <Link to={`/international/asia/${news.slug}`}>
                   <div
-                    key={item.id}
-                    className="border-b border-warning-content last:border-0 pb-4 last:pb-0 pt-2"
+                    className="border m-2 grid md:grid-cols-1 lg:grid-cols-2"
+                    key={news.slug}
                   >
-                    <h1 className="news-sub-title-three-col pt-2">
-                      {item.title}
-                    </h1>
-                    <p className="news-live-details ">{`${item.description.slice(
-                      0,
-                      60
-                    )} ...`}</p>
+                    <img className="w-full" src={news.image} alt={news.title} />
+                    <div className="p-2">
+                      <h1 className="news-sub-title-three-col">{news.title}</h1>
+                      <h2 className="text-lg pb-2 font-description font-semibold">
+                        {news.reference}
+                      </h2>
+                      <p className="text-neutral text-sm">
+                        Publish:{news.date}
+                      </p>
+                      <p className="">{news.description}</p>
+                    </div>
                   </div>
+                </Link>
+              </>
+            ))}
+            {/* advertisement */}
+            <a
+              href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                className=" md:h-20  w-full  mx-auto "
+                src={categoryAdds}
+                alt="single big"
+              />
+            </a>
+          </section>
+          {/* end second section design */}
+
+          {/* start third content */}
+          <section className="mt-5">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+              <div className="xl:col-span-8  border">
+                {/* first part */}
+                {asia.slice(13, 14).map((news) => (
+                  <>
+                    <Link to={`/international/asia/${news.slug}`}>
+                      <div className="p-2" key={news.slug}>
+                        <img className="w-full" src={news.image} alt="" />
+                        <h1 className="news-sub-title-three-col m-2">
+                          {news.title}
+                        </h1>
+                        <p className="" title={news.description}>
+                          {news.description}
+                        </p>
+                      </div>
+                    </Link>
+                  </>
                 ))}
               </div>
-            </div>
-          </section>
-          {/* three adds section */}
-          <section className="pt-4 pb-4 border-b border-warning-content">
-            <div className="max-w-4xl mx-auto">
-              <a
-                href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src=""
-                  alt="single big"
-                  className=" h-full md:h-48 w-full "
-                />
-              </a>
-            </div>
-          </section>
-          {/* third section */}
-          <section>
-            {/* main layout */}
-            <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-12 gap-4  pb-4 pt-14">
-              {/* left part */}
-              <div className="xl:col-span-9">
-                {asiaNews?.slice(10).map((item) => (
-                  <div
-                    key={item.id}
-                    className="grid grid-cols-1 grid-flow-dense gap-4 md:grid-cols-2 md:max-w-xl md:ml-auto pb-4 last:pb-0 pt-4 first:pt-0 border-b border-warning-content last:border-0"
-                  >
-                    <div className="div">
-                      <h1 className="news-sub-title-three-col">{item.title}</h1>
-                      <p className="news-live-details ">{`${item.description.slice(
-                        0,
-                        170
-                      )} ...`}</p>
-                    </div>
-                    <div className="order-first md:order-last">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-44 "
-                      />
-                    </div>
-                  </div>
+              <div className="xl:col-span-4">
+                <p className="underline font-bold">More</p>
+                {asia.slice(13, 16).map((news) => (
+                  <>
+                    <Link to={`/international/asia/${news.slug}`}>
+                      <div
+                        className="border m-2 grid grid-cols-2"
+                        key={news.slug}
+                      >
+                        <div className="p-2">
+                          <h1 className="news-sub-title-three-col">
+                            {news.title}
+                          </h1>
+                          <h2 className="text-lg pb-2 font-description font-semibold">
+                            {news.reference}
+                          </h2>
+                          <p className="text-neutral text-sm">
+                            Publish:{news.date}
+                          </p>
+                        </div>
+                        <img className="w-full" src={news.image} alt="" />
+                      </div>
+                    </Link>
+                  </>
                 ))}
-              </div>
-              {/* right part */}
-              <div className="xl:col-span-3 xl:pl-4 ">
-                <div className=" pb-6 ">
-                  <a
-                    href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img
-                      src=""
-                      alt="single big"
-                      className=" h-full  w-full   "
-                    />
-                  </a>
-                </div>
+                {/* advertisement */}
+                <a
+                  href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    className=" md:h-20  w-full  mx-auto "
+                    src={categoryAdds}
+                    alt="single big"
+                  />
+                </a>
               </div>
             </div>
+
+            <hr className="m-5" />
+            {/* advertisement */}
+            <a
+              href="https://www.walcart.com/wa-wled-el-fc-12wb22.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                className=" md:h-20  w-full h-[400px] mx-auto "
+                src={singleBigAdd2}
+                alt="single big"
+              />
+            </a>
           </section>
+          {/* end third content */}
         </>
       )}
     </>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
 import { BsFillEyeFill } from "react-icons/bs";
-
 interface PhotosProps {
   image: string;
 }
