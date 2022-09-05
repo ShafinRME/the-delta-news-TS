@@ -5,16 +5,16 @@ import singleBigAdd2 from "../../../../Assets/images/singleAdd/singleBigAdd2.gif
 import Loading from "../../../../components/Loading/Loading";
 import { NewsProps } from "../../../../utility/Typs";
 const IT = () => {
-  const [cricketNews, setCricketNews] = useState<NewsProps[]>([]);
+  const [itNews, setItNews] = useState<NewsProps[]>([]);
   useEffect(() => {
     // fetch(`${url}/america`)
-    fetch(`https://the-delta-times-server.vercel.app/api/news/cricket`)
+    fetch(`https://the-delta-times-server.vercel.app/api/news/it`)
       .then((res) => res.json())
-      .then((data) => setCricketNews(data));
+      .then((data) => setItNews(data));
   }, []);
   return (
     <>
-      {cricketNews.length <= 0 ? (
+      {itNews.length <= 0 ? (
         <Loading />
       ) : (
         <>
@@ -44,7 +44,7 @@ const IT = () => {
               </ul>
             </div>
           </section>
-
+          <hr className="m-5" />
           {/* start first content section design */}
           <section>
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
@@ -52,7 +52,7 @@ const IT = () => {
               <div className="xl:col-span-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                   <div className="grid grid-cols-2">
-                    {cricketNews.slice(0, 4).map((news) => (
+                    {itNews.slice(0, 4).map((news) => (
                       <>
                         <Link to={`/tech/it/${news.slug}`}>
                           <div className="border m-2 p-2" key={news.slug}>
@@ -76,7 +76,7 @@ const IT = () => {
                   </div>
                   {/* second part */}
                   <div className="border">
-                    {cricketNews.slice(8, 9).map((news) => (
+                    {itNews.slice(8, 9).map((news) => (
                       <Link to={`/tech/it/${news.slug}`}>
                         <div className="p-2" key={news.slug}>
                           <img
@@ -106,7 +106,7 @@ const IT = () => {
               </div>
               {/*third part*/}
               <div className="xl:col-span-4">
-                {cricketNews.slice(5, 8).map((news) => (
+                {itNews.slice(5, 8).map((news) => (
                   <>
                     <Link to={`/tech/it/${news.slug}`}>
                       <div
@@ -161,7 +161,7 @@ const IT = () => {
 
           {/* start second section design */}
           <section className="m-5">
-            {cricketNews.slice(9, 13).map((news) => (
+            {itNews.slice(9, 13).map((news) => (
               <>
                 <Link to={`/tech/it/${news.slug}`}>
                   <div
@@ -202,7 +202,7 @@ const IT = () => {
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
               <div className="xl:col-span-8  border">
                 {/* first part */}
-                {cricketNews.slice(13, 14).map((news) => (
+                {itNews.slice(13, 14).map((news) => (
                   <>
                     <Link to={`/tech/it/${news.slug}`}>
                       <div className="p-2" key={news.slug}>
@@ -220,7 +220,7 @@ const IT = () => {
               </div>
               <div className="xl:col-span-4">
                 <p className="underline font-bold">More</p>
-                {cricketNews.slice(13, 16).map((news) => (
+                {itNews.slice(13, 16).map((news) => (
                   <>
                     <Link to={`/tech/it/${news.slug}`}>
                       <div

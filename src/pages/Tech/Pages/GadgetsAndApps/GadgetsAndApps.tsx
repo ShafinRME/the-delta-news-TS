@@ -8,7 +8,7 @@ const GadgetsAndApps = () => {
   const [gadgetAndAppsNews, setGadgetAndAppsNews] = useState<NewsProps[]>([]);
   useEffect(() => {
     // fetch(`${url}/america`)
-    fetch(`https://the-delta-times-server.vercel.app/api/news/cricket`)
+    fetch(`https://the-delta-times-server.vercel.app/api/news/gadgets`)
       .then((res) => res.json())
       .then((data) => setGadgetAndAppsNews(data));
   }, []);
@@ -44,10 +44,9 @@ const GadgetsAndApps = () => {
                   </li>
                 </ul>
               </div>
-              <h1>GadgetsAndApps</h1>
             </div>
           </section>
-
+          <hr className="m-5" />
           {/* start first content section design */}
           <section>
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">

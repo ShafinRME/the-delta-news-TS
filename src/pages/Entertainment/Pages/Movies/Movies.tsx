@@ -10,7 +10,7 @@ const Movies = () => {
   const [moviesNews, setMoviesNews] = useState<NewsProps[]>([]);
   useEffect(() => {
     // fetch(`${url}/america`)
-    fetch(`https://the-delta-times-server.vercel.app/api/news/music`)
+    fetch(`https://the-delta-times-server.vercel.app/api/news/movies`)
       .then((res) => res.json())
       .then((data) => setMoviesNews(data));
   }, []);
@@ -28,7 +28,7 @@ const Movies = () => {
               </Link>
             </h1>
             <h2 className="text-3xl hover:text-error-content transition-colors duration-500 mb-3">
-              <Link to="/entertainment/movies/">Movies</Link>
+              <Link to="/entertainment/movies">Movies</Link>
             </h2>
             <ul className="flex space-x-3 font-bold">
               <li className="hover:text-primary transition-colors duration-500">
@@ -44,6 +44,7 @@ const Movies = () => {
               </li>
             </ul>
           </div>
+          <hr className="m-5" />
           {/* start first content section design */}
           <section>
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">

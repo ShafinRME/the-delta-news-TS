@@ -6,43 +6,47 @@ import singleBigAdd2 from "../../../../Assets/images/singleAdd/singleBigAdd2.gif
 import Loading from "../../../../components/Loading/Loading";
 import { NewsProps } from "../../../../utility/Typs";
 const Music = () => {
-  const [americaNews, setAmericaNews] = useState<NewsProps[]>([]);
+  const [musicNews, setMusicNews] = useState<NewsProps[]>([]);
   useEffect(() => {
     // fetch(`${url}/america`)
     fetch(`https://the-delta-times-server.vercel.app/api/news/music`)
       .then((res) => res.json())
-      .then((data) => setAmericaNews(data));
+      .then((data) => setMusicNews(data));
   }, []);
   return (
     <>
-      {americaNews.length <= 0 ? (
+      {musicNews.length <= 0 ? (
         <Loading />
       ) : (
         <>
           {/* nested navbar section*/}
-          <div className="">
-            <h1 className="mb-2 text-xl font-bold text-error-content hover:text-primary transition-colors duration-500">
-              <Link to="/entertainment">
-                <span className="border-b">Entertainment</span>
-              </Link>
-            </h1>
-            <h2 className="text-3xl hover:text-error-content transition-colors duration-500 mb-3">
-              <Link to="/entertainment/movies">Movies</Link>
-            </h2>
-            <ul className="flex space-x-3 font-bold">
-              <li className="hover:text-primary transition-colors duration-500">
-                <Link to="/entertainment/movies">&bull;&nbsp;Movies</Link>
-              </li>
-              <li className="hover:text-primary transition-colors duration-500">
-                <Link to="/entertainment/music/">&bull;&nbsp;Music</Link>
-              </li>
-              <li className="hover:text-primary transition-colors duration-500">
-                <Link to="/entertainment/television">
-                  &bull;&nbsp;Television
+          <section>
+            <div className="">
+              <h1 className="mb-2 text-xl font-bold text-error-content hover:text-primary transition-colors duration-500">
+                <Link to="/entertainment">
+                  <span className="border-b">Entertainment</span>
                 </Link>
-              </li>
-            </ul>
-          </div>
+              </h1>
+              <h2 className="text-3xl hover:text-error-content transition-colors duration-500 mb-3">
+                <Link to="/entertainment/movies">Movies</Link>
+              </h2>
+              <ul className="flex space-x-3 font-bold">
+                <li className="hover:text-primary transition-colors duration-500">
+                  <Link to="/entertainment/movies">&bull;&nbsp;Movies</Link>
+                </li>
+                <li className="hover:text-primary transition-colors duration-500">
+                  <Link to="/entertainment/music/">&bull;&nbsp;Music</Link>
+                </li>
+                <li className="hover:text-primary transition-colors duration-500">
+                  <Link to="/entertainment/television">
+                    &bull;&nbsp;Television
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <hr className="m-5" />
           {/* start first content section design */}
           <section>
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
@@ -50,7 +54,7 @@ const Music = () => {
               <div className="xl:col-span-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                   <div className="grid grid-cols-2">
-                    {americaNews.slice(0, 4).map((news) => (
+                    {musicNews.slice(0, 4).map((news) => (
                       <>
                         <Link to={`/entertainment/music/${news.slug}`}>
                           <div className="border m-2 p-2" key={news.slug}>
@@ -74,7 +78,7 @@ const Music = () => {
                   </div>
                   {/* second part */}
                   <div className="border">
-                    {americaNews.slice(8, 9).map((news) => (
+                    {musicNews.slice(8, 9).map((news) => (
                       <Link to={`/entertainment/music/${news.slug}`}>
                         <div className="p-2" key={news.slug}>
                           <img
@@ -104,7 +108,7 @@ const Music = () => {
               </div>
               {/*third part*/}
               <div className="xl:col-span-4">
-                {americaNews.slice(5, 8).map((news) => (
+                {musicNews.slice(5, 8).map((news) => (
                   <>
                     <Link to={`/entertainment/music/${news.slug}`}>
                       <div
@@ -159,7 +163,7 @@ const Music = () => {
 
           {/* start second section design */}
           <section className="m-5">
-            {americaNews.slice(9, 13).map((news) => (
+            {musicNews.slice(9, 13).map((news) => (
               <>
                 <Link to={`/entertainment/music/${news.slug}`}>
                   <div
@@ -200,7 +204,7 @@ const Music = () => {
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
               <div className="xl:col-span-8  border">
                 {/* first part */}
-                {americaNews.slice(13, 14).map((news) => (
+                {musicNews.slice(13, 14).map((news) => (
                   <>
                     <Link to={`/entertainment/music/${news.slug}`}>
                       <div className="p-2" key={news.slug}>
@@ -218,7 +222,7 @@ const Music = () => {
               </div>
               <div className="xl:col-span-4">
                 <p className="underline font-bold">More</p>
-                {americaNews.slice(13, 16).map((news) => (
+                {musicNews.slice(13, 16).map((news) => (
                   <>
                     <Link to={`/entertainment/music/${news.slug}`}>
                       <div

@@ -6,16 +6,16 @@ import singleBigAdd2 from "../../../../Assets/images/singleAdd/singleBigAdd2.gif
 import Loading from "../../../../components/Loading/Loading";
 import { NewsProps } from "../../../../utility/Typs";
 const Climate = () => {
-  const [moviesNews, setMoviesNews] = useState<NewsProps[]>([]);
+  const [climateNews, setClimateNews] = useState<NewsProps[]>([]);
   useEffect(() => {
-    // fetch(`${url}/america`)
-    fetch(`https://the-delta-times-server.vercel.app/api/news/america`)
+    // fetch(`${url}/climate`)
+    fetch(`https://the-delta-times-server.vercel.app/api/news/climate`)
       .then((res) => res.json())
-      .then((data) => setMoviesNews(data));
+      .then((data) => setClimateNews(data));
   }, []);
   return (
     <>
-      {moviesNews.length <= 0 ? (
+      {climateNews.length <= 0 ? (
         <Loading />
       ) : (
         <>
@@ -40,7 +40,7 @@ const Climate = () => {
               </ul>
             </div>
           </section>
-
+          <hr className="m-5" />
           {/* start first content section design */}
           <section>
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
@@ -48,7 +48,7 @@ const Climate = () => {
               <div className="xl:col-span-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                   <div className="grid grid-cols-2">
-                    {moviesNews.slice(0, 4).map((news) => (
+                    {climateNews.slice(0, 4).map((news) => (
                       <>
                         <Link to={`/environment/climate/${news.slug}`}>
                           <div className="border m-2 p-2" key={news.slug}>
@@ -72,10 +72,8 @@ const Climate = () => {
                   </div>
                   {/* second part */}
                   <div className="border">
-                    {moviesNews.slice(8, 9).map((news) => (
-                      <Link
-                        to={`/environment/climate//international/america/${news.slug}`}
-                      >
+                    {climateNews.slice(8, 9).map((news) => (
+                      <Link to={`/environment/climate/${news.slug}`}>
                         <div className="p-2" key={news.slug}>
                           <img
                             className="w-full h-[400px]"
@@ -104,11 +102,9 @@ const Climate = () => {
               </div>
               {/*third part*/}
               <div className="xl:col-span-4">
-                {moviesNews.slice(5, 8).map((news) => (
+                {climateNews.slice(5, 8).map((news) => (
                   <>
-                    <Link
-                      to={`/environment/climate//international/america/${news.slug}`}
-                    >
+                    <Link to={`/environment/climate/${news.slug}`}>
                       <div
                         className="border m-2 grid grid-cols-2"
                         key={news.slug}
@@ -161,11 +157,9 @@ const Climate = () => {
 
           {/* start second section design */}
           <section className="m-5">
-            {moviesNews.slice(9, 13).map((news) => (
+            {climateNews.slice(9, 13).map((news) => (
               <>
-                <Link
-                  to={`/environment/climate//international/america/${news.slug}`}
-                >
+                <Link to={`/environment/climate/${news.slug}`}>
                   <div
                     className="border m-2 grid md:grid-cols-1 lg:grid-cols-2"
                     key={news.slug}
@@ -204,11 +198,9 @@ const Climate = () => {
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
               <div className="xl:col-span-8  border">
                 {/* first part */}
-                {moviesNews.slice(13, 14).map((news) => (
+                {climateNews.slice(13, 14).map((news) => (
                   <>
-                    <Link
-                      to={`/environment/climate//international/america/${news.slug}`}
-                    >
+                    <Link to={`/environment/climate/${news.slug}`}>
                       <div className="p-2" key={news.slug}>
                         <img className="w-full" src={news.image} alt="" />
                         <h1 className="news-sub-title-three-col m-2">
@@ -224,11 +216,9 @@ const Climate = () => {
               </div>
               <div className="xl:col-span-4">
                 <p className="underline font-bold">More</p>
-                {moviesNews.slice(13, 16).map((news) => (
+                {climateNews.slice(13, 16).map((news) => (
                   <>
-                    <Link
-                      to={`/environment/climate//international/america/${news.slug}`}
-                    >
+                    <Link to={`/environment/climate/${news.slug}`}>
                       <div
                         className="border m-2 grid grid-cols-2"
                         key={news.slug}
