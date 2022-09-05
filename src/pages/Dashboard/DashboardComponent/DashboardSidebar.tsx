@@ -47,13 +47,14 @@ const DashboardSidebar: FC<dashboardSidebarProps> = ({ handleSidebar }) => {
             {/* user image */}
             <div className="avatar">
               <div className="w-12 rounded-full ">
-                {/* <img
-                  src="https://placeimg.com/192/192/people"
-               
-                  alt="user name"
-                  width="100"
-                  height="100"
-                /> */}
+                {/* <div className="avatar">
+                  <div className="w-12 rounded-full">
+                    <img
+                      src={user?.photoURL! as string}
+                      alt={user?.displayName! as string}
+                    />
+                  </div>
+                </div> */}
                 <p className=" btn bg-base-100 border-0 btn-circle text-primary-content">
                   {user?.displayName?.slice(0, 2)}
                 </p>

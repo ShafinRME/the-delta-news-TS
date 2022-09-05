@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { BiDotsVerticalRounded, BiDownload, BiTrash} from "react-icons/bi";
+import { BiDotsVerticalRounded, BiDownload, BiTrash } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import Loadings from "../../../../components/Loading/Loadings";
 
@@ -22,19 +22,26 @@ const Banking = () => {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-      }).then((res) => res.json())
+      }).then((res) => {
+        if(res.ok){
+          throw Error('Please login again')
+        }
+        return res.json();
+      })
   );
-
-  if (isLoading) {
-    return <Loadings />;
-  }
   if (isError) {
     return <h1> {error.message}</h1>;
   }
+  if (isLoading) {
+    return <Loadings />;
+  }
+
   return (
     <>
       <div className=" lg:max-w-4xl mx-auto overflow-x-auto overflow-y-hidden">
-        <h1 className="text-xl font-medium text-primary-content pb-4">Recent Transitions</h1>
+        <h1 className="text-xl font-medium text-primary-content pb-4">
+          Recent Transitions
+        </h1>
         <table className="table table-compact w-full">
           <thead className=" w-full">
             <tr>
