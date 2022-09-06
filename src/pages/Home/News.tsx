@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loadings from "../../components/Loading/Loadings";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
-import { Data } from "../../utility/Typs";
+import { Data } from "../../utility/Types";
 
 const News = () => {
   const { slug } = useParams();

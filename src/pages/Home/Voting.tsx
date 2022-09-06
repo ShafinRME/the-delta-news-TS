@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Keyboard, Mousewheel, Navigation } from "swiper";
 import SmallLoading from "../../components/Loading/SmallLoading";
-import { NewsProps } from "../../utility/Typs";
+import { NewsProps } from "../../utility/Types";
 
 type Inputs = {
   example: string;

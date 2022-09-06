@@ -16,7 +16,7 @@ import SingleBigAdd2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
 import SingleSmallAdd from "../../Assets/images/singleAdd/singleSmall.gif";
 import Loadings from "../../components/Loading/Loadings";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
-import { Data } from "../../utility/Typs";
+import { Data } from "../../utility/Types";
 import { url as urls } from "../../utility/Urls";
 
 const SingleNews = () => {

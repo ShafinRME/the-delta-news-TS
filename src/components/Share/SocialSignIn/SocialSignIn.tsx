@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
 import useToken from "../../../hooks/useToken";
 import Loadings from "../../Loading/Loadings";
-import { locationProps } from "../../../utility/Typs";
+import { locationProps } from "../../../utility/Types";
 
 const SocialLogin = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =

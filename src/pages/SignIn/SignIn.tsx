@@ -13,7 +13,7 @@ import RouteLink from "../../components/Share/RouterLink/RouteLink";
 import SocialLogin from "../../components/Share/SocialSignIn/SocialSignIn";
 import auth from "../../config/firebaseConfig.init";
 import useToken from "../../hooks/useToken";
-import { FormValues, locationProps } from "../../utility/Typs";
+import { FormValues, locationProps } from "../../utility/Types";
 
 const SignIn = () => {
   const {

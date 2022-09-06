@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import ModeratorEditModal from "../Modal/ModeratorEditModal";
 import ModeratorViewModal from "../Modal/ModeratorViewModal";
-import { ModeratorRowProps } from "../../../../utility/Typs";
+import { ModeratorRowProps } from "../../../../utility/Types";
 
 const ModeratorRow: FC<ModeratorRowProps> = ({ news, index }) => {
   const { slug, reference, title, date,image } = news;

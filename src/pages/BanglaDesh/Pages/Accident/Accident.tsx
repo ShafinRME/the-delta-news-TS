@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Advertisement from "../../../../Assets/images/home/advertisement.png";
 import singleBigAdd2 from "../../../../Assets/images/singleAdd/singleBigAdd2.gif";
 import Loading from "../../../../components/Loading/Loading";
-import { NewsProps } from "../../../../utility/Typs";
+import { NewsProps } from "../../../../utility/Types";
 const Accident = () => {
   const [accidentNews, setAccidentNews] = useState<NewsProps[]>([]);
   console.log(accidentNews);

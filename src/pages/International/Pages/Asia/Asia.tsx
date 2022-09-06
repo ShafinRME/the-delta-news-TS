@@ -4,7 +4,7 @@ import Advertisement from "../../../../Assets/images/home/advertisement.png";
 import categoryAdds from "../../../../Assets/images/singleAdd/categoryAdds.gif";
 import singleBigAdd2 from "../../../../Assets/images/videoAdv/video.gif";
 import Loading from "../../../../components/Loading/Loading";
-import { NewsProps } from "../../../../utility/Typs";
+import { NewsProps } from "../../../../utility/Types";
 
 const Asia = () => {
   const [asia, setAsiaNews] = useState<NewsProps[]>([]);

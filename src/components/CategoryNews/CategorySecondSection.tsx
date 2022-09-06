@@ -1,6 +1,6 @@
 import { FC } from "react";
 import CategorySmallAdds3 from "../../Assets/images/singleAdd/categorySmallAdds2.gif";
-import { SectionProps } from "../../utility/Typs";
+import { SectionProps } from "../../utility/Types";
 
 
 const CategorySecondSection: FC<SectionProps>   = ({news}) => {

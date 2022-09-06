@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Loadings from "../../../../components/Loading/Loadings";
-import { Data } from "../../../../utility/Typs";
+import { Data } from "../../../../utility/Types";
 import ModeratorRow from "../../DashboardComponent/TableRow/ModeratorRow";
 
 const AllModeratorNews = () => {

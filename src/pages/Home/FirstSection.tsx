@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { SectionProps } from "../../utility/Typs";
+import { SectionProps } from "../../utility/Types";
 import HomeFirstSmallAdds2 from "../../Assets/images/singleAdd/singleBigAdd2.gif";
 
 const FirstSection: FC<SectionProps> = ({ news }) => {

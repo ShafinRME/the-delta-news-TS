@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { SectionNewsProps } from '../../utility/Typs';
+import { SectionNewsProps } from '../../utility/Types';
 
 const BangladeshSection: FC<SectionNewsProps>  = ({news,  linkText,linkUrl }) => {
   return (

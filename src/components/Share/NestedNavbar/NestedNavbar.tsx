@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NewsProps } from "../../../utility/Typs";
+import { NewsProps } from "../../../utility/Types";
 
 const NestedNavbar = ({
   title,

@@ -5,7 +5,7 @@ import CategoryAdds2 from "../../../../Assets/images/singleAdd/categoryadds2.png
 import CategorySmallAdds2 from "../../../../Assets/images/singleAdd/categorySmall.gif";
 import CategorySmallAdds3 from "../../../../Assets/images/singleAdd/categorySmallAdds2.gif";
 import Loading from "../../../../components/Loading/Loading";
-import { NewsProps } from "../../../../utility/Typs";
+import { NewsProps } from "../../../../utility/Types";
 import { url } from "../../../../utility/Urls";
 const AllTechNews = () => {
   const [techNews, setTechNews] = useState<NewsProps[]>([]);

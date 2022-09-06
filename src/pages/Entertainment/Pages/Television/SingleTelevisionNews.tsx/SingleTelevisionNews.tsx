@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import small2 from "../../../../../Assets/images/videoAdv/video2.jpg";
 import Loading from "../../../../../components/Loading/Loading";
-import { NewsProps } from "../../../../../utility/Typs";
+import { NewsProps } from "../../../../../utility/Types";
 interface SingleNewsProps {
   title: string;
   image: string;

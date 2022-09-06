@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { SectionProps } from '../../utility/Typs';
+import { SectionProps } from '../../utility/Types';
 import CategorySmallAdds2 from "../../Assets/images/singleAdd/categorySmall.gif";
 
 const CategoryFirstSection:FC<SectionProps> = ({news}) => {

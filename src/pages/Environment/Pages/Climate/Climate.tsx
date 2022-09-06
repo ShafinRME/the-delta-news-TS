@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Advertisement from "../../../../Assets/images/home/advertisement.png";
 import singleBigAdd2 from "../../../../Assets/images/singleAdd/singleBigAdd2.gif";
 import Loading from "../../../../components/Loading/Loading";
-import { NewsProps } from "../../../../utility/Typs";
+import { NewsProps } from "../../../../utility/Types";
 const Climate = () => {
   const [climateNews, setClimateNews] = useState<NewsProps[]>([]);
   useEffect(() => {

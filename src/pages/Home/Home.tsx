@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SecondAdvertisement from "../../Assets/images/home/advertisement.png";
 import HomeFirstAdds from "../../Assets/images/home/homeFirstAdds.gif";
 import Loadings from "../../components/Loading/Loadings";
-import { NewsProps } from "../../utility/Typs";
+import { NewsProps } from "../../utility/Types";
 // import HomeFirstSmallAdds from "../../Assets/images/home/homeFirstSmallgif.gif";
 import HomeFirstBigAdds2 from "../../Assets/images/home/homeBigAdds2.gif";
 import PageTitle from "../../components/Share/Pagetitle/PageTitle";
