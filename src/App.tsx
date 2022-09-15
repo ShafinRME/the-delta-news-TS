@@ -20,6 +20,7 @@ import GlobalBusiness from "./pages/Business/Pages/GlobalBusiness/GlobalBusiness
 import SingleGlobalBusiness from "./pages/Business/Pages/GlobalBusiness/SingleGlobalBusiness/SingleGlobalBusiness";
 import LocalBusiness from "./pages/Business/Pages/LocalBusiness/LocalBusiness";
 import SingleLocalBusiness from "./pages/Business/Pages/LocalBusiness/SingleLocalBusiness/SingleLocalBusiness";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
 import Contact from "./pages/Contact/contact";
 import Covid from "./pages/Covid";
 import Currency from "./pages/Currency/Currency";
@@ -100,6 +101,7 @@ function App() {
             {/* International */}
             <Route path="/international" element={<International />}>
               <Route index element={<AllInternationalNews />} />
+              <Route path="/international/:slug" element={<SingleNews />} />
               <Route path="america" element={<America />} />
               <Route path="america/:slug" element={<SingleAmericaNews />} />
               <Route path="asia" element={<Asia />} />
@@ -110,6 +112,7 @@ function App() {
             {/* Bangladesh */}
             <Route path="/bangladesh" element={<BanglaDesh />}>
               <Route index element={<AllBanglaDeshNews />} />
+              <Route path="/bangladesh/:slug" element={<SingleNews />} />
               <Route path="accident" element={<Accident />} />
               <Route path="accident/:slug" element={<SingleAccidentNews />} />
               <Route path="crime" element={<Crime />} />
@@ -120,6 +123,7 @@ function App() {
             {/* Business */}
             <Route path="/business" element={<Business />}>
               <Route index element={<AllBusinessNews />} />
+              <Route path="/business/:slug" element={<SingleNews />} />
               <Route path="globalbusiness" element={<GlobalBusiness />} />
               <Route
                 path="globalbusiness/:slug"
@@ -131,11 +135,11 @@ function App() {
                 element={<SingleLocalBusiness />}
               />
             </Route>
-            {/* Contact */}
-            <Route path="/contact" element={<Contact />} />
+
             {/* Entertainment */}
             <Route path="/entertainment" element={<Entertainment />}>
               <Route index element={<AllEntertainmentNews />} />
+              <Route path="/entertainment/:slug" element={<SingleNews />} />
               <Route path="movies" element={<Movies />} />
               <Route path="movies/:slug" element={<SingleMoviesNews />} />
               <Route path="music" element={<Music />} />
@@ -149,6 +153,7 @@ function App() {
             {/* Environment */}
             <Route path="/environment" element={<Environment />}>
               <Route index element={<AllEnvironmentNews />} />
+              <Route path="/environment/:slug" element={<SingleNews />} />
               <Route path="climate" element={<Climate />} />
               <Route path="climate/:slug" element={<SingleClimateNews />} />
               <Route path="pollution" element={<Pollution />} />
@@ -159,6 +164,7 @@ function App() {
             {/* Sports */}
             <Route path="/sports" element={<Sports />}>
               <Route index element={<AllSportsNews />} />
+              <Route path="/sports/:slug" element={<SingleNews />} />
               <Route path="cricket" element={<Cricket />} />
               <Route path="cricket/:slug" element={<SingleCricketNews />} />
               <Route path="football" element={<Football />} />
@@ -172,6 +178,7 @@ function App() {
             {/* Tech */}
             <Route path="/tech" element={<Tech />}>
               <Route index element={<AllTechNews />} />
+              <Route path="/tech/:slug" element={<SingleNews />} />
               <Route path="gadgetandapps" element={<GadgetsAndApps />} />
               <Route
                 path="gadgetandapps/:slug"
@@ -185,7 +192,9 @@ function App() {
                 element={<SingleSocialMediaNews />}
               />
             </Route>
-
+            {/* Contact */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/comingSoon" element={<ComingSoon/>} />
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<SignIn />} />
             <Route path="/weather" element={<Weather />} />
@@ -236,7 +245,7 @@ function App() {
             <Route path="analytics" element={<Analytics />} />
             <Route path="calendar" element={<BigCalendar />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="banking" element={<Banking/>} />
+            <Route path="banking" element={<Banking />} />
             <Route path="allUser" element={<AllUsers />} />
           </Route>
           {/* dashboard end*/}

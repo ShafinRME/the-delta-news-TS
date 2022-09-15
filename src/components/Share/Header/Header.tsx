@@ -134,7 +134,7 @@ const Header = () => {
                 <Clock />
               </div>
               <div className="text-base mt-1 text-secondary">
-                <Link to="/archives">Archive</Link>
+                <Link to="/comingSoon">Archive</Link>
               </div>
             </div>
           </div>

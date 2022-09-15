@@ -5,28 +5,21 @@ const menuItems = {
   footerLast: [
     {
       text: "About Us",
-      path: "about",
+      path: "comingSoon",
     },
 
     {
       text: "Contact Us",
-      path: "books",
+      path: "contact",
     },
-    {
-      text: "Work With Us",
-      path: "books",
-    },
+
     {
       text: "Terms of Use",
-      path: "books",
+      path: "comingSoon",
     },
     {
       text: "Privacy Policy",
-      path: "books",
-    },
-    {
-      text: "Help",
-      path: "books",
+      path: "comingSoon",
     },
   ],
   subscribes: [

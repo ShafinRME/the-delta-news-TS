@@ -32,10 +32,10 @@ const headerData = {
       text: "Business",
       path: "/business",
     },
-    {
-      text: "Contact",
-      path: "/contact",
-    },
+    // {
+    //   text: "Contact",
+    //   path: "/contact",
+    // },
     {
       text: "Entertainment",
       path: "/entertainment",
@@ -44,10 +44,7 @@ const headerData = {
       text: "Environment",
       path: "/environment",
     },
-    {
-      text: "Live News",
-      path: "/liveNews",
-    },
+
     // {
     //   text: "Photo",
     //   path: "/photo",
@@ -60,13 +57,17 @@ const headerData = {
       text: "Tech",
       path: "/tech",
     },
+    // {
+    //   text: "Videos",
+    //   path: "/videos",
+    // },
+    // {
+    //   text: "Weather",
+    //   path: "/weather",
+    // },
     {
-      text: "Videos",
-      path: "/videos",
-    },
-    {
-      text: "Weather",
-      path: "/weather",
+      text: "Live News",
+      path: "/liveNews",
     },
   ],
   usersItem: [
