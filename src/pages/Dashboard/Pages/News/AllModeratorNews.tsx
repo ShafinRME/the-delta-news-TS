@@ -51,9 +51,9 @@ const AllModeratorNews = () => {
           </thead>
           {/* table data */}
           <tbody>
-            {data?.map((news, index) => (
+            {Array.isArray(data)? data?.map((news, index) => (
               <ModeratorRow key={news.id} index={index} news={news} />
-            ))}
+            )): null}
           </tbody>
         </table>
       </section>

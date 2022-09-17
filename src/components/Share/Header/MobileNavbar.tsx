@@ -78,12 +78,12 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
                   <div className="text-sm font-medium text-secondary mt-1">
                     <TodayDate />
                   </div>
-                  <div className="text-sm font-medium text-secondary mt-1 font-bold">
+                  <div className="text-sm font-medium text-secondary mt-1 ">
                     <Clock />
                   </div>
                 </div>
                 <div className="text-base text-secondary">
-                  <Link to="/archives">Archive</Link>
+                  <Link to="/comingSoon">Archive</Link>
                 </div>
               </div>
             </div>
@@ -148,7 +148,9 @@ const MobileNavbar: FC<Props> = ({ handleSideBar, sideBar }) => {
 
             <hr className="md:hidden border-secondary" />
             <div className=" flex justify-center mb-2 mt-2 md:hidden ">
-              <Weather />
+              <Link to="/weather">
+                <Weather />
+              </Link>
             </div>
           </div>
         </div>

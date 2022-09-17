@@ -268,7 +268,9 @@ const Header = () => {
 
             {/* Weather Section */}
             <div className="hidden md:flex text-secondary justify-end text-sm font-normal ">
-              <Weather />
+              <Link to='/weather'>
+                <Weather />
+              </Link>
             </div>
           </div>
         </div>

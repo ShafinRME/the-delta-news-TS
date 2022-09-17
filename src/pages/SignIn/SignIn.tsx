@@ -52,6 +52,7 @@ const SignIn = () => {
   const onSubmit: SubmitHandler<FormValues> = (data): void => {
     const email: string = data.email;
     const password: string = data.password;
+    
     signInWithEmailAndPassword(email, password);
     toast.success("Sign In Success");
   };
@@ -72,8 +73,6 @@ const SignIn = () => {
             </div>
             <form className=" items-center" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control w-full">
-               
-               
                 <input
                   {...register("email", {
                     required: {
@@ -111,11 +110,12 @@ const SignIn = () => {
                       message: "Password is Required",
                     },
                     minLength: {
-                      value: 6,
-                      message: "Password Must be 6 characters or longer",
+                      value: 8,
+                      message: "Password Must be 8 characters or longer",
                     },
                     pattern: {
-                      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                      value:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                       message:
                         "Contain at least 8 characters 1 number 1 lowercase 1 uppercase contains only 0-9a-zA-Z",
                     },

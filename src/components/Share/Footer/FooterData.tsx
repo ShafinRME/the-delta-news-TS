@@ -38,12 +38,12 @@ const menuItems = {
   otherSubscribes: [
     {
       text: "News Letter",
-      path: "newsletter",
+      path: "comingSoon",
     },
 
     {
       text: "Corporate Subscription",
-      path: "corporate-subscription",
+      path: "comingSoon",
     },
   ],
   socials: [
