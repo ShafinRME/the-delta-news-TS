@@ -13,7 +13,7 @@ const useToken = (user: any) => {
       role: "general",
     };
     if (email) {
-      fetch(`http://localhost:5000/api/users/${email}`, {
+      fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -28,7 +28,6 @@ const useToken = (user: any) => {
           setToken(data);
         });
     }
-    console.log(currentUser)
   }, [user]);
   return [token];
 };

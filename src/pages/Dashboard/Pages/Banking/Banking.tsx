@@ -8,6 +8,7 @@ interface UserData {
   email?: string;
   name?: string;
   role?: string;
+  photoUrl?:string;
   Index?: number;
 }
 
@@ -52,77 +53,77 @@ const Banking = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((user) => (
-              <tr key={user._id} className="moderator-table hover">
-                <td>
-                  <div className="flex items-center space-x-3">
-                    {/* <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img
-                          src="/tailwind-css-component-profile-2@56w.png"
-                          alt="Avatar Tailwind CSS Component"
-                        />
+            {Array.isArray(data)
+              ? data.map((user) => (
+                  <tr key={user._id} className="moderator-table hover">
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div className="avatar">
+                          <div className="mask mask-circle w-12 h-12">
+                            <img src={user?.photoUrl} alt={user?.name} />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{user.name}</div>
+                          <div className="text-sm opacity-50">{user.email}</div>
+                        </div>
                       </div>
-                    </div> */}
-                    <div>
-                      <div className="font-bold">{user.name}</div>
-                      <div className="text-sm opacity-50">{user.email}</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  28/8/2022
-                  <br />
-                  <span className="">10.59 PM</span>
-                </td>
-                <td>$102</td>
-                <td>unpaid</td>
-                <td>
-                  <div className="dropdown dropdown-end">
-                    <label
-                      tabIndex={0}
-                      className="btn btn-circle btn-ghost btn-xs text-info"
-                    >
-                      <BiDotsVerticalRounded className="text-2xl text-primary" />
-                    </label>
-                    <div
-                      tabIndex={0}
-                      className="card compact dropdown-content shadow bg-base-100 rounded-box w-36"
-                    >
-                      <div className="card-body w-36">
-                        <ul>
-                          <li className="mb-2">
-                            <NavLink
-                              to="/"
-                              className={({ isActive }) =>
-                                isActive
-                                  ? "text-primary mr-3  font-medium text-sm flex"
-                                  : "text-secondary mr-3  font-medium text-sm hover:text-primary transition-colors duration-500 flex items-center "
-                              }
-                            >
-                              <BiDownload />{" "}
-                              <span className="ml-4">Download</span>
-                            </NavLink>
-                          </li>
-                          <li className="mb-2">
-                            <NavLink
-                              to="/"
-                              className={({ isActive }) =>
-                                isActive
-                                  ? "text-primary mr-3 font-medium text-sm flex"
-                                  : "text-secondary mr-3 font-medium text-sm hover:text-primary transition-colors duration-500 flex items-center "
-                              }
-                            >
-                              <BiTrash /> <span className="ml-4">Delete</span>
-                            </NavLink>
-                          </li>
-                        </ul>
+                    </td>
+                    <td>
+                      28/8/2022
+                      <br />
+                      <span className="">10.59 PM</span>
+                    </td>
+                    <td>$102</td>
+                    <td>unpaid</td>
+                    <td>
+                      <div className="dropdown dropdown-end">
+                        <label
+                          tabIndex={0}
+                          className="btn btn-circle btn-ghost btn-xs text-info"
+                        >
+                          <BiDotsVerticalRounded className="text-2xl text-primary" />
+                        </label>
+                        <div
+                          tabIndex={0}
+                          className="card compact dropdown-content shadow bg-base-100 rounded-box w-36"
+                        >
+                          <div className="card-body w-36">
+                            <ul>
+                              <li className="mb-2">
+                                <NavLink
+                                  to="/"
+                                  className={({ isActive }) =>
+                                    isActive
+                                      ? "text-primary mr-3  font-medium text-sm flex"
+                                      : "text-secondary mr-3  font-medium text-sm hover:text-primary transition-colors duration-500 flex items-center "
+                                  }
+                                >
+                                  <BiDownload />{" "}
+                                  <span className="ml-4">Download</span>
+                                </NavLink>
+                              </li>
+                              <li className="mb-2">
+                                <NavLink
+                                  to="/"
+                                  className={({ isActive }) =>
+                                    isActive
+                                      ? "text-primary mr-3 font-medium text-sm flex"
+                                      : "text-secondary mr-3 font-medium text-sm hover:text-primary transition-colors duration-500 flex items-center "
+                                  }
+                                >
+                                  <BiTrash />{" "}
+                                  <span className="ml-4">Delete</span>
+                                </NavLink>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
         </table>
       </div>

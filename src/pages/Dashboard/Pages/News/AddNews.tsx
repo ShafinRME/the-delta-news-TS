@@ -1,31 +1,63 @@
+import { useQuery } from "@tanstack/react-query";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
+import auth from "../../../../config/firebaseConfig.init";
 import categoryData from "../../../../data/category";
 import SubmitModal from "../../DashboardComponent/Modal/SubmitModal";
 import { imageSchema } from "../../DashboardComponent/NewsComponents/ImageScema";
 
+// use hooks from
+interface IFormInputs {
+  title: string;
+  reference: string;
+  category: string;
+  subCategory: string;
+  photo: string;
+  breakingNews: string;
+  date: string;
+  description: string;
+  descriptionOne: string;
+  descriptionTwo: string;
+  descriptionThree: string;
+  descriptionFour: string;
+  image: string;
+  type: string;
+}
+
+interface UserData {
+  _id?: string;
+  email?: string;
+  name?: string;
+  role?: string;
+  photoUrl?: string;
+}
+
 const AddNews = () => {
-  // const [slugValue, setSlugValue] = useState(null);
+  // single user
+  const [user] = useAuthState(auth);
+  const userEmail = user?.email;
+  const url = `https://the-delta-times-server.vercel.app/api/users/${userEmail}`;
+  const { data: userData } = useQuery<UserData, Error>(["allNews"], () =>
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw Error(" expire token Please login again and reload");
+      }
+      return res.json();
+    })
+  );
   // full date function
   const date = new Date();
   const fullDate = `${date.getDate()}-${
     date.getMonth() + 1
   }-${date.getFullYear()}`;
 
-  // use hooks from
-  interface IFormInputs {
-    title: string;
-    reference: string;
-    category: string;
-    subCategory: string;
-    photo: string;
-    breakingNews: string;
-    date: string;
-    description: string;
-    image: string;
-    type: string;
-  }
+  // add user
   const {
     register,
     formState: { errors },
@@ -46,10 +78,13 @@ const AddNews = () => {
     const subCategory = data.subCategory;
     const photo = data.photo;
     const breakingNews = data.breakingNews;
-    console.log("first dat", category);
     const date = fullDate;
-    const reference = data.reference;
+    const reference = userData?.name;
     const description = data.description;
+    const descriptionOne = data.descriptionOne;
+    const descriptionTwo = data.descriptionTwo;
+    const descriptionThree = data.descriptionThree;
+    const descriptionFour = data.descriptionFour;
     const image = data.image[0];
     const formDate = new FormData();
     formDate.append("image", image);
@@ -73,6 +108,10 @@ const AddNews = () => {
             slug: slug,
             reference: reference,
             description: description,
+            descriptionOne: descriptionOne,
+            descriptionTwo: descriptionTwo,
+            descriptionThree: descriptionThree,
+            descriptionFour: descriptionFour,
             image: image,
           };
           // this fetch for save from data in mongodb
@@ -131,31 +170,6 @@ const AddNews = () => {
               )}
             </label>
           </div>
-
-          {/* News Slug */}
-          {/* <div className="form-control w-full ">
-            <label className="label">
-              <span className="label-text-modify">Slug</span>
-            </label>
-            <input
-              value={newSlug || ""}
-              {...register("slug", {
-                required: {
-                  value: true,
-                  message: "News slug is required",
-                },
-              })}
-              type="text"
-              placeholder="News Slug"
-              className="input-modify "
-            />
-            <label className="label">
-              {errors.slug?.type === "required" && (
-                <small className="text-red-500">{errors.slug.message}</small>
-              )}
-            </label>
-          </div> */}
-
           {/* News category's */}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="form-control w-full ">
@@ -231,18 +245,16 @@ const AddNews = () => {
                 <span className="label-text-modify">Reference</span>
               </label>
               <input
+                value={userData?.name}
+                disabled
                 {...register("reference", {
-                  required: {
-                    value: true,
-                    message: "News reference is required",
-                  },
+
                   maxLength: {
                     value: 20,
                     message: "Must be 20 characters or longer",
                   },
                 })}
                 type="text"
-                placeholder="News Reference"
                 className="input-modify "
               />
               <label className="label">
@@ -327,8 +339,12 @@ const AddNews = () => {
                   message: "News description is required",
                 },
                 minLength: {
-                  value: 40,
-                  message: "Must be 40 characters or longer",
+                  value: 280,
+                  message: "Must be 280 characters or longer",
+                },
+                maxLength: {
+                  value: 290,
+                  message: "Must be 290 characters or lower",
                 },
               })}
               // type="text"
@@ -340,6 +356,138 @@ const AddNews = () => {
               {errors.description && (
                 <small className="text-red-500">
                   {errors.description.message}
+                </small>
+              )}
+            </label>
+          </div>
+          {/* Description One */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text-modify"> Description One</span>
+            </label>
+            <textarea
+              {...register("descriptionOne", {
+                required: {
+                  value: true,
+                  message: "News description One is required",
+                },
+                minLength: {
+                  value: 282,
+                  message: "Must be 280 characters or longer",
+                },
+                maxLength: {
+                  value: 290,
+                  message: "Must be 290 characters or lower",
+                },
+              })}
+              // type="text"
+              rows={3}
+              placeholder="News Description"
+              className=" focus:border-transparent focus:ring-[1px] focus:ring-primary-content textarea textarea-bordered w-full rounded-none focus:outline-none"
+            ></textarea>
+            <label className="label">
+              {errors.descriptionOne && (
+                <small className="text-red-500">
+                  {errors.descriptionOne.message}
+                </small>
+              )}
+            </label>
+          </div>
+          {/* Description two*/}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text-modify"> Description Two</span>
+            </label>
+            <textarea
+              {...register("descriptionTwo", {
+                required: {
+                  value: true,
+                  message: "News description is required",
+                },
+                minLength: {
+                  value: 280,
+                  message: "Must be 280 characters or longer",
+                },
+                maxLength: {
+                  value: 290,
+                  message: "Must be 290 characters or lower",
+                },
+              })}
+              // type="text"
+              rows={3}
+              placeholder="News Description"
+              className=" focus:border-transparent focus:ring-[1px] focus:ring-primary-content textarea textarea-bordered w-full rounded-none focus:outline-none"
+            ></textarea>
+            <label className="label">
+              {errors.descriptionTwo && (
+                <small className="text-red-500">
+                  {errors.descriptionTwo.message}
+                </small>
+              )}
+            </label>
+          </div>
+          {/* Description three*/}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text-modify"> Description Three</span>
+            </label>
+            <textarea
+              {...register("descriptionThree", {
+                required: {
+                  value: false,
+                  message: "News description is required",
+                },
+                minLength: {
+                  value: 280,
+                  message: "Must be 280 characters or longer",
+                },
+                maxLength: {
+                  value: 290,
+                  message: "Must be 290 characters or lower",
+                },
+              })}
+              // type="text"
+              rows={3}
+              placeholder="News Description"
+              className=" focus:border-transparent focus:ring-[1px] focus:ring-primary-content textarea textarea-bordered w-full rounded-none focus:outline-none"
+            ></textarea>
+            <label className="label">
+              {errors.descriptionThree && (
+                <small className="text-red-500">
+                  {errors.descriptionThree.message}
+                </small>
+              )}
+            </label>
+          </div>
+          {/* Description four*/}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text-modify"> Description Four </span>
+            </label>
+            <textarea
+              {...register("descriptionFour", {
+                required: {
+                  value: false,
+                  message: "News description is required",
+                },
+                minLength: {
+                  value: 280,
+                  message: "Must be 280 characters or longer",
+                },
+                maxLength: {
+                  value: 290,
+                  message: "Must be 290 characters or lower",
+                },
+              })}
+              // type="text"
+              rows={3}
+              placeholder="News Description"
+              className=" focus:border-transparent focus:ring-[1px] focus:ring-primary-content textarea textarea-bordered w-full rounded-none focus:outline-none"
+            ></textarea>
+            <label className="label">
+              {errors.descriptionFour && (
+                <small className="text-red-500">
+                  {errors.descriptionFour.message}
                 </small>
               )}
             </label>
