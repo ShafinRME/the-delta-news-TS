@@ -3,7 +3,7 @@ import {
   useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { BsFacebook, BsTwitter } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../config/firebaseConfig.init";
@@ -33,7 +33,7 @@ const SocialLogin = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const TColor = "#00acee";
+  // const TColor = "#00acee";
   const fColor = "#4267B2";
 
   const loginItems = [
@@ -50,12 +50,12 @@ const SocialLogin = () => {
       color: fColor,
       onclick: handleFaceBookSignIn,
     },
-    {
-      id: 3,
-      title: "Twitter",
-      icon: <BsTwitter />,
-      color: TColor,
-    },
+    // {
+    //   id: 3,
+    //   title: "Twitter",
+    //   icon: <BsTwitter />,
+    //   color: TColor,
+    // },
   ];
   useEffect(() => {
     if (token) {

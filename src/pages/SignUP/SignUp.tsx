@@ -59,9 +59,11 @@ const SignUp = () => {
     );
   }
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    console.log(data);
     const name: string = data.name;
     const email: string = data.email;
     const password: string = data.password;
+ 
     await updateProfile({ displayName: name });
     await createUserWithEmailAndPassword(email, password);
     toast.success("Sign Up Success");
@@ -143,7 +145,8 @@ const SignUp = () => {
                       message: "Password Must be 8 characters or longer",
                     },
                     pattern: {
-                      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                      value:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                       message:
                         "Contain at least 8 characters 1 number 1 lowercase 1 uppercase contains only 0-9a-zA-Z",
                     },

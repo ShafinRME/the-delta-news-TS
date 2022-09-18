@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { BiDotsVerticalRounded, BiDownload, BiTrash } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import Loadings from "../../../../components/Loading/Loadings";
@@ -23,8 +22,8 @@ const Banking = () => {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       }).then((res) => {
-        if(res.ok){
-          throw Error('Please login again')
+        if(!res.ok){
+          throw Error("expire token Please login again and reload");
         }
         return res.json();
       })
@@ -54,7 +53,7 @@ const Banking = () => {
           </thead>
           <tbody>
             {data.map((user) => (
-              <tr className="moderator-table hover">
+              <tr key={user._id} className="moderator-table hover">
                 <td>
                   <div className="flex items-center space-x-3">
                     {/* <div className="avatar">

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { toast } from "react-toastify";
+import { getAuth, deleteUser } from "firebase/auth";
 
 interface DeleteUsersProps {
   user: {
@@ -17,6 +18,9 @@ const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
   refetch,
   setUser,
 }) => {
+  const auth = getAuth();
+  const firebaseUser: any = auth.currentUser;
+  console.log(firebaseUser);
   const { name, _id } = user;
   const handleDelete = () => {
     fetch(`https://the-delta-times-server.vercel.app/api/users/${_id}`, {
@@ -27,10 +31,10 @@ const UserDeleteConfirmModal: FC<DeleteUsersProps> = ({
       },
     })
       .then((res) => res.json())
-
       .then((data) => {
         if (data.deletedCount) {
           toast.success(`User: ${name} is deleted`);
+          deleteUser(firebaseUser);
           setUser(null);
           refetch();
         }

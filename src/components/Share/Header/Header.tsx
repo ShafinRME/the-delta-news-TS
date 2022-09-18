@@ -134,7 +134,7 @@ const Header = () => {
                 <Clock />
               </div>
               <div className="text-base mt-1 text-secondary">
-                <Link to="/archives">Archive</Link>
+                <Link to="/comingSoon">Archive</Link>
               </div>
             </div>
           </div>
@@ -268,7 +268,9 @@ const Header = () => {
 
             {/* Weather Section */}
             <div className="hidden md:flex text-secondary justify-end text-sm font-normal ">
-              <Weather />
+              <Link to='/weather'>
+                <Weather />
+              </Link>
             </div>
           </div>
         </div>

@@ -5,14 +5,15 @@ const useToken = (user: any) => {
   useEffect(() => {
     const email = user?.user?.email;
     const name = user?.user?.displayName;
+    const photoUrl = user?.user?.photoURL;
     const currentUser = {
       email: email,
       name: name,
+      photoUrl: photoUrl,
       role: "general",
     };
-    console.log(currentUser);
     if (email) {
-      fetch(`https://the-delta-times-server.vercel.app/api/users/${email}`, {
+      fetch(`http://localhost:5000/api/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -25,9 +26,9 @@ const useToken = (user: any) => {
           localStorage.setItem("accessToken", accessToken);
           setToken(accessToken);
           setToken(data);
-          console.log("user", data);
         });
     }
+    console.log(currentUser)
   }, [user]);
   return [token];
 };
