@@ -51,11 +51,11 @@ const dashboardData = {
           text: "Profile",
           path: "profile",
         },
-        {
-          id: 2,
-          text: "List",
-          path: "profile",
-        },
+        // {
+        //   id: 2,
+        //   text: "List",
+        //   path: "profile",
+        // },
       ],
     },
     {
@@ -68,11 +68,11 @@ const dashboardData = {
           text: "List",
           path: "allUser",
         },
-        {
-          id: 2,
-          text: "Details",
-          path: "profile",
-        },
+        // {
+        //   id: 2,
+        //   text: "Details",
+        //   path: "profile",
+        // },
       ],
     },
     {

@@ -44,19 +44,53 @@ const Profile = () => {
   }
   return (
     <>
-      <div className="card w-96 bg-base-200 shadow-sm">
-        <div className="card-body">
-          <div className="avatar">
-            <div className="w-24 rounded-full">
-              <img src={data?.photoUrl} alt={data?.name} />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div className="lg:col-span-4">
+          <div className="card w-96 max-w-[100%] max-h-56 bg-base-200 shadow-sm">
+            <div className="card-body ">
+              <div className="avatar">
+                <div className="w-20 rounded-full">
+                  <img src={data?.photoUrl} alt={data?.name} />
+                </div>
+              </div>
+              <h2 className="card-title capitalize -mb-2 text-secondary">
+                Name: {data?.name}
+              </h2>
+              <p className="text-neutral-content -mb-2">Email: {data?.email}</p>
+              <div className="card-actions">
+                <div className="text-neutral-content">
+                  Role:
+                  <span className="badge badge-outline ml-2 text-primary">
+                    {data?.role}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <h2 className="card-title">{data?.name}</h2>
-          <p>{data?.email}</p>
-          <div className="card-actions">
-            <div className="badge badge-outline">{data?.role}</div>
-          </div>
         </div>
+        {data?.role === "general" && (
+          <div className="lg:col-span-8">
+            <div className="card  max-w-[100%] max-h-56 md:min-h-[14rem]  bg-base-200 shadow-sm">
+              <div className="card-body">
+                <h2 className="card-title capitalize  text-secondary ">
+                  package:
+                  <span className="text-primary">Advertisement</span>
+                </h2>
+                <h5 className="text-neutral-content ">Start: 12-9-2022</h5>
+                <h6 className="text-neutral-content ">
+                  Expire: <span className="text-red-400">18-9-2022</span>
+                </h6>
+                <p className="text-neutral-content">
+                  Status:
+                  <span className="badge badge-outline ml-2 text-primary">
+                    Paid
+                  </span>
+                </p>
+                
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

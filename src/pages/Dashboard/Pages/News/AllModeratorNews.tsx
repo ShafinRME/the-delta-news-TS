@@ -43,10 +43,8 @@ const AllModeratorNews = () => {
               <th>Date</th>
               <th>Title</th>
               <th>Image</th>
-              <th>View</th>
-              <th>Edit</th>
               <th>Request</th>
-              <th>Action</th>
+              <th>Options</th>
             </tr>
           </thead>
           {/* table data */}
