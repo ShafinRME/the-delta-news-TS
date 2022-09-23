@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { FC, useEffect } from "react";
+import React, { FC} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
   BiCog,
@@ -9,8 +9,8 @@ import {
   BiUserCircle,
 } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
-import { themeChange } from "theme-change";
-import DarkMod from "../../../components/Share/Header/DarkMod";
+// import { themeChange } from "theme-change";
+// import DarkMod from "../../../components/Share/Header/DarkMod";
 import auth from "../../../config/firebaseConfig.init";
 
 interface dashboardNavbarProps {
@@ -20,10 +20,10 @@ interface dashboardNavbarProps {
 const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
   const [user] = useAuthState(auth);
   // theme change
-  useEffect(() => {
-    themeChange(false);
-    // false parameter is required for react project
-  });
+  // useEffect(() => {
+  //   themeChange(false);
+  //   // false parameter is required for react project
+  // });
   const handleLogOut = (): void => {
     signOut(auth);
   };
@@ -52,7 +52,7 @@ const DashboardNavbar: FC<dashboardNavbarProps> = ({ handleSidebar }) => {
           </Link>
         </div>
         <div className="flex-none">
-          <DarkMod />
+          {/* <DarkMod /> */}
           {/* notification */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle mx-3">
