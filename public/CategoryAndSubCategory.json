@@ -1,0 +1,94 @@
+[
+  {
+    "category": "International",
+    "subCategory": [
+      {
+        "title": "Asia"
+      },
+      {
+        "title": "Europe"
+      },
+      {
+        "title": "America"
+      }
+    ]
+  },
+  {
+    "category": "Bangladesh",
+    "subCategory": [
+      {
+        "title": "Politics"
+      },
+      {
+        "title": "Accident"
+      },
+      {
+        "title": "Crime"
+      }
+    ]
+  },
+  {
+    "category": "Business",
+    "subCategory": [
+      {
+        "title": "Local Business"
+      },
+      {
+        "title": "Global Business"
+      }
+    ]
+  },
+  {
+    "category": "Entertainment",
+    "subCategory": [
+      {
+        "title": "Movies"
+      },
+      {
+        "title": "Music"
+      },
+      {
+        "title": "Television"
+      }
+    ]
+  },
+  {
+    "category": "Environment",
+    "subCategory": [
+      {
+        "title": "Climate"
+      },
+      {
+        "title": "Pollution"
+      }
+    ]
+  },
+  {
+    "category": "Sports",
+    "subCategory": [
+      {
+        "title": "Cricket"
+      },
+      {
+        "title": "Football"
+      },
+      {
+        "title": "Local Sports"
+      }
+    ]
+  },
+  {
+    "category": "Tech",
+    "subCategory": [
+      {
+        "title": "Gadgets & Apps"
+      },
+      {
+        "title": "Social Media"
+      },
+      {
+        "title": "It"
+      }
+    ]
+  }
+]

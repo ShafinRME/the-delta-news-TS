@@ -15,7 +15,9 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
               {news?.slice(0, 3).map((item) => (
                 <Link
                   key={item.id}
-                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  to={`${item.category.toLocaleLowerCase()}/${item.subCategory.toLocaleLowerCase()}/${
+                    item.slug
+                  }`}
                 >
                   <div className=" pb-4 ">
                     <h1 className=" news-live-title">{`${item.title.slice(
@@ -101,20 +103,14 @@ const FirstSection: FC<SectionProps> = ({ news }) => {
               key={item.id}
               className="cursor-pointer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-4 pb-3.5 xl:border-b-warning-content xl:border-b "
             >
-              <Link
-               
-                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
-              >
+              <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full pb-0 xl:h-52 min-h-[13rem] "
                 />
               </Link>
-              <Link
-               
-                to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
-              >
+              <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
                 <h1 className=" news-sub-title pt-4 ">
                   {`${item.title.slice(0, 50)}...`}
                 </h1>

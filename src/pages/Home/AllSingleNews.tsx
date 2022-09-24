@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -36,14 +36,13 @@ const SingleNews = () => {
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {
-       const newData= [...data].sort(() => 0.5 - Math.random());
-        
+        const newData = [...data].sort(() => 0.5 - Math.random());
+
         console.log(newData);
-        setCategoryNews((newData?.slice(0,15)));
+        setCategoryNews(newData?.slice(0, 15));
       });
   }, [category]);
 
-  
   if (isLoading) {
     return <Loadings />;
   }
@@ -152,7 +151,7 @@ const SingleNews = () => {
                 <Link to={`${item.category?.toLocaleLowerCase()}/${item.slug}`}>
                   <div>
                     <h1 className="news-sub-title-three-col pb-2">
-                      {`${item?.title.slice(0,35)}...`}
+                      {`${item?.title.slice(0, 35)}...`}
                     </h1>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -196,8 +195,6 @@ const SingleNews = () => {
           ))}
         </div>
       </section>
-
-      <Outlet />
     </>
   );
 };

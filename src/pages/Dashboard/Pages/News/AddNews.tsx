@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -37,6 +38,7 @@ const AddNews = () => {
   // single user
   const [user] = useAuthState(auth);
   const userEmail = user?.email;
+  const [subCategory, setSubCategory] = useState("subCategory");
   const url = `https://the-delta-times-server.vercel.app/api/users/${userEmail}`;
   const { data: userData } = useQuery<UserData, Error>(["allNews"], () =>
     fetch(url, {
@@ -63,8 +65,25 @@ const AddNews = () => {
     formState: { errors },
     handleSubmit,
     reset,
+    watch,
   } = useForm<IFormInputs>({ mode: "onChange" });
+  console.log(watch("category"));
 
+  useEffect(() => {
+    fetch("CategoryAndSubCategory.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSubCategory(data);
+      });
+  }, []);
+
+  console.log(subCategory);
   const ImgbbStorageApiKey = "1254e6cd237015e6bfe5c553361ebae0";
   const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     const title = data.title;
@@ -74,7 +93,7 @@ const AddNews = () => {
       .join("-");
 
     const slug = newSlug;
-    const category = data.category;
+    const category =  data.category;
     const subCategory = data.subCategory;
     const photo = data.photo;
     const breakingNews = data.breakingNews;
@@ -171,7 +190,7 @@ const AddNews = () => {
             </label>
           </div>
           {/* News category's */}
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             <div className="form-control w-full ">
               <label className="label">
                 <span className=" label-text-modify">Category</span>
@@ -197,6 +216,30 @@ const AddNews = () => {
                 )}
               </label>
             </div>
+            {/* News subCategory's */}
+            <div className="">
+              <div className="form-control w-full ">
+                <label className="label">
+                  <span className=" label-text-modify">Sub-Category</span>
+                </label>
+                <select
+                  defaultValue={"DEFAULT"}
+                  className="select input-modify   font-normal w-full"
+                  {...register("subCategory")}
+                >
+                  <option value="DEFAULT" disabled>
+                    Choose a Subcategory...
+                  </option>
+                  {categoryData.category.map((item) => (
+                    <optgroup label={item.title} key={item.id}>
+                      {categoryData.subCategory.map((item) => (
+                        <option key={item.id}>{item.title}</option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+              </div>
+            </div>
             {/* News Date */}
             <div className="form-control w-full ">
               <label className="label">
@@ -213,31 +256,6 @@ const AddNews = () => {
             </div>
           </div>
 
-          {/* News subCategory's */}
-          <div className="">
-            <div className="form-control w-full ">
-              <label className="label">
-                <span className=" label-text-modify">Sub-Category</span>
-              </label>
-              <select
-                defaultValue={"DEFAULT"}
-                className="select input-modify   font-normal w-full"
-                {...register("subCategory")}
-              >
-                <option value="DEFAULT" disabled>
-                  Choose a Subcategory...
-                </option>
-                {categoryData.category.map((item) => (
-                  <optgroup label={item.title} key={item.id}>
-                    {categoryData.subCategory.map((item) => (
-                      <option key={item.id}>{item.title}</option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
-            </div>
-          </div>
-
           {/* News Reference */}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="form-control w-full ">
@@ -248,7 +266,6 @@ const AddNews = () => {
                 value={userData?.name}
                 disabled
                 {...register("reference", {
-
                   maxLength: {
                     value: 20,
                     message: "Must be 20 characters or longer",

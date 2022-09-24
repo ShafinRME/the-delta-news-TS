@@ -68,7 +68,7 @@ const AllBanglaDeshNews = () => {
                   <div className="xl:col-span-8">
                     {bangladeshNews.slice(0, 1).map((item) => (
                       <div key={item.id}>
-                        <Link to={`${item.slug}`}>
+                        <Link to={`${item.subCategory}/${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -82,7 +82,7 @@ const AllBanglaDeshNews = () => {
                   <div className="xl:col-span-4 xl:border-l   border-warning-content xl:pl-4">
                     {bangladeshNews.slice(1, 2).map((item) => (
                       <div key={item.id}>
-                        <Link to={`${item.slug}`}>
+                        <Link to={`${item.subCategory}/${item.slug}`}>
                           <img
                             src={item.image}
                             alt={item.title}
@@ -107,7 +107,7 @@ const AllBanglaDeshNews = () => {
                       key={item.id}
                       className="xl:border-r xl:border-warning-content xl:last:border-0 xl:pr-4 xl:last:pr-0 "
                     >
-                      <Link to={`${item.slug}`}>
+                      <Link to={`${item.subCategory}/${item.slug}`}>
                         <img
                           src={item.image}
                           alt={item.title}

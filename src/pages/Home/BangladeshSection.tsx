@@ -19,7 +19,11 @@ const BangladeshSection: FC<SectionNewsProps>  = ({news,  linkText,linkUrl }) =>
                 key={item.id}
                 className="border-b border-warning-content pb-4 md:max-w-xl md:mx-auto xl:mx-0 xl:w-full"
               >
-                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
+                <Link
+                  to={`${item.category.toLocaleLowerCase()}/${item.subCategory.toLocaleLowerCase()}/${
+                    item.slug
+                  }`}
+                >
                   <img
                     src={item.image}
                     alt={item.title}
@@ -38,7 +42,9 @@ const BangladeshSection: FC<SectionNewsProps>  = ({news,  linkText,linkUrl }) =>
               {news.slice(2, 4).map((item) => (
                 <div key={item.id} className="">
                   <Link
-                    to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                    to={`${item.category.toLocaleLowerCase()}/${item.subCategory.toLocaleLowerCase()}/${
+                      item.slug
+                    }`}
                   >
                     <img
                       src={item.image}
@@ -60,7 +66,11 @@ const BangladeshSection: FC<SectionNewsProps>  = ({news,  linkText,linkUrl }) =>
                 key={item.id}
                 className="xl:border-b border-warning-content md:last:border-none  xl:pt-4 first:pt-0 pb-4 last:pb-0"
               >
-                <Link to={`${item.category.toLocaleLowerCase()}/${item.slug}`}>
+                <Link
+                  to={`${item.category.toLocaleLowerCase()}/${item.subCategory.toLocaleLowerCase()}/${
+                    item.slug
+                  }`}
+                >
                   <img
                     src={item.image}
                     alt={item.title}
@@ -85,7 +95,9 @@ const BangladeshSection: FC<SectionNewsProps>  = ({news,  linkText,linkUrl }) =>
                 className="xl:border-b border-warning-content xl:last:border-none xl:pt-4 first:pt-0 "
               >
                 <Link
-                  to={`${item.category.toLocaleLowerCase()}/${item.slug}`}
+                  to={`${item.category.toLocaleLowerCase()}/${item.subCategory.toLocaleLowerCase()}/${
+                    item.slug
+                  }`}
                   className="grid md:grid-cols-2 gap-4"
                 >
                   <div className="div">

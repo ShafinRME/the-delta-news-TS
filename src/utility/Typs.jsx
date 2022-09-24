@@ -17,8 +17,9 @@ interface Data {
   image?: string;
   date?: string;
   slug?: string;
-  category?:string;
-  reference?:string;
+  category?: string;
+  subCategory?: string;
+  reference?: string;
 }
 
 interface FormValues {
@@ -40,7 +41,6 @@ type NewsProps = {
   category:string,
   subCategory:string,
   slug: string,
-  category:string,
   date:string,
   reference?:string;
   
@@ -54,9 +54,9 @@ type SectionProps = {
     image: string,
     slug: string,
     category: string,
+    subCategory: string,
     date: string,
-  }[]
-  
+  }[],
 };
 type SectionNewsProps = {
   news: {
@@ -67,10 +67,11 @@ type SectionNewsProps = {
     image: string,
     slug: string,
     category: string,
+    subCategory: string,
     date: string,
   }[],
-  linkUrl:string,
-  linkText:string,
+  linkUrl: string,
+  linkText: string,
 };
 
 type ModeratorRowProps = {

@@ -25,7 +25,7 @@ an admin must log in first If the user login then the user can purchase our prem
 
 ```
 ReactJs, TypeScript, React-router, Private-route, JWT, Tailwind
-CSS,daisy-UI, React Hook Form, React TanStack Query, Node, MongoDB,
+CSS,daisy-UI, React Hook Form, React TanStack Query, NodeJs, MongoDB,
 Mongoose, React Firebase Hooks, Heroku, Stripe.
 ```
 

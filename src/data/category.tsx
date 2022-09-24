@@ -3,10 +3,38 @@ const categoryData = {
     {
       id: 1,
       title: "International",
+      subCategory: [
+        {
+          id: 1,
+          title: "Asia",
+        },
+        {
+          id: 2,
+          title: "Europe",
+        },
+        {
+          id: 3,
+          title: "America",
+        },
+      ],
     },
     {
       id: 2,
       title: "Bangladesh",
+      subCategory: [
+        {
+          id: 1,
+          title: "Asia",
+        },
+        {
+          id: 2,
+          title: "Europe",
+        },
+        {
+          id: 3,
+          title: "America",
+        },
+      ],
     },
     {
       id: 3,
@@ -15,18 +43,70 @@ const categoryData = {
     {
       id: 4,
       title: "Entertainment",
+      subCategory: [
+        {
+          id: 1,
+          title: "Movies",
+        },
+        {
+          id: 2,
+          title: "Music",
+        },
+        {
+          id: 3,
+          title: "Television",
+        },
+      ],
     },
     {
       id: 5,
       title: "Environment",
+      subCategory: [
+        {
+          id: 1,
+          title: "Climate",
+        },
+        {
+          id: 2,
+          title: "Pollution",
+        },
+      ],
     },
     {
       id: 6,
       title: "Sports",
+      subCategory: [
+        {
+          id: 1,
+          title: "Cricket",
+        },
+        {
+          id: 2,
+          title: "Football",
+        },
+        {
+          id: 3,
+          title: "Local Sports",
+        },
+      ],
     },
     {
       id: 7,
       title: "Tech",
+      subCategory: [
+        {
+          id: 1,
+          title: "Gadgets & Apps",
+        },
+        {
+          id: 2,
+          title: "Social Media",
+        },
+        {
+          id: 3,
+          title: "It",
+        },
+      ],
     },
   ],
   subCategory: [
