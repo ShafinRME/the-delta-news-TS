@@ -1,93 +1,93 @@
 [
   {
-    "category": "International",
+    "category": "international",
     "subCategory": [
       {
-        "title": "Asia"
+        "title": "asia"
       },
       {
-        "title": "Europe"
+        "title": "europe"
       },
       {
-        "title": "America"
+        "title": "america"
       }
     ]
   },
   {
-    "category": "Bangladesh",
+    "category": "bangladesh",
     "subCategory": [
       {
-        "title": "Politics"
+        "title": "politics"
       },
       {
-        "title": "Accident"
+        "title": "accident"
       },
       {
-        "title": "Crime"
+        "title": "crime"
       }
     ]
   },
   {
-    "category": "Business",
+    "category": "business",
     "subCategory": [
       {
-        "title": "Local Business"
+        "title": "local business"
       },
       {
-        "title": "Global Business"
+        "title": "global business"
       }
     ]
   },
   {
-    "category": "Entertainment",
+    "category": "entertainment",
     "subCategory": [
       {
-        "title": "Movies"
+        "title": "movies"
       },
       {
-        "title": "Music"
+        "title": "music"
       },
       {
-        "title": "Television"
+        "title": "television"
       }
     ]
   },
   {
-    "category": "Environment",
+    "category": "environment",
     "subCategory": [
       {
-        "title": "Climate"
+        "title": "climate"
       },
       {
-        "title": "Pollution"
+        "title": "pollution"
       }
     ]
   },
   {
-    "category": "Sports",
+    "category": "sports",
     "subCategory": [
       {
-        "title": "Cricket"
+        "title": "cricket"
       },
       {
-        "title": "Football"
+        "title": "football"
       },
       {
-        "title": "Local Sports"
+        "title": "local sports"
       }
     ]
   },
   {
-    "category": "Tech",
+    "category": "tech",
     "subCategory": [
       {
-        "title": "Gadgets & Apps"
+        "title": "gadgets & apps"
       },
       {
-        "title": "Social Media"
+        "title": "social media"
       },
       {
-        "title": "It"
+        "title": "it"
       }
     ]
   }
