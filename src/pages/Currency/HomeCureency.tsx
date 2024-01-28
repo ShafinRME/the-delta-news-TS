@@ -39,19 +39,19 @@ const HomeCurrency = () => {
             <tr>
               <th>EU</th>
               <td>EUR</td>
-              <td> {currency?.rates.EUR.toFixed(0)}</td>
+              <td> {currency?.rates?.EUR.toFixed(0)}</td>
               <td>Euro </td>
             </tr>
             <tr>
               <th>Qatar</th>
               <td>QAT</td>
-              <td> {currency?.rates.QAR.toFixed(0)}</td>
+              <td> {currency?.rates?.QAR.toFixed(0)}</td>
               <td>Qatari Riyal</td>
             </tr>
             <tr>
               <th>Bangladesh</th>
               <td>BDT</td>
-              <td>{currency?.rates.BDT.toFixed(0)}</td>
+              <td>{currency?.rates?.BDT.toFixed(0)}</td>
               <td>Taka</td>
             </tr>
           </tbody>
