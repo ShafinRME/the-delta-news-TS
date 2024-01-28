@@ -40,7 +40,7 @@ const Currency = () => {
             <tr>
               <th>2</th>
               <td>AED</td>
-              <td> {currency?.rates.AED.toFixed(0)}</td>
+              <td> {currency?.rates?.AED.toFixed(0)}</td>
               {/* <td>Purple</td> */}
             </tr>
 

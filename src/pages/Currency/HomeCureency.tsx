@@ -32,7 +32,7 @@ const HomeCurrency = () => {
             <tr>
               <th>UAE</th>
               <td>AED</td>
-              <td> {currency?.rates.AED.toFixed(0)}</td>
+              <td> {currency?.rates?.AED.toFixed(0)}</td>
               <td>Dirham</td>
             </tr>
 
